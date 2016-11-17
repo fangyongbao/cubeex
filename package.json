@@ -1,0 +1,46 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot --port 3000 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./webpack.dev.config.js",
+    "build": "webpack --progress --profile --colors --display-error-details --display-cached --bail   --config ./webpack.prod.config.js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "babel-register": "^6.14.0",
+    "babel-runtime": "^6.11.6",
+    "css-loader": "^0.23.0",
+    "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "glob": "^7.0.6",
+    "html-webpack-plugin": "^2.8.1",
+    "json-loader": "^0.5.4",
+    "node-sass": "^3.8.0",
+    "postcss-loader": "^0.11.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.2.0",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "^9.4.0",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "iscroll": "^5.2.0",
+    "jquery": "^3.1.0",
+    "vue": "^2.0.3",
+    "vue-progressbar": "^0.2.5",
+    "vue-resource": "^0.9.3",
+    "vue-router": "^2.0.1",
+    "vuex": "^2.0.0"
+  }
+}

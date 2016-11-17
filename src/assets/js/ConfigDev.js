@@ -1,0 +1,1 @@
+export const STATIC_RUL = 'http://appdev.huanhuba.com';

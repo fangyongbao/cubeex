@@ -1,0 +1,100 @@
+@charset "UTF-8";
+body{font-family: Helvetica, Tahoma, Arial, "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video,input{margin:0;padding:0;border:none;outline:0;font-size:100%;font:inherit;vertical-align:baseline;}
+html,body,form,fieldset,p,div,h1,h2,h3,h4,h5,h6{-webkit-text-size-adjust:none;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+input[type="button"],input[type="submit"],input[type="reset"]{-webkit-appearance:none;}
+*{-webkit-tap-highlight-color:rgba(255,0,0,0);-webkit-box-sizing:border-box;box-sizing:border-box;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+ins{text-decoration:none;}
+del{text-decoration:line-through;}
+table{border-collapse:collapse;border-spacing:0;}
+
+/**
+ * 清除浮动
+ */
+.f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+.f-cb,.f-cbli li{zoom:1;}
+
+/**
+ * 定义元素如何显示
+*/
+.f-dib{display:inline-block;*display:inline;*zoom:1;}
+.f-di{display:inline;}
+.f-dn{display:none!important;}
+.f-db{display:block;}
+.f-dt{display:table;}
+.f-dtr{display:table-row;}
+.f-dtc{display:table-cell;}
+
+/**
+ * 定义浮动
+*/
+.f-fl{float:left;}
+.f-fr{float:right;}
+.f-fn{float:none;}
+
+/**
+ * 定义元素定位类型
+ */
+.f-pr{position:relative;}
+.f-pa{position:absolute;}
+.f-pf{position:fixed;}
+
+/**
+ * 定义元素超出隐藏
+ */
+.f-oh{overflow:hidden;}
+
+/**
+ * 定义字体相关样式
+ */
+.f-tal{text-align:left;}
+.f-tac{text-align:center;}
+.f-tar{text-align:right;}
+.f-fwb{font-weight:bold;}
+.f-tdu,.f-tdu:hover{text-decoration:underline;}
+.f-tdn,.f-tdn:hover{text-decoration:none;}
+
+/**
+ * 溢出单行文本显示省略号
+ */
+.f-toe{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;}
+
+/**
+ * 溢出文本强制换行
+ */
+.f-pre{overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;}
+
+/**
+ * 定义鼠标悬浮样式
+ */
+.f-csp{cursor:pointer;}
+
+/**
+ * 定义子元素垂直显示样式
+ */
+.f-vat,.f-vata *{vertical-align:top;}
+.f-vab,.f-vaba *{vertical-align:bottom;}
+.f-vam,.f-vama *{vertical-align:middle;}
+
+/**
+ * 表格布局固定
+ */
+.f-tlf{table-layout:fixed;}
+
+/**
+ * 第三方字体库
+ */
+@font-face{
+	font-family:"webfont-syht";src:url('../font/syht/webfont.eot'); /* IE9*/
+	src:url('../font/syht/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('../font/syht/webfont.woff') format('woff'), /* chrome、firefox */
+	url('../font/syht/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/syht/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+}
+body{
+	font-family: 'webfont-syht';
+}

@@ -1,0 +1,4 @@
+# 此为注释 – 将被 Git 忽略
+
+/node_modules
+/dist

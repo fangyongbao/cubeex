@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>shopMT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script type="text/javascript">
+    (function() {
+        var w = document.documentElement.clientWidth;
+        if (w > 640) {
+            w = 640
+        }
+        document.documentElement.style.fontSize = w / 7.5 + 'px';
+    })()
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script src="<%= metadata.host %>js/common.js?v=<%= new Date().getTime() %>"></script>
+    <script src="<%= metadata.host %>js/index.js?v=<%= new Date().getTime() %>"></script>
+</body>
+
+</html>
