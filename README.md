@@ -14,14 +14,14 @@
   webview与js交互模块封装<br>
   配置文件分离<br>
   自动打包多个html文件<br>
-  以一个简单的例子实现 action->dispatch->mutation->state->view流程<br>
+  以一个简单的例子实现 action->commit->mutation->state->view流程<br>
   定义共用sass文件<br>
   提取css<br>
   css自动添加浏览器前缀<br>
   上线包添加静态资源版本号<br>
   上线包css/js压缩<br>
   定义第三方字体库<br>
-  react动态路由<br>
+  动态路由<br>
   webpack分片
 
 **使用方式：**<br>
