@@ -23,3 +23,5 @@ cubeex目前在持续更新中，组件将逐步完善，旨在创建一套完�
 1.npm run dev<br>
 2.浏览器访问localhost:3000<br>
 3.npm run build打包
+
+nowitzki
