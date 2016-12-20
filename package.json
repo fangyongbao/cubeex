@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "vue2.0demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -35,7 +35,7 @@
     "webpack": "^1.13.2"
   },
   "dependencies": {
-    "iscroll": "^5.2.0",
+    "iscroll": "^4.2.5",
     "jquery": "^3.1.0",
     "vue": "^2.0.3",
     "vue-progressbar": "^0.2.5",

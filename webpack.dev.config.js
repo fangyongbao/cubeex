@@ -24,9 +24,9 @@ module.exports = Object.assign({}, commonWebpack, {
         new webpack.DefinePlugin({
             //配置组件中使用的变量,组件中可以直接使用{metadata.host}
             metadata:JSON.stringify(METADATA),
-            "process.env": {
-                NODE_ENV: JSON.stringify("development")
-            }
+            // "process.env": {
+            //     NODE_ENV: JSON.stringify("development")
+            // }
         })
         //concat进行数组合并
     ].concat(helpers.getHtmlPlugin())

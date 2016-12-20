@@ -19,7 +19,9 @@ module.exports = {
     resolve: {
         //定义模块缩写名称
         alias: {
-            'common.scss':path.join(__dirname,'/src/assets/scss/common.scss')
+            'common.scss':path.join(__dirname,'/src/assets/scss/common.scss'),
+            'flex.scss':path.join(__dirname,'/src/assets/scss/flex.scss'),
+            'ui.scss':path.join(__dirname,'/src/assets/scss/ui.scss')
         },
         //resolve 指定可以被 import 的文件后缀
         extensions: ['', '.js', '.css', '.scss', '.vue']

@@ -1,8 +1,8 @@
-/***
- *desc: 数据请求模块
- *date: 2016-09-02
- *author: maicon
- ***/
+/**
+ * desc: 数据请求模块
+ * date: 2016-09-02
+ * author: maicon
+ **/
 
 import $ from 'jquery'
 import {
@@ -34,6 +34,10 @@ const Ajax = function(url, data, beforeSend, success, error, complete) {
         data: parameter,
         timeout: 6000,
         dataType: 'json',
+        // 服务端跨域获取本地cookie
+        // xhrFields: {
+        //     withCredentials: true
+        // },
         beforeSend: function() {
             beforeSend();
         },

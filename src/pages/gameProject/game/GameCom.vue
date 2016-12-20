@@ -1,5 +1,6 @@
 <template>
     <div class="m-game">
+        <loading-com :is-loading="isLoading"></loading-com>
         <rule-com></rule-com>
         <div class="m-turn">
             <div class="inner"></div>
@@ -14,6 +15,7 @@
 <script>
 import Vue from 'vue'
 import RuleCom from './RuleCom'
+import LoadingCom from '../../common/LoadingCom'
 import {
     mapGetters,
     mapActions
@@ -21,13 +23,21 @@ import {
 
 export default {
 
+    name: 'GameComVUe',
+
+    data: function() {
+        return {
+            isLoading: false
+        }
+    },
+
     computed: mapGetters({
         ruleStatus: 'getRuleStatus'
     }),
 
-
     components: {
-        RuleCom
+        RuleCom,
+        LoadingCom
     },
 
     methods: {
@@ -37,11 +47,16 @@ export default {
         // 显示规则
         showRule: function() {
             // this.$store.dispatch('setRuleStatus', true)
-            this.setRuleStatus(true)
+            this.setRuleStatus(true);
+        },
+        beginGame: function() {
+            this.isLoading = true;
         }
     },
 
-    created() {},
+    created() {
+
+    },
 
     mounted: function() {
         console.log(this);
@@ -55,7 +70,10 @@ export default {
     background: url(../../../assets/images/bg.jpg) no-repeat top center;
     background-size: 100% auto;
     background-color: #4B3A5C;
-    position: relative;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
     .bP {
         padding: 10px;
         position: absolute;

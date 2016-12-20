@@ -1,0 +1,23 @@
+/**
+ * @des: css弹性盒布局样式库（仅限移动端使用）
+ * @author maicon
+ * @date 2016-07-15
+ */
+
+// 声明该元素使用flex布局
+.f-flex { display: -webkit-box; display: -webkit-flex; display: flex; }
+// 子元素水平排列
+.f-flexr { -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; }
+// 子元素垂直排列
+.f-flexc { -webkit-box-orient: vertical; -webkit-flex-flow: column; flex-flow: column; }
+// 子元素水平居中排列
+.f-flextc { -webkit-box-align: center; -webkit-justify-content: center; justify-content: center; }
+// 子元素垂直居中排列
+.f-flexvc { -webkit-box-pack: center; -webkit-align-items: center; align-items: center; }
+// 子元素分配剩余空间
+.f-flex1 { -webkit-box-flex: 1; -webkit-flex: 1; flex: 1; }
+.f-flex2 { -webkit-box-flex: 2; -webkit-flex: 2; flex: 2; }
+.f-flex3 { -webkit-box-flex: 3; -webkit-flex: 3; flex: 3; }
+.f-flex4 { -webkit-box-flex: 4; -webkit-flex: 4; flex: 4; }
+.f-flex5 { -webkit-box-flex: 5; -webkit-flex: 5; flex: 5; }
+.f-flex6 { -webkit-box-flex: 6; -webkit-flex: 6; flex: 6; }

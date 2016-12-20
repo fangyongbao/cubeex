@@ -20,13 +20,15 @@ import {
 } from 'vuex'
 
 export default {
+    name: 'RuleComVue',
+
     computed: mapGetters({
         ruleStatus: 'getRuleStatus'
     }),
 
     methods: {
         closeRule: function() {
-            this.$store.dispatch('setRuleStatus', false)
+            this.$store.dispatch('setRuleStatus', false);
         }
     },
 

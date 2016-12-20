@@ -1,13 +1,19 @@
+/**
+ * desc: 数据验签模块
+ * date: 2016-09-02
+ * author: maicon
+ **/
+
 import { STATIC_RUL } from './ConfigDev';
 import { LocalStorage } from './Util';
 const $ = require('jquery');
 const md5 = require("md5");
 
 var Sign = {
-    init: function(){
+    init: function() {
         this.getData();
     },
-    getData: function(){
+    getData: function() {
         var _this = this;
         var data = {}
         $.ajax({
@@ -15,10 +21,10 @@ var Sign = {
             url: STATIC_RUL + "app/user/GetSalt?ios_ver=2.36&iostype=0",
             dataType: "JSON",
             async: false,
-            success: function(msg){
-                if(msg.msg_code == 9004){
-                  LocalStorage.set("varifyCode",msg.data);
-                  LocalStorage.set("varifyTime",msg.server_time);
+            success: function(msg) {
+                if (msg.msg_code == 9004) {
+                    LocalStorage.set("varifyCode", msg.data);
+                    LocalStorage.set("varifyTime", msg.server_time);
                 }
             }
         });
@@ -88,7 +94,7 @@ var Sign = {
             console.log(e);
         }
     },
-    setSign: function(data){
+    setSign: function(data) {
         var _this = this;
         var dataStr = JSON.stringify(data);
         if (typeof(common.$localStorage.get("varifyTime")) != 'undefined' && typeof(common.$localStorage.get("varifyCode")) != 'undefined') {
@@ -99,12 +105,14 @@ var Sign = {
             var sign = md5(signedString);
             // console.log('sign:'+sign);
             //返回最后的签名字符
-            return sign; 
+            return sign;
         } else {
             //防止用户清除浏览器本地缓存导致的验签失败
             _this.init();
         }
     }
-}
+};
 
-export { Sign };
+export {
+    Sign
+};
