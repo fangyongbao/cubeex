@@ -3,7 +3,13 @@
         <div class="wrapper">
             <div class="scroller">
                 <div class="slide">
-                    <router-link :to="{ path:'/pull-refresh', exact: true, activeClass:'current'}" replace class="item">pull-up-refresh</router-link>
+                    <router-link :to="{ path:'/pull-refresh', activeClass:'current'}" class="item">pull-up-refresh</router-link>
+                </div>
+                <!--                 <div class="slide">
+                    <router-link :to="{ path:'/radio', exact: true, activeClass:'current'}" replace class="item">radio</router-link>
+                </div> -->
+                <div class="slide">
+                    <router-link :to="{ path:'/checkbox', activeClass:'current'}" class="item">checkbox</router-link>
                 </div>
             </div>
         </div>
@@ -11,20 +17,21 @@
 </template>
 <script>
 export default {
+    name: 'menu',
     data() {
-            return {
-
-            }
-        },
-        methods: {
-
-        },
-        created: function() {
-
-        },
-        mounted: function() {
+        return {
 
         }
+    },
+    methods: {
+
+    },
+    created: function() {
+
+    },
+    mounted: function() {
+
+    }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -39,6 +46,10 @@ $bcolor:#5682D9;
         background: gray;
         margin-top: 10px;
         font-size: 14px;
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
     }
 }
 </style>

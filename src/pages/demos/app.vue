@@ -16,19 +16,16 @@ import {
 } from 'vuex';
 
 export default {
-    name: 'appVue',
-
+    name: 'app',
     data() {
         return {
             isLoading: false,
             viewAnimate: ''
         }
     },
-
     computed: mapGetters({
         direction: 'getDirection'
     }),
-
     watch: {
         '$route': function(val, oldVal) {
             console.log('监听到路由变化。。。');
@@ -39,10 +36,6 @@ export default {
                 this.viewAnimate = 'slide-out';
             }
         }
-    },
-
-    created() {
-        console.log(this);
     }
 }
 </script>
@@ -65,6 +58,7 @@ body {
             left: 0;
             right: 0;
             width: 100%;
+            background: #fff;
         }
     }
 }
