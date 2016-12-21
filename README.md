@@ -16,10 +16,11 @@ cubeex目前在持续更新中，组件将逐步完善，旨在创建一套完�
 **目前包含的组件**<br>
 >
 上拉刷新/下拉加载更多
+复选框
 
 
 **使用方式：**<br>
 >
 1.npm run dev<br>
-2.浏览器访问localhost:3000<br>
+2.浏览器访问localhost:3001<br>
 3.npm run build打包
