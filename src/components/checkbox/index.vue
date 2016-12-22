@@ -10,7 +10,7 @@
  * @module components/checkbox
  * @desc 复选框组件
  *
- * @param {object{}} option - 可以传入 [{label: 'label', value: 'value', disabled: true}] 或者 ['ab', 'cd', 'ef']
+ * @param {object{}} option - 可以传入 {value: 'value'}
  * @param {array[]} value - 选中值的数组
  *
  * @example

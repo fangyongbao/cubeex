@@ -2,15 +2,21 @@
     <div class="m-menu view">
         <div class="wrapper">
             <div class="scroller">
-                <div class="slide">
-                    <router-link :to="{ path:'/pull-refresh', activeClass:'current'}" class="item">pull-up-refresh</router-link>
-                </div>
-                <!--                 <div class="slide">
-                    <router-link :to="{ path:'/radio', exact: true, activeClass:'current'}" replace class="item">radio</router-link>
-                </div> -->
-                <div class="slide">
-                    <router-link :to="{ path:'/checkbox', activeClass:'current'}" class="item">checkbox</router-link>
-                </div>
+                <router-link :to="{ path:'/pull-refresh', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        pull-up-refresh
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/radio', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        radio
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/checkbox', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        checkbox
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>
@@ -46,10 +52,10 @@ $bcolor:#5682D9;
         background: gray;
         margin-top: 10px;
         font-size: 14px;
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
     }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="m-radio-demo view">
+    <div class="m-checkbox-demo view">
         <Header-com></Header-com>
         <div class="content">
             <pull-refresh ref="pullRefreshEl" :usePullDown="false" :usePullUp="false">
@@ -56,7 +56,7 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
-.m-radio-demo {
+.m-checkbox-demo {
     color: #fff;
     font-size: 14px;
     .item {

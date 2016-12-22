@@ -28,6 +28,12 @@ const router = new VueRouter({
             require(['../pages/demos/pull-refresh'], resolve);
         }
     }, {
+        name: 'radio',
+        path: '/radio',
+        component: (resolve) => {
+            require(['../pages/demos/radio'], resolve);
+        }
+    }, {
         name: 'checkbox',
         path: '/checkbox',
         component: (resolve) => {

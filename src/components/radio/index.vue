@@ -1,21 +1,20 @@
 <template>
-    <div class="u-radio" @change="$emit('change', currentValue)">
-        <input type="radio" v-model="currentValue" :value="value">
+    <div class="u-checkbox" @change="$emit('change', currentValue)">
+        <input type="radio" v-model="currentValue" :value="option.value">
         <span></span>
     </div>
 </template>
 <script>
 /**
- * Radio
+ * radio
  * @module components/radio
  * @desc 单选框组件
  *
+ * @param {object{}} option - 可以传入 {value: 'value'}
  * @param {string} value - 选中值
- * @param {string} id - 单选框ID
- * @param {string} [align=left] - checkbox 对齐位置，`left`, `right`
  *
  * @example
- * <Radio value="list1" checked id="1" name="list" v-on:changeRadio="changeRadio"></Radio>
+ * <Radio v-model="value1" :option="option" v-on:change="change"></Radio>
  */
 export default {
     name: 'radio',
@@ -25,15 +24,13 @@ export default {
         };
     },
     props: {
-        value: {
-            type: String,
-            required: true
-        },
-        options: {
+        option: {
             type: Object,
             required: true
-        }
+        },
+        value: String
     },
+    methods: {},
     watch: {
         value(val) {
             this.currentValue = val;
@@ -42,9 +39,7 @@ export default {
             this.$emit('input', val);
         }
     },
-    mounted() {
-        console.log(this);
-    }
+    mounted() {}
 }
 </script>
 <style lang="sass" scoped>
