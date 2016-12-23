@@ -1,27 +1,36 @@
 <template>
     <div class="m-radio-demo view">
         <Header-com></Header-com>
-        <div class="content">
-            <pull-refresh ref="pullRefreshEl" :usePullDown="false" :usePullUp="false">
-                <label class="f-flex f-flexr item" v-for="option in options1">
-                    <div class="f-flex f-flextc f-flexvc choose">
-                        <Radio v-model="value1" :option="option" v-on:change="change"></Radio>
-                    </div>
-                    <div class="f-flex1 f-flex f-flexvc label">
-                        cubee
-                    </div>
-                </label>
-                <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
-                    已选择：
-                    <span>{{value1}}</span>
+        <div class="f-ot content">
+            <label class="f-flex f-flexr item" v-for="option in options1">
+                <div class="f-flex f-flextc f-flexvc choose">
+                    <Radio v-model="value1" :option="option" v-on:change="change"></Radio>
                 </div>
-            </pull-refresh>
+                <div class="f-flex1 f-flex f-flexvc label">
+                    cubee
+                </div>
+            </label>
+            <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
+                已选择：
+                <span>{{value1}}</span>
+            </div>
+            <label class="f-flex f-flexr item" v-for="option in options1">
+                <div class="f-flex f-flextc f-flexvc choose">
+                    <Radio v-model="value2" :option="option" v-on:change="change"></Radio>
+                </div>
+                <div class="f-flex1 f-flex f-flexvc label">
+                    cubee
+                </div>
+            </label>
+            <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
+                已选择：
+                <span>{{value2}}</span>
+            </div>
         </div>
     </div>
 </template>
 <script>
 import {
-    PullRefresh,
     Radio
 } from '../../components';
 import HeaderCom from './header';
@@ -29,21 +38,31 @@ export default {
     name: 'radio-demo',
     data() {
         return {
-            value1: '1'
+            value1: '1',
+            value2: '2'
         };
     },
     components: {
         Radio,
-        HeaderCom,
-        PullRefresh
+        HeaderCom
     },
     methods: {
         change() {
-            console.log(this.value1);
+            console.log('valu1:' + this.value1);
+            console.log('value2:' + this.value2);
         }
     },
     created() {
         this.options1 = [{
+            value: '1'
+        }, {
+            value: '2'
+        }, {
+            value: '3'
+        }, {
+            value: '4'
+        }];
+        this.options2 = [{
             value: '1'
         }, {
             value: '2'

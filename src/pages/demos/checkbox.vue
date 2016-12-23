@@ -1,27 +1,36 @@
 <template>
     <div class="m-checkbox-demo view">
         <Header-com></Header-com>
-        <div class="content">
-            <pull-refresh ref="pullRefreshEl" :usePullDown="false" :usePullUp="false">
-                <label class="f-flex f-flexr item" v-for="option in options1">
-                    <div class="f-flex f-flextc f-flexvc choose">
-                        <Checkbox v-model="value1" :option="option" v-on:change="change"></Checkbox>
-                    </div>
-                    <div class="f-flex1 f-flex f-flexvc label">
-                        cubee
-                    </div>
-                </label>
-                <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
-                    已选择：
-                    <span v-for="item in value1">{{item}}</span>
+        <div class="f-ot content">
+            <label class="f-flex f-flexr item" v-for="option in options1">
+                <div class="f-flex f-flextc f-flexvc choose">
+                    <Checkbox v-model="value1" :option="option" v-on:change="change"></Checkbox>
                 </div>
-            </pull-refresh>
+                <div class="f-flex1 f-flex f-flexvc label">
+                    cubee
+                </div>
+            </label>
+            <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
+                已选择：
+                <span v-for="item in value1">{{item}}</span>
+            </div>
+            <label class="f-flex f-flexr item" v-for="option in options2">
+                <div class="f-flex f-flextc f-flexvc choose">
+                    <Checkbox v-model="value2" :option="option" v-on:change="change"></Checkbox>
+                </div>
+                <div class="f-flex1 f-flex f-flexvc label">
+                    cubee
+                </div>
+            </label>
+            <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
+                已选择：
+                <span v-for="item in value2">{{item}}</span>
+            </div>
         </div>
     </div>
 </template>
 <script>
 import {
-    PullRefresh,
     Checkbox
 } from '../../components';
 import HeaderCom from './header';
@@ -29,21 +38,31 @@ export default {
     name: 'checkbox-demo',
     data() {
         return {
-            value1: ['1']
+            value1: ['1'],
+            value2: ['2']
         };
     },
     components: {
         Checkbox,
         HeaderCom,
-        PullRefresh
     },
     methods: {
         change() {
-            console.log(this.value1);
+            console.log('valu1:' + this.value1);
+            console.log('value2:' + this.value2);
         }
     },
     created() {
         this.options1 = [{
+            value: '1'
+        }, {
+            value: '2',
+        }, {
+            value: '3'
+        }, {
+            value: '4'
+        }];
+        this.options2 = [{
             value: '1'
         }, {
             value: '2',
