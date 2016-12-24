@@ -40,6 +40,12 @@ const router = new VueRouter({
             require(['../pages/demos/checkbox'], resolve);
         }
     }, {
+        name: 'select',
+        path: '/select',
+        component: (resolve) => {
+            require(['../pages/demos/select'], resolve);
+        }
+    }, {
         path: '*',
         redirect: '/menu'
     }]

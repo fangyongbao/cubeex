@@ -17,6 +17,11 @@
                         checkbox
                     </div>
                 </router-link>
+                <router-link :to="{ path:'/select', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        select
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>
@@ -49,7 +54,7 @@ $bcolor:#5682D9;
         line-height: 60px;
         color: #fff;
         text-align: center;
-        background: gray;
+        background: #385FB5;
         margin-top: 10px;
         font-size: 14px;
     }

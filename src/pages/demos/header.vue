@@ -30,7 +30,7 @@ export default {
 <style lang="sass" scoped>
 .m-header {
     height: 40px;
-    background: gray;
+    background: #385FB5;
     color: #fff;
     .back,
     .tab {

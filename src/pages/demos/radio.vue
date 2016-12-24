@@ -2,9 +2,9 @@
     <div class="m-radio-demo view">
         <Header-com></Header-com>
         <div class="f-ot content">
-            <label class="f-flex f-flexr item" v-for="option in options1">
+            <label class="f-flex f-flexr item" :class="{topLine: index==0}" v-for="(option, index) in options1">
                 <div class="f-flex f-flextc f-flexvc choose">
-                    <Radio v-model="value1" :option="option" v-on:change="change"></Radio>
+                    <cubee-radio v-model="value1" :option="option" v-on:change="change1"></cubee-radio>
                 </div>
                 <div class="f-flex1 f-flex f-flexvc label">
                     cubee
@@ -14,9 +14,9 @@
                 已选择：
                 <span>{{value1}}</span>
             </div>
-            <label class="f-flex f-flexr item" v-for="option in options1">
+            <label class="f-flex f-flexr item" :class="{topLine: index==0}" v-for="(option, index) in options2">
                 <div class="f-flex f-flextc f-flexvc choose">
-                    <Radio v-model="value2" :option="option" v-on:change="change"></Radio>
+                    <cubee-radio v-model="value2" :option="option" v-on:change="change2"></cubee-radio>
                 </div>
                 <div class="f-flex1 f-flex f-flexvc label">
                     cubee
@@ -30,10 +30,10 @@
     </div>
 </template>
 <script>
-import {
-    Radio
-} from '../../components';
 import HeaderCom from './header';
+import {
+    CubeeRadio
+} from '../../components';
 export default {
     name: 'radio-demo',
     data() {
@@ -43,13 +43,17 @@ export default {
         };
     },
     components: {
-        Radio,
-        HeaderCom
+        HeaderCom,
+        CubeeRadio
     },
     methods: {
-        change() {
-            console.log('valu1:' + this.value1);
-            console.log('value2:' + this.value2);
+        change1(val) {
+            console.log('value1:' + val);
+            console.log(this.value1);
+        },
+        change2(val) {
+            console.log('value2:' + val);
+            console.log(this.value2);
         }
     },
     created() {
@@ -76,12 +80,14 @@ export default {
 </script>
 <style lang="sass" scoped>
 .m-radio-demo {
-    color: #fff;
+    color: #999;
     font-size: 14px;
     .item {
         height: 60px;
-        margin-top: 10px;
-        background: gray;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        &.topLine {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
         .choose {
             width: 60px;
         }

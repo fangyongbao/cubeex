@@ -1,6 +1,6 @@
 <template>
-    <div class="u-checkbox" @change="$emit('change', currentValue)">
-        <input type="checkbox" v-model="currentValue" :value="option.value">
+    <div class="u-checkbox">
+        <input type="checkbox" v-model="currentValue" :value="option.value" @change="change">
         <span></span>
     </div>
 </template>
@@ -30,13 +30,15 @@ export default {
         },
         value: Array
     },
-    methods: {},
+    methods: {
+        change(){
+            this.$emit('input', this.currentValue);
+            this.$emit('change', this.currentValue);
+        }
+    },
     watch: {
         value(val) {
             this.currentValue = val;
-        },
-        currentValue(val) {
-            this.$emit('input', val);
         }
     },
     mounted() {}
