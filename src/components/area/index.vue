@@ -1,55 +1,55 @@
 <template>
     <div class="ProvCityBoxWarp">
-        <div class="ProvCityBoxBg" v-show="show" @click="setAreaStatus(false)" @touchmove="_stopDef" @mousewheel="_stopDef"></div>
-        <div class="ProvCityBox" v-show="show" transition="expand-select" @mousewheel="_stopDef">
+        <div class="animated duration0-2 fadeIn ProvCityBoxBg" v-show="show" @click="setAreaStatus(false)" @touchmove="_stopDef" @mousewheel="_stopDef"></div>
+        <div class="animated duration0-2 slideInUp ProvCityBox" v-show="show" @mousewheel="_stopDef">
             <div class="ProvCityHeader">
                 <div class="ProvCityHeaderCancle" @click="setAreaStatus(false)">{{cancel}}</div>
                 {{title}}
                 <div class="ProvCityHeaderConfirm" @click="submit">{{confirm}}</div>
             </div>
-            <div class="ProvCityContent">
-                <div class="ProvCityContentList">
-                    <ul el:province-list :class="{'province_dragging': provinceState.dragging}" @touchstart="_onTouchStart('province', $event)" @mousedown="_onTouchStart('province', $event)" :style="{'transform' : 'translate3d(0,' + provinceState.translateY + 'px, 0)'}">
+            <div class="f-flex f-flext ProvCityContent">
+                <div class="f-flex1 f-tac f-oh ProvCityContentList">
+                    <ul :class="{'province_dragging': provinceState.dragging}" @touchstart="_onTouchStart('province', $event)" @mousedown="_onTouchStart('province', $event)" :style="{'transform' : 'translate3d(0,' + provinceState.translateY + 'px, 0)'}">
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li v-for="item in provinceState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
+                        <li class="f-toe" v-for="(item, index) in provinceState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
                                     'current': item.code === provinceState.selectedId,
-                                    'node1':  Math.abs($index - provinceState.index) == 1,
-                                    'node2':  Math.abs($index - provinceState.index) == 2,
-                                    'node3':  Math.abs($index - provinceState.index) >= 3
+                                    'node1':  Math.abs(index - provinceState.index) == 1,
+                                    'node2':  Math.abs(index - provinceState.index) == 2,
+                                    'node3':  Math.abs(index - provinceState.index) >= 3
                                 }">{{item.name}}</li>
                         <li></li>
                         <li></li>
                         <li></li>
                     </ul>
                 </div>
-                <div class="ProvCityContentList">
-                    <ul el:city-list :class="{'city_dragging': cityState.dragging}" @touchstart="_onTouchStart('city', $event)" @mousedown="_onTouchStart('city', $event)" :style="{'transform' : 'translate3d(0,' + cityState.translateY + 'px, 0)'}">
+                <div class="f-flex1 f-tac f-oh ProvCityContentList">
+                    <ul :class="{'city_dragging': cityState.dragging}" @touchstart="_onTouchStart('city', $event)" @mousedown="_onTouchStart('city', $event)" :style="{'transform' : 'translate3d(0,' + cityState.translateY + 'px, 0)'}">
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li v-for="item in cityState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
+                        <li class="f-toe" v-for="(item, index) in cityState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
                                     'current': item.code === cityState.selectedId,
-                                    'node1':  Math.abs($index - cityState.index) == 1,
-                                    'node2':  Math.abs($index - cityState.index) == 2,
-                                    'node3':  Math.abs($index - cityState.index) >= 3
+                                    'node1':  Math.abs(index - cityState.index) == 1,
+                                    'node2':  Math.abs(index - cityState.index) == 2,
+                                    'node3':  Math.abs(index - cityState.index) >= 3
                             }">{{item.name}}</li>
                         <li></li>
                         <li></li>
                         <li></li>
                     </ul>
                 </div>
-                <div class="ProvCityContentList">
-                    <ul el:area-list :class="{'area_dragging': areaState.dragging}" @touchstart="_onTouchStart('area', $event)" @mousedown="_onTouchStart('area', $event)" :style="{'transform' : 'translate3d(0,' + areaState.translateY + 'px, 0)'}">
+                <div class="f-flex1 f-tac f-oh ProvCityContentList">
+                    <ul :class="{'area_dragging': areaState.dragging}" @touchstart="_onTouchStart('area', $event)" @mousedown="_onTouchStart('area', $event)" :style="{'transform' : 'translate3d(0,' + areaState.translateY + 'px, 0)'}">
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li v-for="item in areaState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
+                        <li class="f-toe"  v-for="(item, index) in areaState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
                             'current': item.code === areaState.selectedId,
-                            'node1':  Math.abs($index - areaState.index) == 1,
-                            'node2':  Math.abs($index - areaState.index) == 2,
-                            'node3':  Math.abs($index - areaState.index) >= 3
+                            'node1':  Math.abs(index - areaState.index) == 1,
+                            'node2':  Math.abs(index - areaState.index) == 2,
+                            'node3':  Math.abs(index - areaState.index) >= 3
                         }">{{item.name}}</li>
                         <li></li>
                         <li></li>
@@ -110,8 +110,8 @@ export default {
     },
     created: function() {
         this.init();
-        this._onTouchMove = this._onTouchMove.bind(this);
-        this._onTouchEnd = this._onTouchEnd.bind(this);
+        // this._onTouchMove = this._onTouchMove.bind(this);
+        // this._onTouchEnd = this._onTouchEnd.bind(this);
     },
     methods: {
         ...mapActions([
@@ -131,8 +131,6 @@ export default {
                 'city': this.cityState.data[this.cityState.index],
                 'area': this.areaState.data[this.areaState.index]
             };
-            console.log('area结果：');
-            console.log(areaResult);
             this.$parent.areaResult = areaResult;
             this.setAreaStatus(false);
         },
@@ -183,6 +181,8 @@ export default {
             return e.changedTouches ? e.changedTouches[0]['pageY'] : e['pageY'];
         },
         _getElem(e) {
+            // console.log(e.currentTarget.children);
+            // console.log(Array.from(e.currentTarget.children).slice(3, -3));
             return Array.from(e.currentTarget.children).slice(3, -3);
         },
         _onTouchStart(target, e) {
@@ -202,10 +202,11 @@ export default {
             let target = this.target;
             let thisData = this[target + 'State'];
             this.delta = this._getTouchPos(e) - thisData.startPos;
+            // console.log('delta:' + this.delta);
             thisData.translateY = thisData.startTranslateY + this.delta;
-            if (Math.abs(this.delta) > 0) {
-                e.preventDefault();
-            }
+            // if (Math.abs(this.delta) > 0) {
+            //     e.preventDefault();
+            // }
         },
         _onTouchEnd(e) {
             let target = this.target;
@@ -263,26 +264,27 @@ export default {
 }
 
 .ProvCityHeader {
-    background-color: #eee;
+    background: #385FB5;
     height: 44px;
     line-height: 44px;
     overflow: hidden;
     text-align: center;
-    font-size: 16px!important;
+    color: #fff;
+    font-size: 16px;
 }
 
 .ProvCityHeaderCancle {
     float: left;
     padding: 0 20px;
-    color: #ff5657;
-    font-size: 16px!important;
+    color: #fff;
+    font-size: 14px;
 }
 
 .ProvCityHeaderConfirm {
     float: right;
     padding: 0 20px;
-    color: #ff5657;
-    font-size: 16px!important;
+    color: #fff;
+    font-size: 14px;
 }
 
 .ProvCityContent {
@@ -294,15 +296,9 @@ export default {
     overflow: hidden;
 }
 
-.ProvCityContentList {
-    float: left;
-    width: 33.333333%;
-    text-align: center;
-}
-
 .ProvCityContentList ul {
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
 }
 
 .ProvCityContentList ul.province_dragging,
@@ -315,29 +311,26 @@ export default {
 .ProvCityContentList li {
     line-height: 35px;
     height: 35px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px!important;
+    font-size: 14px;
 }
 
 .ProvCityContentList li.current {
-    font-size: 16px!important;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .ProvCityContentList li.node1 {
-    font-size: 15px!important;
+    font-size: 15px;
     opacity: .7;
 }
 
 .ProvCityContentList li.node2 {
-    font-size: 14px!important;
+    font-size: 14px;
     opacity: .5;
 }
 
 .ProvCityContentList li.node3 {
-    font-size: 12px!important;
+    font-size: 12px;
     opacity: .3;
 }
 
@@ -359,15 +352,5 @@ export default {
     bottom: 140px;
     margin: 0;
     height: 0;
-}
-
-.expand-select-transition {
-    transition: all .4s ease;
-    bottom: 0px;
-}
-
-.expand-select-enter,
-.expand-select-leave {
-    transform: translate(0, 289px);
 }
 </style>

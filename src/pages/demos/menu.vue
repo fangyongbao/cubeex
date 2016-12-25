@@ -4,22 +4,32 @@
             <div class="scroller">
                 <router-link :to="{ path:'/pull-refresh', activeClass:'current'}" class="item">
                     <div class="slide">
-                        pull-up-refresh
+                        pull-up-refresh(上拉刷新/下拉加载)
                     </div>
                 </router-link>
                 <router-link :to="{ path:'/radio', activeClass:'current'}" class="item">
                     <div class="slide">
-                        radio
+                        radio（单选框）
                     </div>
                 </router-link>
                 <router-link :to="{ path:'/checkbox', activeClass:'current'}" class="item">
                     <div class="slide">
-                        checkbox
+                        checkbox（复选框）
                     </div>
                 </router-link>
                 <router-link :to="{ path:'/select', activeClass:'current'}" class="item">
                     <div class="slide">
-                        select
+                        select-drop(下拉框-下拉)
+                    </div>
+                </router-link>
+<!--                 <router-link :to="{ path:'/select-scroll', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        select-scroll(下拉框-滚动)
+                    </div>
+                </router-link> -->
+                <router-link :to="{ path:'/area', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        area-scroll(地区联动-滚动)
                     </div>
                 </router-link>
             </div>

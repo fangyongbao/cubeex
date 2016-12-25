@@ -46,6 +46,12 @@ const router = new VueRouter({
             require(['../pages/demos/select'], resolve);
         }
     }, {
+        name: 'area',
+        path: '/area',
+        component: (resolve) => {
+            require(['../pages/demos/area'], resolve);
+        }
+    }, {
         path: '*',
         redirect: '/menu'
     }]

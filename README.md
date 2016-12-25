@@ -1,11 +1,13 @@
 # cubeex #
 
-cubeex是基于vue2.0开发组件库，包含一些常用组件<br>
-cubeex目前在持续更新中，组件将逐步完善，旨在创建一套完善的基于vue2.0的移动端组件库。
+[项目地址](http://www.best-html5.net/cubee/cubeex)
 
-[查看demo](http://www.best-html5.net/cubee/cubeex)
+cubeex是基于vue2.0开发的组件库，将包含一套完整的移动UI。这也是[魔方元科技](http://www.cubee.com)开源的首个H5相关的项目, 这里有一群对前端技术狂热的追求者, 如果你对我们的研发感兴趣，欢迎fork。
 
-**配置**<br>
+PS: cubeex目前在持续更新中，组件将逐步完善，旨在创建一套完善的基于vue2.0的移动端组件库。
+
+**webpack配置**<br>
+cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰简单, 可以作为webpack学习的教程。
 >
 1. package.json  定义项目依赖模块 以及 定义开启服务器和打包命令
 2. helpers.js  获取入口文件和html文件
@@ -15,14 +17,15 @@ cubeex目前在持续更新中，组件将逐步完善，旨在创建一套完�
 
 **目前包含的组件**<br>
 >
-上拉刷新/下拉加载更多<br>
-单选框<br>
-复选框<br>
-下拉框
-
+pull-up-refresh(上拉刷新/下拉加载)<br>
+radio（单选框）<br>
+checkbox（复选框）<br>
+select-drop(下拉框-下拉)<br>
+area-scroll(地区联动-滚动)
 
 **使用方式：**<br>
 >
-1.npm run dev<br>
-2.浏览器访问localhost:3001<br>
-3.npm run build打包
+1. 更目录下执行 cnpm install 安装项目依赖模块<br>
+2. 执行 npm run dev<br>
+3. 浏览器访问http://localhost:3001<br>
+4. npm run build打包
