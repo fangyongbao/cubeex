@@ -1,7 +1,7 @@
 <template>
     <div class="ProvCityBoxWarp">
-        <div class="animated duration0-2 fadeIn ProvCityBoxBg" v-show="show" @click="setAreaStatus(false)" @touchmove="_stopDef" @mousewheel="_stopDef"></div>
-        <div class="animated duration0-2 slideInUp ProvCityBox" v-show="show" @mousewheel="_stopDef">
+        <div class="animated duration0-4 fadeIn ProvCityBoxBg" v-show="show" @click="setAreaStatus(false)" @touchmove="_stopDef" @mousewheel="_stopDef"></div>
+        <div class="animated duration0-2 linear slideInUp ProvCityBox" v-show="show" @mousewheel="_stopDef">
             <div class="ProvCityHeader">
                 <div class="ProvCityHeaderCancle" @click="setAreaStatus(false)">{{cancel}}</div>
                 {{title}}
@@ -110,8 +110,8 @@ export default {
     },
     created: function() {
         this.init();
-        // this._onTouchMove = this._onTouchMove.bind(this);
-        // this._onTouchEnd = this._onTouchEnd.bind(this);
+        this._onTouchMove = this._onTouchMove.bind(this);
+        this._onTouchEnd = this._onTouchEnd.bind(this);
     },
     methods: {
         ...mapActions([
@@ -204,9 +204,9 @@ export default {
             this.delta = this._getTouchPos(e) - thisData.startPos;
             // console.log('delta:' + this.delta);
             thisData.translateY = thisData.startTranslateY + this.delta;
-            // if (Math.abs(this.delta) > 0) {
-            //     e.preventDefault();
-            // }
+            if (Math.abs(this.delta) > 0) {
+                e.preventDefault();
+            }
         },
         _onTouchEnd(e) {
             let target = this.target;
