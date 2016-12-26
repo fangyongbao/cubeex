@@ -9,7 +9,7 @@
             </div>
             <div class="f-flex f-flext selectCon">
                 <div class="f-flex1 f-tac f-oh">
-                    <ul :class="{'dragging': dragging}" @touchstart="handleTouchStart($event)" @mousedown="_onTouchStart($event)" :style="{'transform' : 'translate3d(0,' + translateY + 'px, 0)'}">
+                    <ul :class="{'dragging': dragging}" @touchstart="handleTouchStart($event)" @mousedown="handleTouchStart($event)" :style="{'transform' : 'translate3d(0,' + translateY + 'px, 0)'}">
                         <li ref="$li"></li>
                         <li></li>
                         <li></li>
