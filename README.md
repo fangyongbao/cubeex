@@ -25,7 +25,8 @@ cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰�
 
 **使用方式：**<br>
 >
-1. 更目录下执行 cnpm install 安装项目依赖模块<br>
-2. 执行 npm run dev<br>
-3. 浏览器访问http://localhost:3001<br>
-4. npm run build打包
+1. 执行cnpm install webpack-dev-server -g 全局安装webpck-dev-server
+2. 根目录下执行 cnpm install 安装项目依赖模块<br>
+3. 执行 npm run dev<br>
+4. 浏览器访问http://localhost:3001<br>
+5. npm run build打包
