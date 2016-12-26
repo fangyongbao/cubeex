@@ -22,11 +22,11 @@
                         select-drop(下拉框-下拉)
                     </div>
                 </router-link>
-<!--                 <router-link :to="{ path:'/select-scroll', activeClass:'current'}" class="item">
+                <router-link :to="{ path:'/select-scroll', activeClass:'current'}" class="item">
                     <div class="slide">
                         select-scroll(下拉框-滚动)
                     </div>
-                </router-link> -->
+                </router-link>
                 <router-link :to="{ path:'/area', activeClass:'current'}" class="item">
                     <div class="slide">
                         area-scroll(地区联动-滚动)
