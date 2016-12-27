@@ -46,6 +46,12 @@ const router = new VueRouter({
             require(['../pages/demos/select'], resolve);
         }
     }, {
+        name: 'select-scroll',
+        path: '/select-scroll',
+        component: (resolve) => {
+            require(['../pages/demos/select-scroll'], resolve);
+        }
+    }, {
         name: 'area',
         path: '/area',
         component: (resolve) => {
