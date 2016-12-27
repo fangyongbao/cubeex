@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --port 3000 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./webpack.dev.config.js",
+    "dev": "webpack-dev-server --inline --hot --port 3001 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./webpack.dev.config.js",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached --bail   --config ./webpack.prod.config.js"
   },
   "devDependencies": {
@@ -35,6 +35,7 @@
     "webpack": "^1.13.2"
   },
   "dependencies": {
+    "fastclick": "^1.0.6",
     "iscroll": "^4.2.5",
     "jquery": "^3.1.0",
     "vue": "^2.0.3",

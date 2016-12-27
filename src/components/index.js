@@ -1,9 +1,15 @@
-import Area from './area'
-import PullRefresh from './pull-refresh'
+import CubeeArea from './area'
+import CubeePullRefresh from './pull-refresh'
+import CubeeRadio from './radio'
+import CubeeCheckbox from './checkbox'
+import CubeeSelect from './select'
 
 const cubeex = {
-    Area,
-    PullRefresh
+    CubeeArea,
+    CubeePullRefresh,
+    CubeeRadio,
+    CubeeCheckbox,
+    CubeeSelect
 }
 
 module.exports = cubeex

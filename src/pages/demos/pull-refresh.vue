@@ -1,17 +1,21 @@
 <template>
     <div class="m-list view">
-        <pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
-            <div class="f-flex f-flexr item" v-for="item in matchList">
-                <div class="f-flex1 itemc">{{item.homeName}}</div>
-                <div class="f-flex1 itemc">{{item.awayName}}</div>
-            </div>
-        </pull-refresh>
+        <Header-com></Header-com>
+        <div class="content">
+            <cubee-pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
+                <div class="f-flex f-flexr item" v-for="item in matchList">
+                    <div class="f-flex1 itemc">{{item.homeName}}</div>
+                    <div class="f-flex1 itemc">{{item.awayName}}</div>
+                </div>
+            </cubee-pull-refresh>
+        </div>
     </div>
 </template>
 <script>
 import {
-    PullRefresh
+    CubeePullRefresh
 } from '../../components';
+import HeaderCom from './header';
 export default {
     name: 'pull-refresh-demo',
     data() {
@@ -20,7 +24,8 @@ export default {
         }
     },
     components: {
-        PullRefresh
+        HeaderCom,
+        CubeePullRefresh
     },
     methods: {
         refreshScrollHeight() {
@@ -188,16 +193,23 @@ export default {
 <style lang="sass" scoped>
 .m-list {
     .item {
-        margin-bottom: 10px;
+        margin-top: 10px;
         text-align: center;
         height: 60px;
         line-height: 60px;
         color: #fff;
-        background: gray;
+        background: #385FB5;
         font-size: 14px;
     }
     .itemC {
         line-height: 60px;
+    }
+    .content {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 40px;
+        bottom: 0;
     }
 }
 </style>

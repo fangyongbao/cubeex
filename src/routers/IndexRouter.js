@@ -16,20 +16,44 @@ const router = new VueRouter({
         '*': '/game'
     },
     routes: [{
+        name: 'menu',
         path: '/menu',
         component: (resolve) => {
             require(['../pages/demos/menu.vue'], resolve);
         }
     }, {
+        name: 'pull-refresh',
         path: '/pull-refresh',
         component: (resolve) => {
             require(['../pages/demos/pull-refresh'], resolve);
         }
     }, {
-        path: '*',
+        name: 'radio',
+        path: '/radio',
         component: (resolve) => {
-            require(['../pages/demos/menu.vue'], resolve);
+            require(['../pages/demos/radio'], resolve);
         }
+    }, {
+        name: 'checkbox',
+        path: '/checkbox',
+        component: (resolve) => {
+            require(['../pages/demos/checkbox'], resolve);
+        }
+    }, {
+        name: 'select',
+        path: '/select',
+        component: (resolve) => {
+            require(['../pages/demos/select'], resolve);
+        }
+    }, {
+        name: 'area',
+        path: '/area',
+        component: (resolve) => {
+            require(['../pages/demos/area'], resolve);
+        }
+    }, {
+        path: '*',
+        redirect: '/menu'
     }]
 })
 
