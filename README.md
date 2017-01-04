@@ -23,9 +23,10 @@ cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰�
 [select-drop(下拉框-下拉)](http://www.best-html5.net/cubee/cubeex/#/select)<br>
 [select-scroll(下拉框-滚动)](http://www.best-html5.net/cubee/cubeex/#/select-scroll)<br>
 [area-scroll(地区联动-滚动)](http://www.best-html5.net/cubee/cubeex/#/area)
-
+[datetime-scroll(地区联动-滚动)](http://www.best-html5.net/cubee/cubeex/#/datetime)
 **使用方式：**<br>
 >
+
 1. 执行cnpm install webpack-dev-server -g 全局安装webpack-dev-server
 2. 根目录下执行 cnpm install 安装项目依赖模块<br>
 3. 执行 npm run dev<br>
