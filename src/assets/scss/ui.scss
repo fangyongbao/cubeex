@@ -19,23 +19,3 @@
 .u-table { display: table; width: 100% }
 .u-table .tr { display: table-row }
 .u-table .td { display: table-cell; vertical-align: middle }
-
-.cubee-pull-down {
-    height: 70px;
-    width: 100%;
-    color: #999;
-    text-align: center;
-    .pullDownIcon {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        vertical-align: middle;
-        background: url(icon.png) no-repeat center;
-        background-size: 100% auto;
-        transition: all 0.2s;
-    }
-}
-.loading {
-    -webkit-animation: loading 0.5s infinite linear;
-    animation: loading 0.5s infinite linear;
-}
