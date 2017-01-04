@@ -1,35 +1,64 @@
 <template>
     <div class="m-pull-refresh view">
-        <div :id="wrapperId" class="wrapper">
-            <div id="scroller" class="scroller">
-                <div id="pullDown" ref="pullDownEl" v-if="usePullDown">
-                    <span :class="pullDownIconClass"></span>
-                </div>
-                <div id="container">
+        <div :id="scrollId" class="wrapper">
+            <div class="xs-container" id="container">
+                <div class="xs-content" id="xs-content">
                     <slot></slot>
-                </div>
-                <div id='pullUp' ref="pullUpEl" v-if="usePullUp">
-                    <span :class="pullUpIconClass" v-if="usePullUpIcon"></span>
-                    <span class="pullUpLabel" v-if="usePullLabel">上拉加载更多</span>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-import {
-    iScroll
-} from 'iscroll';
+/**
+ * pullDown & pullUp
+ * @module components/pull-refresh
+ * @desc 下拉刷新和上拉加载组件
+ * @param bol usePullDown - 是否使用下拉刷新 default: false
+ * @param bol usePullUp - 是否使用上拉加载 default: false
+ * @param obj pulldownConfig - 下拉刷新自定义配置
+ * @param obj pullupConfig - 上拉加载自定义配置
+ * @example
+ * <cubee-pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" @on-pulldown="pullDownAction"  @on-pullup="pullUpAction">
+        <div class="f-flex f-flexr item" v-for="item in matchList">
+            <div class="f-flex1 itemc">{{item.homeName}}</div>
+            <div class="f-flex1 itemc">{{item.awayName}}</div>
+        </div>
+    </cubee-pull-refresh>
+ */
+
+import XScroll from 'xscroll/build/cmd/xscroll'
+import PullDown from 'xscroll/build/cmd/plugins/pulldown'
+import Pullup from 'xscroll/build/cmd/plugins/pullup'
+
+// 下拉刷新默认配置
+const pulldownDefaultConfig = () => ({
+    content: '<span style="margin-right: 10px;">↓</span><span>下拉刷新</span>',
+    height: 70,
+    autoRefresh: false,
+    downContent: '<span style="margin-right: 10px;">↓</span><span>下拉刷新</span>',
+    upContent: '<span style="margin-right: 10px;">↑</span><span>松开即可刷新</span>',
+    loadingContent: '<span style="width: 30px; height: 30px; display: inline-block; vertical-align: middle; background: url(http://ohy4bt9w4.bkt.clouddn.com/image/icon/icon_refresh.png) no-repeat center; background-size: 100% auto; animation: loading 0.5s infinite linear;"></span>',
+    clsPrefix: 'xs-plugin-pulldown-'
+})
+
+// 上拉加载默认配置
+const pullupDefaultConfig = () => ({
+    content: '<span></span>',
+    pullUpHeight: 50,
+    height: 50,
+    autoRefresh: false,
+    downContent: '<span></span>',
+    upContent: '<span></span>',
+    loadingContent: '<span style="width: 30px; height: 30px; display: block; margin: 10px auto; background: url(http://ohy4bt9w4.bkt.clouddn.com/image/icon/icon_refresh.png) no-repeat center; background-size: 100% auto; animation: loading 0.5s infinite linear;"></span>',
+    clsPrefix: 'xs-plugin-pullup-'
+})
+
 export default {
     name: 'pull-refresh',
     data() {
         return {
-            wrapperId: 'wrapper',
-            iscroll: '',
-            pullDownIconClass: 'pullDownIcon',
-            pullUpIconClass: 'pullUpIcon',
-            usePullUpIcon: false,
-            usePullLabel: true
+            scrollId: 'scroll',
         }
     },
     props: {
@@ -40,120 +69,93 @@ export default {
         usePullUp: {
             type: Boolean,
             default: false
-        }
-
+        },
+        pulldownConfig: {
+            type: Object,
+            default () {
+                return {}
+            }
+        },
+        pullupConfig: {
+            type: Object,
+            default () {
+                return {}
+            }
+        },
     },
     methods: {
         // 初始化iscroll
         _init() {
-            let that = this;
-            let pullDownOffset = 0;
-            if (that.usePullDown) {
-                var pullDownEl = that.$refs.pullDownEl;
-                pullDownOffset = pullDownEl.offsetHeight;
-                var pullDownIconEl = pullDownEl.querySelector('.pullDownIcon');
-            }
-            if (that.usePullUp) {
-                var pullUpEl = that.$refs.pullUpEl;
-            }
-            that.iscroll = new iScroll(that.wrapperId, {
-                hScrollbar: false,
-                vScrollbar: false,
-                topOffset: pullDownOffset,
-                onRefresh() {
-                    console.log('refresh');
-                    if (that.usePullDown && that.pullDownIconClass.match('loading')) {
-                        that.pullDownIconClass = 'pullDownIcon';
-                    }
-                    if (that.usePullUp && that.pullUpIconClass.match('loading')) {
-                        that.pullUpIconClass = 'pullUpIcon';
-                        that.usePullUpIcon = false;
-                        that.usePullLabel = true;
-                    }
-                },
-                onScrollMove() {
-                    let y = this.y;
-                    // 计算动态旋转角度
-                    if (that.usePullDown && y >= -pullDownOffset) {
-                        let dis = pullDownOffset + y;
-                        let deg = 360 / pullDownOffset * dis;
-                        deg = deg > 360 ? 360 : deg;
-                        let css = `
-                            -webkit-transform: rotate(${deg}deg);
-                            transform: rotate(${deg}deg);
-                        `;
-                        pullDownIconEl.style.cssText = css;
-                        if (y > 0) {
-                            this.minScrollY = 0;
-                        } else {
-                            this.minScrollY = -pullDownOffset;
-                        }
-                    }
-
-                },
-                onScrollEnd() {
-                    let y = this.y;
-                    if (that.usePullDown && y >= 0) {
-                        that.pullDownIconClass = 'pullDownIcon loading';
-                        // 下拉刷新
-                        that.$emit('pullDownAction');
-                    } else if (that.usePullUp && y <= this.maxScrollY && y < -pullDownOffset) {
-                        that.pullUpIconClass = 'pullUpIcon loading';
-                        that.usePullUpIcon = true;
-                        that.usePullLabel = false;
-                        console.log('emit pullUpAction');
-                        // 上拉加载更多
-                        that.$emit('pullUpAction');
-                    }
-                }
+            this.xscroll = new XScroll({
+                renderTo: "#" + this.scrollId,
+                lockX: true,
+                scrollbarX: false
             });
-            that.iscroll.scrollTo(0, -pullDownOffset);
+
+            if(this.usePullDown) {
+                let config = Object.assign(pulldownDefaultConfig(), this.pulldownConfig);
+                this.pulldown = new PullDown(config) ;
+                this.xscroll.plug(this.pulldown);
+                this.pulldown.on('loading', (e) => {
+                    this.$emit('on-pulldown')
+                })
+            }
+
+            if(this.usePullUp) {
+                let config = Object.assign(pullupDefaultConfig(), this.pullupConfig);
+                this.pullup = new Pullup(config) ;
+                this.xscroll.plug(this.pullup);
+                this.pullup.on('loading', (e) => {
+                    this.$emit('on-pullup')
+                })
+            }
+
+            this.xscroll.render();
         },
         refresh() {
-            var that = this;
-            that.iscroll.refresh();
+            // 下拉刷新
+            this.pulldown.reset(() => {
+                this.reset()
+            })
+        },
+        loadMore() {
+            // 上拉加载
+            this.pullup.complete();
+            this.reset();
+        },
+        reset() {
+            // 重置滚动条
+            setTimeout(() => {
+                this.xscroll && this.xscroll.render()
+            })
         }
     },
     mounted() {
-        var that = this;
-        that.wrapperId = 'wrapper' + new Date().getTime();
-        that.$nextTick(() => {
-            that._init();
+        this.scrollId = 'scroll' + new Date().getTime();
+        this.$nextTick(() => {
+            let wrapper = document.getElementById(this.scrollId);
+            let scroller = document.getElementById("container");
+            let content = document.getElementById("xs-content");
+            scroller.style.minHeight = (wrapper.clientHeight + 1) + "px"; 
+            content.style.minHeight = (wrapper.clientHeight + 1) + "px";
+            // 这里的操作是为了当内容的高度小于wrapper的高度是也显示滚动条
+            // this._init();
         })
     }
 }
 </script>
 <style lang="sass" scoped>
 .m-pull-refresh {
-    .wrapper {
+    font-size: 14px;
+    .wrapper{
+        position: absolute;
+        width:100%;
         height: 100%;
-        .scroller {
-            min-height: 100%;
-            position: relative;
-            background: #fff;
+        overflow: scroll;
+        -webkit-overflow-scrolling:touch;
+        .xs-content {
+            height: 100%;
         }
-    }
-    #pullDown,
-    #pullUp {
-        height: 50px;
-        font: 14px/50px Arial;
-        color: #999;
-        vertical-align: middle;
-        text-align: center;
-    }
-    #pullDown .pullDownIcon,
-    #pullUp .pullUpIcon {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        vertical-align: middle;
-        background: url(icon.png) no-repeat center;
-        background-size: 100% auto;
-    }
-    #pullDown .pullDownIcon.loading,
-    #pullUp .pullUpIcon.loading {
-        -webkit-animation: loading 0.5s infinite linear;
-        animation: loading 0.5s infinite linear;
     }
 }
 

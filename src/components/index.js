@@ -4,6 +4,7 @@ import CubeeRadio from './radio'
 import CubeeCheckbox from './checkbox'
 import CubeeSelect from './select'
 import CubeeSelectScroll from './select-scroll'
+import CubeeDateTime from './datetime'
 
 const cubeex = {
     CubeeArea,
@@ -11,7 +12,7 @@ const cubeex = {
     CubeeRadio,
     CubeeCheckbox,
     CubeeSelect,
-    CubeeSelectScroll
+    CubeeDateTime
 }
 
 module.exports = cubeex
