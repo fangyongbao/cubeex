@@ -12,6 +12,7 @@ const cubeex = {
     CubeeRadio,
     CubeeCheckbox,
     CubeeSelect,
+    CubeeSelectScroll,
     CubeeDateTime
 }
 
