@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
     name: 'header',
     data() {
@@ -14,8 +15,12 @@ export default {
         }
     },
     methods: {
+        ...mapActions([
+            'setDirection'
+        ]),
         goBack() {
-            this.$router.go(-1)
+            this.setDirection('reverse');
+            this.$router.go(-1);
         }
     },
     created: function() {

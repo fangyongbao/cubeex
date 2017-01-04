@@ -32,6 +32,11 @@
                         area-scroll(地区联动-滚动)
                     </div>
                 </router-link>
+                <router-link :to="{ path:'/datetime', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        datetime(时间联动-滚动)
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>

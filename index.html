@@ -12,6 +12,7 @@
             w = 640
         }
         document.documentElement.style.fontSize = w / 7.5 + 'px';
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
     })()
     </script>
 </head>

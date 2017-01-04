@@ -2,7 +2,7 @@
     <div class="m-list view">
         <Header-com></Header-com>
         <div class="content">
-            <cubee-pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
+            <cubee-pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="false" @on-pulldown="pullDownAction" @on-pullup="pullUpAction">
                 <div class="f-flex f-flexr item" v-for="item in matchList">
                     <div class="f-flex1 itemc">{{item.homeName}}</div>
                     <div class="f-flex1 itemc">{{item.awayName}}</div>
@@ -28,17 +28,23 @@ export default {
         CubeePullRefresh
     },
     methods: {
-        refreshScrollHeight() {
-            let that = this;
-            let pullRefreshEl = that.$refs.pullRefreshEl;
+        // refreshScrollHeight() {
+        //     setTimeout(() => {
+        //         this.$refs.pullRefreshEl.refresh();
+        //     }, 50)
+        // },
+        // loadMoreScrollHeight() {
+
+        // },
+        scrollInit() {
+            let pullRefreshEl = this.$refs.pullRefreshEl;
             pullRefreshEl.$nextTick(function() {
                 setTimeout(() => {
-                    pullRefreshEl.refresh();
+                    pullRefreshEl._init();
                 }, 50)
             })
         },
         pullDownAction() {
-            let that = this;
             let data = [{
                 matchId: 1,
                 homeName: '皇马1',
@@ -79,39 +85,14 @@ export default {
                 matchId: 2,
                 homeName: '皇马1',
                 awayName: '巴萨1'
-            }, {
-                matchId: 3,
-                homeName: '皇马1',
-                awayName: '巴萨1'
-            }, {
-                matchId: 4,
-                homeName: '皇马1',
-                awayName: '巴萨1'
-            }, {
-                matchId: 1,
-                homeName: '皇马1',
-                awayName: '巴萨1'
-            }, {
-                matchId: 2,
-                homeName: '皇马1',
-                awayName: '巴萨1'
-            }, {
-                matchId: 3,
-                homeName: '皇马1',
-                awayName: '巴萨1'
-            }, {
-                matchId: 4,
-                homeName: '皇马1',
-                awayName: '巴萨1'
             }];
             setTimeout(() => {
-                that.matchList = data;
-                that.refreshScrollHeight();
+                this.matchList = this.matchList.concat(data);
+                this.$refs.pullRefreshEl.refresh();
                 console.log('down');
             }, 400);
         },
         pullUpAction() {
-            let that = this;
             let data = [{
                 matchId: 1,
                 homeName: '皇马',
@@ -178,15 +159,38 @@ export default {
                 awayName: '巴萨'
             }]
             setTimeout(() => {
-                that.matchList = that.matchList.concat(data);
-                that.refreshScrollHeight();
+                this.matchList = this.matchList.concat(data);
+                this.$refs.pullRefreshEl.loadMore();
                 console.log('up');
+            }, 400);
+        },
+        getData() {
+            let data = [{
+                matchId: 1,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 2,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 3,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 4,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }];
+            setTimeout(() => {
+                this.matchList = data;
+                this.scrollInit();
+                console.log('init');
             }, 400);
         }
     },
     mounted() {
-        let that = this;
-        that.pullDownAction();
+        this.getData();
     }
 }
 </script>
@@ -200,6 +204,9 @@ export default {
         color: #fff;
         background: #385FB5;
         font-size: 14px;
+    }
+    .item:nth-of-type(1) {
+        margin: 0;
     }
     .itemC {
         line-height: 60px;
