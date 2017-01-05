@@ -44,6 +44,7 @@
     "vue-resource": "^0.9.3",
     "vue-router": "^2.0.1",
     "vuex": "^2.0.0",
+    "vux-xscroll": "^3.1.8",
     "xscroll": "^3.1.2"
   }
 }
