@@ -37,7 +37,7 @@
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "fastclick": "^1.0.6",
-    "iscroll": "^5.2.0",
+    "iscroll": "^4.2.5",
     "jquery": "^3.1.0",
     "vue": "^2.0.3",
     "vue-progressbar": "^0.2.5",

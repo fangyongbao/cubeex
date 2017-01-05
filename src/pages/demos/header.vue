@@ -19,7 +19,7 @@ export default {
             'setDirection'
         ]),
         goBack() {
-            this.setDirection('reverse');
+            // this.setDirection('reverse');
             this.$router.go(-1);
         }
     },
