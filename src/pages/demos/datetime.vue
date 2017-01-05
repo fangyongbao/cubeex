@@ -1,7 +1,7 @@
 <template>
 	<div class="m-datetime-demo view">
         <Header-com></Header-com>
-        <cubee-dateTime :show="dateTimeStatus" :defaultTime="setTime" :startYear="1970" :yearRange="50"></cubee-dateTime>
+        <cubee-dateTime :show="dateTimeStatus" :defaultTime="setTime" :yearRange="50"></cubee-dateTime>
         <div class="f-ot content">
             <div class="f-flex f-flexr item">
                 <div class="f-flex f-flextc f-flexvc label">
@@ -26,10 +26,11 @@
 			return {
 				dateTimeStatus: false,
 				setTime: {
-					// year: 2016,
-					// month: 10,
-					// day: 10
+					year: 2000,
+					month: 1,
+					day: 2
 				},
+
 				dateTimeResult: '',
 			}
 		},
