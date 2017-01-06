@@ -27,32 +27,57 @@
     </cubee-pull-refresh>
  */
 
-import XScroll from 'xscroll/build/cmd/xscroll'
-import PullDown from 'xscroll/build/cmd/plugins/pulldown'
-import Pullup from 'xscroll/build/cmd/plugins/pullup'
+import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
+import PullDown from 'vux-xscroll/build/cmd/plugins/pulldown'
+import Pullup from 'vux-xscroll/build/cmd/plugins/pullup'
 
-// 下拉刷新默认配置
 const pulldownDefaultConfig = () => ({
-    content: '<span style="margin-right: 10px;">↓</span><span>下拉刷新</span>',
-    height: 70,
+    content: 'Pull Down To Refresh',
+    height: 60,
     autoRefresh: false,
-    downContent: '<span style="margin-right: 10px;">↓</span><span>下拉刷新</span>',
-    upContent: '<span style="margin-right: 10px;">↑</span><span>松开即可刷新</span>',
-    loadingContent: '<span style="width: 30px; height: 30px; display: inline-block; vertical-align: middle; background: url(http://ohy4bt9w4.bkt.clouddn.com/image/icon/icon_refresh.png) no-repeat center; background-size: 100% auto; animation: loading 0.5s infinite linear;"></span>',
+    downContent: 'Pull Down To Refresh',
+    upContent: 'Release To Refresh',
+    loadingContent: 'Loading...',
     clsPrefix: 'xs-plugin-pulldown-'
 })
 
-// 上拉加载默认配置
 const pullupDefaultConfig = () => ({
-    content: '<span></span>',
-    pullUpHeight: 50,
-    height: 50,
+    content: 'Pull Up To Refresh',
+    pullUpHeight: 60,
+    height: 40,
     autoRefresh: false,
-    downContent: '<span></span>',
-    upContent: '<span></span>',
-    loadingContent: '<span style="width: 30px; height: 30px; display: block; margin: 10px auto; background: url(http://ohy4bt9w4.bkt.clouddn.com/image/icon/icon_refresh.png) no-repeat center; background-size: 100% auto; animation: loading 0.5s infinite linear;"></span>',
+    downContent: 'Release To Refresh',
+    upContent: 'Pull Up To Refresh',
+    loadingContent: 'Loading...',
     clsPrefix: 'xs-plugin-pullup-'
 })
+
+
+
+
+
+// // 下拉刷新默认配置
+// const pulldownDefaultConfig = () => ({
+//     content: '<span style="margin-right: 10px;">↓</span><span>下拉刷新</span>',
+//     height: 70,
+//     autoRefresh: false,
+//     downContent: '<span style="margin-right: 10px;">↓</span><span>下拉刷新</span>',
+//     upContent: '<span style="margin-right: 10px;">↑</span><span>松开即可刷新</span>',
+//     loadingContent: '<span style="width: 30px; height: 30px; display: inline-block; vertical-align: middle; background: url(http://ohy4bt9w4.bkt.clouddn.com/image/icon/icon_refresh.png) no-repeat center; background-size: 100% auto; animation: loading 0.5s infinite linear;"></span>',
+//     clsPrefix: 'xs-plugin-pulldown-'
+// })
+
+// // 上拉加载默认配置
+// const pullupDefaultConfig = () => ({
+//     content: '<span></span>',
+//     pullUpHeight: 50,
+//     height: 50,
+//     autoRefresh: false,
+//     downContent: '<span></span>',
+//     upContent: '<span></span>',
+//     loadingContent: '<span style="width: 30px; height: 30px; display: block; margin: 10px auto; background: url(http://ohy4bt9w4.bkt.clouddn.com/image/icon/icon_refresh.png) no-repeat center; background-size: 100% auto; animation: loading 0.5s infinite linear;"></span>',
+//     clsPrefix: 'xs-plugin-pullup-'
+// })
 
 export default {
     name: 'pull-refresh',
@@ -89,7 +114,14 @@ export default {
             this.xscroll = new XScroll({
                 renderTo: "#" + this.scrollId,
                 lockX: true,
-                scrollbarX: false
+                scrollbarX: false,
+                bounce: true,
+                useOriginScroll: false,
+                useTransition: true,
+                preventDefault: true,
+                boundryCheck: true,
+                gpuAcceleration: true,
+                stopPropagation: true
             });
 
             if(this.usePullDown) {
@@ -134,10 +166,10 @@ export default {
         this.scrollId = 'scroll' + new Date().getTime();
         this.$nextTick(() => {
             let wrapper = document.getElementById(this.scrollId);
-            let scroller = document.getElementById("container");
-            let content = document.getElementById("xs-content");
-            scroller.style.minHeight = (wrapper.clientHeight + 1) + "px"; 
-            content.style.minHeight = (wrapper.clientHeight + 1) + "px";
+            // let scroller = document.getElementById("container");
+            // let content = document.getElementById("xs-content");
+            // scroller.style.minHeight = (wrapper.clientHeight + 1) + "px"; 
+            // content.style.minHeight = (wrapper.clientHeight + 1) + "px";
             // 这里的操作是为了当内容的高度小于wrapper的高度是也显示滚动条
             // this._init();
         })
