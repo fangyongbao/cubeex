@@ -96,12 +96,13 @@ export default {
                     if (that.usePullDown && y >= 0) {
                         that.pullDownIconClass = 'pullDownIcon loading';
                         // 下拉刷新
+                        console.log('11down');
                         that.$emit('pullDownAction');
                     } else if (that.usePullUp && y <= this.maxScrollY && y < -pullDownOffset) {
                         that.pullUpIconClass = 'pullUpIcon loading';
                         that.usePullUpIcon = true;
                         that.usePullLabel = false;
-                        console.log('emit pullUpAction');
+                        console.log('pullUpAction');
                         // 上拉加载更多
                         that.$emit('pullUpAction');
                     }

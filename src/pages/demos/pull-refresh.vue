@@ -2,7 +2,7 @@
     <div class="m-list view">
         <Header-com></Header-com>
         <div class="content">
-            <cubee-pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="false" @on-pulldown="pullDownAction" @on-pullup="pullUpAction">
+            <cubee-pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
                 <div class="f-flex f-flexr item" v-for="item in matchList">
                     <div class="f-flex1 itemc">{{item.homeName}}</div>
                     <div class="f-flex1 itemc">{{item.awayName}}</div>
@@ -28,15 +28,8 @@ export default {
         CubeePullRefresh
     },
     methods: {
-        // refreshScrollHeight() {
-        //     setTimeout(() => {
-        //         this.$refs.pullRefreshEl.refresh();
-        //     }, 50)
-        // },
-        // loadMoreScrollHeight() {
-
-        // },
         scrollInit() {
+            console.log('init');
             let pullRefreshEl = this.$refs.pullRefreshEl;
             pullRefreshEl.$nextTick(function() {
                 setTimeout(() => {
@@ -86,10 +79,11 @@ export default {
                 homeName: '皇马1',
                 awayName: '巴萨1'
             }];
+
             setTimeout(() => {
                 this.matchList = this.matchList.concat(data);
                 this.$refs.pullRefreshEl.refresh();
-                console.log('down');
+                //console.log('down');
             }, 400);
         },
         pullUpAction() {
@@ -160,8 +154,6 @@ export default {
             }]
             setTimeout(() => {
                 this.matchList = this.matchList.concat(data);
-                this.$refs.pullRefreshEl.loadMore();
-                console.log('up');
             }, 400);
         },
         getData() {
@@ -181,11 +173,42 @@ export default {
                 matchId: 4,
                 homeName: '皇马2',
                 awayName: '巴萨2'
+            },{
+                matchId: 1,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 2,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 3,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 4,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            },{
+                matchId: 1,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 2,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 3,
+                homeName: '皇马2',
+                awayName: '巴萨2'
+            }, {
+                matchId: 4,
+                homeName: '皇马2',
+                awayName: '巴萨2'
             }];
             setTimeout(() => {
                 this.matchList = data;
                 this.scrollInit();
-                console.log('init');
             }, 400);
         }
     },
