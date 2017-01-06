@@ -58,6 +58,18 @@ const router = new VueRouter({
             require(['../pages/demos/area'], resolve);
         }
     }, {
+        name: 'datetime',
+        path: '/datetime',
+        component: (resolve) => {
+            require(['../pages/demos/datetime'], resolve);
+        }
+    },{
+        name: 'dialog',
+        path: '/dialog',
+        component: (resolve) => {
+            require(['../pages/demos/dialog'], resolve);
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]
@@ -103,5 +115,12 @@ router.beforeEach((to, from, next) => {
 router.afterEach(() => {
     // commit('UPDATE_LOADING', false)
 })
+
+// router.afterEach(route => {
+//     setTimeout(function() {
+//         var direction = 'forward';
+//         commit('SET_DIRECTION', { direction });
+//     }, 50)
+// })
 
 export default router

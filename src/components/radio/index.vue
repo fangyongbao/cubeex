@@ -1,8 +1,11 @@
 <template>
-    <div class="u-checkbox">
-        <input type="radio" v-model="currentValue" :value="option.value" @change="change">
-        <span></span>
-    </div>
+    <label>
+        <div class="u-checkbox">
+            <input type="radio" v-model="currentValue" :value="option.value" @change="change">
+            <span></span>
+        </div>
+    </label>
+    
 </template>
 <script>
 /**

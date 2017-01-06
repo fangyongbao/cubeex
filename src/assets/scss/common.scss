@@ -17,6 +17,19 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 ins { text-decoration: none; }
 del { text-decoration: line-through; }
 table { border-collapse: collapse; border-spacing: 0; }
+button {
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0;
+}
 // 清除浮动
 .f-cb:after, .f-cbli li:after { display: block; clear: both; visibility: hidden; height: 0; overflow: hidden; content: "."; }
 .f-cb, .f-cbli li { zoom: 1; }
@@ -59,5 +72,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 .f-tlf { table-layout: fixed; }
 // 溢出弹性滚动
 .f-ot{ -webkit-overflow-scrolling: touch; overflow-scrolling: touch; overflow: auto; }
+
 // 第三方字体库
 @font-face { font-family: "webfont-syht"; src: url('../font/syht/webfont.eot'); src: url('../font/syht/webfont.eot?#iefix') format('embedded-opentype'), url('../font/syht/webfont.woff') format('woff'), url('../font/syht/webfont.ttf') format('truetype'), url('../font/syht/webfont.svg#webfont') format('svg'); }

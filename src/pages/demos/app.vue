@@ -28,8 +28,7 @@ export default {
     }),
     watch: {
         '$route': function(val, oldVal) {
-            console.log('监听到路由变化。。。');
-            console.log(this.direction);
+            console.log('------------监听到路由变化---------',this.direction);
             if (this.direction === 'forward') {
                 this.viewAnimate = 'slide-in';
             } else {
