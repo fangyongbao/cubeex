@@ -1,17 +1,13 @@
 <template>
     <div class="content">
-        <cubee-dialog :close="close" :title="title" :content="content" :button="button" :isDiaShow="isDiaShow">
+        <cubee-dialog :close="close" :title="title" :content="content" :button="button" :isDiaShow="isDiaShow" v-on:closeDiaAfter="closeDiaAfter">
         </cubee-dialog>
     </div>
 </template>
 <script>
 import {
     CubeeDialog
-} from '../../../components';
-import {
-    mapActions,
-    mapState
-} from 'vuex';
+} from '../../components';
 export default {
     name: 'dialog-demo',
     data() {
@@ -26,15 +22,13 @@ export default {
         CubeeDialog
     },
     methods: {
-
+        closeDiaAfter(){
+            console.log("已关闭弹窗")
+        }
     },
     mounted() {
         console.log(this.isDiaShow);
-    },
-    computed: mapState({
-        // 箭头函数可以让代码非常简洁
-        isDiaShow: state => state.global.isDiaShow,
-    })
+    }
 }
 </script>
 <style lang="sass" scoped>

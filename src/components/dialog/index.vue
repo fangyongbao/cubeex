@@ -84,6 +84,7 @@ export default {
         },
         hide(){
             this.$parent.isDiaShow=false;
+            hide.$emit('closeDiaAfter');
         },
         _stopScroll(e) {
             e.stopPropagation();
