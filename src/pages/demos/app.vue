@@ -16,33 +16,25 @@ import {
 } from 'vuex';
 
 export default {
-    name: 'appVue',
-
+    name: 'app',
     data() {
         return {
             isLoading: false,
             viewAnimate: ''
         }
     },
-
     computed: mapGetters({
         direction: 'getDirection'
     }),
-
     watch: {
         '$route': function(val, oldVal) {
-            console.log('监听到路由变化。。。');
-            console.log(this.direction);
-            if (this.direction == 'forward') {
+            console.log('------------监听到路由变化---------',this.direction);
+            if (this.direction === 'forward') {
                 this.viewAnimate = 'slide-in';
             } else {
                 this.viewAnimate = 'slide-out';
             }
         }
-    },
-
-    created() {
-        console.log(this);
     }
 }
 </script>
@@ -65,6 +57,7 @@ body {
             left: 0;
             right: 0;
             width: 100%;
+            background: #fff;
         }
     }
 }
@@ -75,13 +68,17 @@ body {
 */
 
 .slide-in-enter-active {
-    -webkit-animation-duration: 0.2s;
-    animation-duration: 0.2s;
+    z-index: 2;
+    visibility: visible;
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
     -webkit-animation-name: slide-in-enter;
     animation-name: slide-in-enter;
 }
 
 .slide-in-leave-active {
+    z-index: 1;
+    visibility: visible;
     -webkit-animation-duration: 0.4s;
     animation-duration: 0.4s;
     -webkit-animation-name: slide-in-leave;
@@ -89,51 +86,117 @@ body {
 }
 
 .slide-out-enter-active {
-    -webkit-animation-duration: 0.2s;
-    animation-duration: 0.2s;
+    z-index: 1;
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
     -webkit-animation-name: slide-out-enter;
     animation-name: slide-out-enter;
 }
 
 .slide-out-leave-active {
+    z-index: 2;
     -webkit-animation-duration: 0.4s;
     animation-duration: 0.4s;
     -webkit-animation-name: slide-out-leave;
     animation-name: slide-out-leave;
 }
 
-@keyframes slide-in-enter {
+.slide-in-enter {
+    visibility: hidden;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+
+.slide-out-enter {
+    visibility: hidden;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+@-webkit-keyframes slide-in-enter {
     from {
+        -webkit-transform: translate3d(100%, 0, 0);
         transform: translate3d(100%, 0, 0);
     }
     to {
+        -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slide-in-enter {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes slide-in-leave {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(-33%, 0, 0);
+        transform: translate3d(-33%, 0, 0);
     }
 }
 
 @keyframes slide-in-leave {
     from {
+        -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
     }
     to {
-        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-33%, 0, 0);
+        transform: translate3d(-33%, 0, 0);
+    }
+}
+
+@-webkit-keyframes slide-out-enter {
+    from {
+        -webkit-transform: translate3d(-33%, 0, 0);
+        transform: translate3d(-33%, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes slide-out-enter {
     from {
-        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-33%, 0, 0);
+        transform: translate3d(-33%, 0, 0);
     }
     to {
+        -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes slide-out-leave {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
     }
 }
 
 @keyframes slide-out-leave {
     from {
+        -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
     }
     to {
+        -webkit-transform: translate3d(100%, 0, 0);
         transform: translate3d(100%, 0, 0);
     }
 }

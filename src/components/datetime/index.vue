@@ -1,56 +1,56 @@
 <template>
     <div class="ProvCityBoxWarp">
-        <div class="animated duration0-4 fadeIn ProvCityBoxBg" v-show="show" @click="setAreaStatus(false)" @touchmove="_stopDef" @mousewheel="_stopDef"></div>
+        <div class="animated duration0-4 fadeIn ProvCityBoxBg" @click="close" v-show="show" @touchmove="_stopDef" @mousewheel="_stopDef"></div>
         <div class="animated duration0-2 linear slideInUp ProvCityBox" v-show="show" @mousewheel="_stopDef">
             <div class="ProvCityHeader">
-                <div class="ProvCityHeaderCancle" @click="setAreaStatus(false)">{{cancel}}</div>
+                <div class="ProvCityHeaderCancle" @click="close">{{cancel}}</div>
                 {{title}}
                 <div class="ProvCityHeaderConfirm" @click="submit">{{confirm}}</div>
             </div>
             <div class="f-flex f-flext ProvCityContent">
                 <div class="f-flex1 f-tac f-oh ProvCityContentList">
-                    <ul :class="{'province_dragging': provinceState.dragging}" @touchstart="_onTouchStart('province', $event)" @mousedown="_onTouchStart('province', $event)" :style="{'transform' : 'translate3d(0,' + provinceState.translateY + 'px, 0)'}">
+                    <ul :class="{'province_dragging': yearState.dragging}" @touchstart="_onTouchStart('year', $event)" @mousedown="_onTouchStart('year', $event)" :style="{'transform' : 'translate3d(0,' + yearState.translateY + 'px, 0)'}">
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li class="f-toe" v-for="(item, index) in provinceState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
-                                    'current': item.code === provinceState.selectedId,
-                                    'node1':  Math.abs(index - provinceState.index) == 1,
-                                    'node2':  Math.abs(index - provinceState.index) == 2,
-                                    'node3':  Math.abs(index - provinceState.index) >= 3
-                                }">{{item.name}}</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="f-flex1 f-tac f-oh ProvCityContentList">
-                    <ul :class="{'city_dragging': cityState.dragging}" @touchstart="_onTouchStart('city', $event)" @mousedown="_onTouchStart('city', $event)" :style="{'transform' : 'translate3d(0,' + cityState.translateY + 'px, 0)'}">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li class="f-toe" v-for="(item, index) in cityState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
-                                    'current': item.code === cityState.selectedId,
-                                    'node1':  Math.abs(index - cityState.index) == 1,
-                                    'node2':  Math.abs(index - cityState.index) == 2,
-                                    'node3':  Math.abs(index - cityState.index) >= 3
-                            }">{{item.name}}</li>
+                        <li class="f-toe" v-for="(item, index) in yearState.length" :class="{
+                                    'current': index === yearState.selectedId,
+                                    'node1':  Math.abs(index - yearState.selectedId) == 1,
+                                    'node2':  Math.abs(index - yearState.selectedId) == 2,
+                                    'node3':  Math.abs(index - yearState.selectedId) >= 3
+                                }">{{index+startYear}}</li>
                         <li></li>
                         <li></li>
                         <li></li>
                     </ul>
                 </div>
                 <div class="f-flex1 f-tac f-oh ProvCityContentList">
-                    <ul :class="{'area_dragging': areaState.dragging}" @touchstart="_onTouchStart('area', $event)" @mousedown="_onTouchStart('area', $event)" :style="{'transform' : 'translate3d(0,' + areaState.translateY + 'px, 0)'}">
+                    <ul :class="{'city_dragging': monthState.dragging}" @touchstart="_onTouchStart('month', $event)" @mousedown="_onTouchStart('month', $event)" :style="{'transform' : 'translate3d(0,' + monthState.translateY + 'px, 0)'}">
                         <li></li>
                         <li></li>
                         <li></li>
-                        <li class="f-toe"  v-for="(item, index) in areaState.data" :data-name="item.name" :data-id="item.code" :data-parentid="item.parentid" :class="{
-                            'current': item.code === areaState.selectedId,
-                            'node1':  Math.abs(index - areaState.index) == 1,
-                            'node2':  Math.abs(index - areaState.index) == 2,
-                            'node3':  Math.abs(index - areaState.index) >= 3
-                        }">{{item.name}}</li>
+                        <li class="f-toe" v-for="(item, index) in monthState.length"  :class="{
+                                    'current': index === monthState.selectedId,
+                                    'node1':  Math.abs(index - monthState.selectedId) == 1,
+                                    'node2':  Math.abs(index - monthState.selectedId) == 2,
+                                    'node3':  Math.abs(index - monthState.selectedId) >= 3
+                            }">{{item}}</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="f-flex1 f-tac f-oh ProvCityContentList">
+                    <ul :class="{'area_dragging': dayState.dragging}" @touchstart="_onTouchStart('day', $event)" @mousedown="_onTouchStart('day', $event)" :style="{'transform' : 'translate3d(0,' + dayState.translateY + 'px, 0)'}">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li class="f-toe"  v-for="(item, index) in dayState.length" :class="{
+                            'current': index.code === dayState.selectedId,
+                            'node1':  Math.abs(index - dayState.selectedId) == 1,
+                            'node2':  Math.abs(index - dayState.selectedId) == 2,
+                            'node3':  Math.abs(index - dayState.selectedId) >= 3
+                        }">{{item}}</li>
                         <li></li>
                         <li></li>
                         <li></li>
@@ -63,119 +63,107 @@
     </div>
 </template>
 <script>
-import {
-    mapGetters,
-    mapActions
-} from 'vuex';
-import {
-    province,
-    city,
-    area
-} from './data';
+/**
+ * datetime
+ * @module components/datetime
+ * @desc 日期滚动组件
+ * @param bol show - 显示隐藏
+ * @param obj defaultTime - 默认事件设置 如果没有设置,会有默认值(当前时间)
+ * @param Number startYear - 开始的年份
+ * @param Number yearRange - 时间范围
+ * @param String title - 头部中间文字
+ * @param String cancel - 头部左边文字
+ * @param String confirm - 头部右边文字
+ * @example
+ * <cubee-dateTime :show="dateTimeStatus" :defaultTime="setTime" :startYear="1970" :yearRange="50"></cubee-dateTime>
+ */
 export default {
     data: function() {
         return {
-            areaResult: null,
             target: '',
-            provinceState: {
-                data: null,
+            yearState: {
                 selectedId: null,
-                index: 0,
                 startPos: null,
                 translateY: 0,
                 startTranslateY: 0,
-                dragging: false
+                dragging: false,
+                length: null,
             },
-            cityState: {
-                data: null,
+            monthState: {
                 selectedId: null,
-                index: 0,
                 startPos: null,
                 translateY: 0,
                 startTranslateY: 0,
-                dragging: false
+                dragging: false,
+                length: 12,
             },
-            areaState: {
-                data: null,
+            dayState: {
                 selectedId: null,
-                index: 0,
                 startPos: null,
                 translateY: 0,
                 startTranslateY: 0,
-                dragging: false
+                dragging: false,
+                length: null,
             },
             delta: 0,
-            slideEls: null
+            slideHeight: null,
         }
     },
-    created: function() {
-        this.init();
-        this._onTouchMove = this._onTouchMove.bind(this);
-        this._onTouchEnd = this._onTouchEnd.bind(this);
-    },
     methods: {
-        ...mapActions([
-            'setAreaStatus'
-        ]),
-        init() {
-            this.provinceState.data = province;
-            this.provinceState.selectedId = 110000; //北京市  省
-            this.cityState.selectedId = 110100; //市辖区  市
-            this.areaState.selectedId = 110101; //东城区  区
-            this.filterCity();
-            this.filterArea();
+        reset() {
+            this.yearState.length = this.yearRange;  
+            this.slideHeight = document.querySelector(".ProvCityContentList").getElementsByTagName("li")[0].clientHeight;
+            this.yearState.selectedId = this.defaultTime.year ? ( this.defaultTime.year - this.startYear) : (new Date().getFullYear() - this.startYear); //年
+            this.monthState.selectedId = this.defaultTime.month ? this.defaultTime.month - 1 : (new Date().getMonth()); //月
+            this.dayState.selectedId = this.defaultTime.day ? this.defaultTime.day - 1 : (new Date().getDate() - 1); //日
+            this.getDays();
+            this.yearState.translateY = -this.slideHeight * this.yearState.selectedId;
+            this.monthState.translateY = -this.slideHeight * this.monthState.selectedId;
+            this.dayState.translateY = -this.slideHeight * this.dayState.selectedId;
+        },
+        close() {
+            this.$parent.dateTimeStatus = false;
         },
         submit() {
-            var areaResult = {
-                'province': this.provinceState.data[this.provinceState.index],
-                'city': this.cityState.data[this.cityState.index],
-                'area': this.areaState.data[this.areaState.index]
+            var dateTimeResult = {
+                'year': this.yearState.selectedId+this.startYear,
+                'month': this.monthState.selectedId+1,
+                'day': this.dayState.selectedId+1
             };
-            this.$parent.areaResult = areaResult;
-            this.setAreaStatus(false);
+            this.$parent.setTime = dateTimeResult;
+            this.$parent.dateTimeStatus = false;
+            this.$parent.dateTimeResult = dateTimeResult.year + '.' + dateTimeResult.month + '.' + dateTimeResult.day;
         },
-        filterCity() {
-            this.cityState.data = city.filter((item, index) => {
-                return item.parentId === this.provinceState.selectedId;
-            })
-            this.cityState.selectedId = this.cityState.data[0] && this.cityState.data[0].code;
-            this.cityState.translateY = 0;
-            this.cityState.index = 0;
-        },
-        filterArea() {
-            this.areaState.data = area.filter((item, index) => {
-                return item.parentId === this.cityState.selectedId;
-            })
-            this.areaState.selectedId = this.areaState.data[0] && this.areaState.data[0].code;
-            this.areaState.translateY = 0;
-            this.areaState.index = 0;
+        getDays() {
+            let dates = new Date(this.yearState.selectedId+this.startYear,this.monthState.selectedId+1,0).getDate();
+            if(this.dayState.selectedId > dates - 1) {
+                this.dayState.selectedId = dates - 1;
+                this.dayState.translateY = -this.slideHeight * this.dayState.selectedId;
+            }
+            this.dayState.length = dates;
         },
         getSelectedData(index) {
             let target = this.target;
             let thisData = this[target + 'State'];
-            thisData.selectedId = thisData.data[index].code;
-            if (target === 'province') {
-                this.filterCity();
-                this.filterArea();
-            }
-            if (target === 'city') {
-                this.filterArea();
+            thisData.selectedId = index;
+            if (target === 'year' || target === "month") {
+                this.getDays();
             }
         },
         setPage() {
             let target = this.target;
             let thisData = this[target + 'State'];
-            let clientHeight = this.slideEls[0]['clientHeight'];
-            let total = thisData.data.length;
+            let clientHeight = this.slideHeight;
+            let total = thisData.length;
             let goPage = Math.round((thisData.translateY / clientHeight).toFixed(1));
             if (goPage > 0) {
                 goPage = 0;
             }
             goPage = total - 1 >= Math.abs(goPage) ? goPage : -(total - 1);
             let index = Math.abs(goPage);
-            thisData.index = index;
             this.getSelectedData(index);
             thisData.translateY = goPage * clientHeight;
+            console.log(this.yearState.selectedId+this.startYear,this.monthState.selectedId+1,this.dayState.selectedId+1);
         },
         _getTouchPos(e) {
             return e.changedTouches ? e.changedTouches[0]['pageY'] : e['pageY'];
@@ -186,9 +174,10 @@ export default {
             return Array.from(e.currentTarget.children).slice(3, -3);
         },
         _onTouchStart(target, e) {
+            
             let thisData = this[target + 'State'];
             this.target = target;
-            this.slideEls = this._getElem(e);
+            // this.slideEls = this._getElem(e);
             this.delta = 0;
             thisData.startPos = this._getTouchPos(e);
             thisData.startTranslateY = thisData.translateY;
@@ -223,9 +212,9 @@ export default {
         }
     },
     props: {
-        'result': {
+        'defaultTime': {
             type: Object,
-            default: null
+            default: {}
         },
         'show': Boolean,
         'title': {
@@ -239,6 +228,23 @@ export default {
         'cancel': {
             type: String,
             default: '取消'
+        },
+        'startYear': {
+            type: Number,
+            default: 2000
+        },
+        'yearRange': {
+            type: Number,
+            default: 30
+        }
+    },
+    watch: {
+        'show' (val) {
+            if(val) {
+                setTimeout(()=>{
+                    this.reset();
+                },50) 
+            }
         }
     }
 }

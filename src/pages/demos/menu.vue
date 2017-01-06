@@ -2,29 +2,62 @@
     <div class="m-menu view">
         <div class="wrapper">
             <div class="scroller">
-                <div class="slide">
-                    <router-link :to="{ path:'/pull-refresh', exact: true, activeClass:'current'}" replace class="item">pull-up-refresh</router-link>
-                </div>
+                <router-link :to="{ path:'/pull-refresh', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        pull-up-refresh(上拉刷新/下拉加载)
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/radio', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        radio（单选框）
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/checkbox', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        checkbox（复选框）
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/select', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        select-drop(下拉框-下拉)
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/select-scroll', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        select-scroll(下拉框-滚动)
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/area', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        area-scroll(地区联动-滚动)
+                    </div>
+                </router-link>
+                <router-link :to="{ path:'/datetime', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        datetime(时间联动-滚动)
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>
 </template>
 <script>
 export default {
+    name: 'menu',
     data() {
-            return {
-
-            }
-        },
-        methods: {
-
-        },
-        created: function() {
-
-        },
-        mounted: function() {
+        return {
 
         }
+    },
+    methods: {
+
+    },
+    created: function() {
+
+    },
+    mounted: function() {
+
+    }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -36,9 +69,13 @@ $bcolor:#5682D9;
         line-height: 60px;
         color: #fff;
         text-align: center;
-        background: gray;
+        background: #385FB5;
         margin-top: 10px;
         font-size: 14px;
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
     }
 }
 </style>

@@ -12,6 +12,10 @@
 .f-flexc { -webkit-box-orient: vertical; -webkit-flex-flow: column; flex-flow: column; }
 // 子元素水平居中排列
 .f-flextc { -webkit-box-align: center; -webkit-justify-content: center; justify-content: center; }
+// 子元素水平居左排列
+.f-flextl { -webkit-box-align: start; -webkit-justify-content: flex-start; justify-content: flex-start; }
+// 子元素水平居右排列
+.f-flextr { -webkit-box-align: end; -webkit-justify-content: flex-end; justify-content: flex-end; }
 // 子元素垂直居中排列
 .f-flexvc { -webkit-box-pack: center; -webkit-align-items: center; align-items: center; }
 // 子元素分配剩余空间
