@@ -19,4 +19,3 @@ export const setRuleStatus = ({ commit, state }, ruleStatus) => {
 export const setShopList = ({ commit, state }, shopList) => {
   commit(types.SET_SHOP_LIST, { shopList })
 }
-

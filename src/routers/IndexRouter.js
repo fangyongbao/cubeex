@@ -63,7 +63,19 @@ const router = new VueRouter({
         component: (resolve) => {
             require(['../pages/demos/datetime'], resolve);
         }
+    },{
+        name: 'dialog',
+        path: '/dialog',
+        component: (resolve) => {
+            require(['../pages/demos/dialog'], resolve);
+        }
     }, {
+        name: 'diaExam',
+        path: '/diaExam',
+        component: (resolve) => {
+            require(['../pages/demos/dialog/diaExam'], resolve);
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]

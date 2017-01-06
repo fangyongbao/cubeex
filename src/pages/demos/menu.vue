@@ -37,6 +37,11 @@
                         datetime(时间联动-滚动)
                     </div>
                 </router-link>
+                <router-link :to="{ path:'/dialog', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        dialog(弹窗)
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>
