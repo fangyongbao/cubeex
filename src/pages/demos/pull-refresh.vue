@@ -28,16 +28,17 @@ export default {
         CubeePullRefresh
     },
     methods: {
-        scrollInit() {
-            console.log('init');
-            let pullRefreshEl = this.$refs.pullRefreshEl;
+        refreshScrollHeight() {
+            let that = this;
+            let pullRefreshEl = that.$refs.pullRefreshEl;
             pullRefreshEl.$nextTick(function() {
                 setTimeout(() => {
-                    pullRefreshEl._init();
+                    pullRefreshEl.refresh();
                 }, 50)
             })
         },
         pullDownAction() {
+            let that = this;
             let data = [{
                 matchId: 1,
                 homeName: '皇马1',
@@ -78,15 +79,39 @@ export default {
                 matchId: 2,
                 homeName: '皇马1',
                 awayName: '巴萨1'
+            }, {
+                matchId: 3,
+                homeName: '皇马1',
+                awayName: '巴萨1'
+            }, {
+                matchId: 4,
+                homeName: '皇马1',
+                awayName: '巴萨1'
+            }, {
+                matchId: 1,
+                homeName: '皇马1',
+                awayName: '巴萨1'
+            }, {
+                matchId: 2,
+                homeName: '皇马1',
+                awayName: '巴萨1'
+            }, {
+                matchId: 3,
+                homeName: '皇马1',
+                awayName: '巴萨1'
+            }, {
+                matchId: 4,
+                homeName: '皇马1',
+                awayName: '巴萨1'
             }];
-
             setTimeout(() => {
-                this.matchList = this.matchList.concat(data);
-                this.$refs.pullRefreshEl.refresh();
-                //console.log('down');
+                that.matchList = data;
+                that.refreshScrollHeight();
+                console.log('down');
             }, 400);
         },
         pullUpAction() {
+            let that = this;
             let data = [{
                 matchId: 1,
                 homeName: '皇马',
@@ -153,67 +178,15 @@ export default {
                 awayName: '巴萨'
             }]
             setTimeout(() => {
-                this.matchList = this.matchList.concat(data);
-            }, 400);
-        },
-        getData() {
-            let data = [{
-                matchId: 1,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 2,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 3,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 4,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            },{
-                matchId: 1,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 2,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 3,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 4,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            },{
-                matchId: 1,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 2,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 3,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }, {
-                matchId: 4,
-                homeName: '皇马2',
-                awayName: '巴萨2'
-            }];
-            setTimeout(() => {
-                this.matchList = data;
-                this.scrollInit();
+                that.matchList = that.matchList.concat(data);
+                that.refreshScrollHeight();
+                console.log('up');
             }, 400);
         }
     },
     mounted() {
-        this.getData();
+        let that = this;
+        that.pullDownAction();
     }
 }
 </script>
@@ -227,9 +200,6 @@ export default {
         color: #fff;
         background: #385FB5;
         font-size: 14px;
-    }
-    .item:nth-of-type(1) {
-        margin: 0;
     }
     .itemC {
         line-height: 60px;
