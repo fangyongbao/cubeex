@@ -25,7 +25,7 @@ cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰�
 [area-scroll(地区联动-滚动)](http://www.best-html5.net/cubee/cubeex/#/area)<br>
 [datetime-scroll(日期筛选-滚动)](http://www.best-html5.net/cubee/cubeex/#/datetime)<br>
 [dialog(弹窗)](http://www.best-html5.net/cubee/cubeex/#/dialog)<br>
-[addressBook(通讯录)](http://www.best-html5.net/cubee/cubeex/#/addressBook)<br>
+[addressBook(通讯录)](http://www.best-html5.net/cubee/cubeex/#/address-book)<br>
 
 **使用方式：**<br>
 >
