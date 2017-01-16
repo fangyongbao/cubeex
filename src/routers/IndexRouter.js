@@ -70,6 +70,12 @@ const router = new VueRouter({
             require(['../pages/demos/dialog'], resolve);
         }
     },{
+        name: 'address-book',
+        path: '/address-book',
+        component: (resolve) => {
+            require(['../pages/demos/address-book'], resolve);
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]

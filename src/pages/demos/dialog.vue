@@ -7,16 +7,6 @@
             </div>
             <cubee-dialog :dialogId="dialogId"  :close="close" :title="title" :content="content" :button="button" :isDiaShow="isDiaShow">
             </cubee-dialog>
-            <!-- <div class="btn" @click="openDia1">
-                带关闭按钮有确认按纽
-            </div>
-            <cubee-dialog :dialogId="dialogId1"  :close="close" :title="title1" :content="content" :button="button" :isDiaShow="isDiaShow1">
-            </cubee-dialog> -->
-            <!-- <dia-exam :isDiaShow="isDiaShow"></dia-exam> -->
-            <!-- <div class="btn" @click="openDia1">
-                带标题有确认按纽
-            </div>
-            <dia-exam1 :isDiaShow="isDiaShow"></dia-exam1> -->
         </div>
     </div>
 </template>
