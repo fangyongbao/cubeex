@@ -76,6 +76,12 @@ const router = new VueRouter({
             require(['../pages/demos/address-book'], resolve);
         }
     },{
+        name: 'scroll',
+        path: '/scroll',
+        component: (resolve) => {
+            require(['../pages/demos/scroll'], resolve);
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]

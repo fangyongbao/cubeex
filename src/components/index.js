@@ -7,7 +7,7 @@ import CubeeSelectScroll from './select-scroll'
 import CubeeDateTime from './datetime'
 import CubeeDialog from './dialog'
 import CubeeAddressBook from './address-book'
-
+import CubeeScroll from './scroll'
 
 const cubeex = {
     CubeeArea,
@@ -18,7 +18,8 @@ const cubeex = {
     CubeeSelectScroll,
     CubeeDateTime,
     CubeeDialog,
-    CubeeAddressBook
+    CubeeAddressBook,
+    CubeeScroll
 }
 
 module.exports = cubeex

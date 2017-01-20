@@ -45,6 +45,11 @@
                 dialog(弹窗)
             </div>
         </router-link>
+        <router-link :to="{ path:'/scroll', activeClass:'current'}" class="item">
+            <div class="slide">
+                scroll
+            </div>
+        </router-link>
     </div>
 </template>
 <script>
