@@ -82,6 +82,12 @@ const router = new VueRouter({
             require(['../pages/demos/scroll'], resolve);
         }
     },{
+        name: 'swiper',
+        path: '/swiper',
+        component: (resolve) => {
+            require(['../pages/demos/swiper'], resolve);
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]

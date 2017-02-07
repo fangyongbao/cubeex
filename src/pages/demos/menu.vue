@@ -50,9 +50,19 @@
                 scroll
             </div>
         </router-link>
+        <router-link :to="{ path:'/swiper', activeClass:'current'}" class="item">
+            <div class="slide">
+                swiper
+            </div>
+        </router-link>
+        <cubee-loading></cubee-loading>
     </div>
 </template>
 <script>
+import {
+    CubeeLoading
+} from '../../components';
+import { mapActions } from 'vuex'
 export default {
     name: 'menu',
     data() {
@@ -60,14 +70,28 @@ export default {
 
         }
     },
+    components: {
+        CubeeLoading
+    },
     methods: {
-
+        ...mapActions([
+            'setLoadStatus',
+        ]),
     },
     created: function() {
 
     },
     mounted: function() {
-
+        this.setLoadStatus({
+            msg: '加载中...',
+            isShow: true
+        })
+        setTimeout(() => {
+            this.setLoadStatus({
+                msg: '',
+                isShow: false
+            })
+        },2000)
     }
 }
 </script>
