@@ -1,6 +1,5 @@
 import 'babel-polyfill';
 import Vue from 'vue';
-import 'babel-polyfill';
 import 'common.scss';
 import 'flex.scss';
 import 'animate.scss';

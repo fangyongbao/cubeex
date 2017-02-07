@@ -71,7 +71,7 @@ input, button, textarea, select, optgroup, option {
 // 表格布局固定
 .f-tlf { table-layout: fixed; }
 // 溢出弹性滚动
-.f-ot{ -webkit-overflow-scrolling: touch; overflow-scrolling: touch; overflow: auto; }
+.f-ot{ overflow-y : auto; -webkit-overflow-scrolling: touch;}
 
 // 第三方字体库
 @font-face { font-family: "webfont-syht"; src: url('../font/syht/webfont.eot'); src: url('../font/syht/webfont.eot?#iefix') format('embedded-opentype'), url('../font/syht/webfont.woff') format('woff'), url('../font/syht/webfont.ttf') format('truetype'), url('../font/syht/webfont.svg#webfont') format('svg'); }

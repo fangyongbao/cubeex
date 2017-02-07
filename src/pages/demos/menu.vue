@@ -2,7 +2,12 @@
     <div class="f-ot m-menu view">
         <router-link :to="{ path:'/pull-refresh', activeClass:'current'}" class="item">
             <div class="slide">
-                pull-up-refresh(上拉刷新/下拉加载)
+                pull-up-refresh(上拉/下拉加载 基于iscroll4)
+            </div>
+        </router-link>
+        <router-link :to="{ path:'/pull-refresh-n', activeClass:'current'}" class="item">
+            <div class="slide">
+                pull-up-refresh-n(上拉/下拉加载 基于原生滚动)
             </div>
         </router-link>
         <router-link :to="{ path:'/address-book', activeClass:'current'}" class="item">

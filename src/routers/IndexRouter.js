@@ -19,61 +19,67 @@ const router = new VueRouter({
         name: 'menu',
         path: '/menu',
         component: (resolve) => {
-            require(['../pages/demos/menu.vue'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/menu.vue')), 'menu');
         }
     }, {
         name: 'pull-refresh',
         path: '/pull-refresh',
         component: (resolve) => {
-            require(['../pages/demos/pull-refresh'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/pull-refresh')), 'pull-refresh');
+        }
+    }, {
+        name: 'pull-refresh-n',
+        path: '/pull-refresh-n',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/pull-refresh-n')), 'pull-refresh-n');
         }
     }, {
         name: 'radio',
         path: '/radio',
         component: (resolve) => {
-            require(['../pages/demos/radio'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/radio')), 'radio');
         }
     }, {
         name: 'checkbox',
         path: '/checkbox',
         component: (resolve) => {
-            require(['../pages/demos/checkbox'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/checkbox')), 'checkbox');
         }
     }, {
         name: 'select',
         path: '/select',
         component: (resolve) => {
-            require(['../pages/demos/select'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/select')), 'select');
         }
     }, {
         name: 'select-scroll',
         path: '/select-scroll',
         component: (resolve) => {
-            require(['../pages/demos/select-scroll'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/select-scroll')), 'select-scroll');
         }
     }, {
         name: 'area',
         path: '/area',
         component: (resolve) => {
-            require(['../pages/demos/area'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/area')), 'area');
         }
     }, {
         name: 'datetime',
         path: '/datetime',
         component: (resolve) => {
-            require(['../pages/demos/datetime'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/datetime')), 'datetime');
         }
-    },{
+    }, {
         name: 'dialog',
         path: '/dialog',
         component: (resolve) => {
-            require(['../pages/demos/dialog'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/dialog')), 'dialog');
         }
-    },{
+    }, {
         name: 'address-book',
         path: '/address-book',
         component: (resolve) => {
-            require(['../pages/demos/address-book'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/address-book')), 'address-book');
         }
     },{
         name: 'scroll',
