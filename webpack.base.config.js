@@ -13,7 +13,8 @@ module.exports = {
     //输出文件
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'js/[name].js'
+        filename: 'js/[name].js?v=[chunkhash]',
+        chunkFilename: 'js/[name].js?v=[chunkhash]'
     },
 
     resolve: {

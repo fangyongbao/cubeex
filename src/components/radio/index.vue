@@ -8,17 +8,6 @@
     
 </template>
 <script>
-/**
- * radio
- * @module components/radio
- * @desc 单选框组件
- *
- * @param {object{}} option - 可以传入 {value: 'value'}
- * @param {string} value - 选中值
- *
- * @example
- * <Radio v-model="value1" :option="option" v-on:change="change"></Radio>
- */
 export default {
     name: 'radio',
     data() {

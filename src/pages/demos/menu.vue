@@ -5,6 +5,11 @@
                 pull-up-refresh(上拉刷新/下拉加载)
             </div>
         </router-link>
+        <router-link :to="{ path:'/pull-refresh-n', activeClass:'current'}" class="item">
+            <div class="slide">
+                pull-up-refresh-n(上拉刷新/下拉加载)
+            </div>
+        </router-link>
         <router-link :to="{ path:'/address-book', activeClass:'current'}" class="item">
             <div class="slide">
                 address-book(通讯录)
