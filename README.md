@@ -17,8 +17,11 @@ cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰�
 
 **目前包含的组件**<br>
 >
-[pull-up-refresh(上拉刷新/下拉加载 基于iscroll4)](http://www.best-html5.net/cubee/cubeex/#/pull-refresh)<br>
-[pull-up-refresh(上拉刷新/下拉加载 使用原生滚动实现)](http://www.best-html5.net/cubee/cubeex/#/pull-refresh-n)<br>
+[pull-up-refresh(上拉刷新/下拉加载 基于iscroll4)](http://www.best-html5.net/cubee/cubeex/#/pull-refresh-iscroll)<br>
+[pull-up-refresh(上拉刷新/下拉加载 基于xscroll)](http://www.best-html5.net/cubee/cubeex/#/pull-refresh-xscroll)<br>
+[pull-up-refresh(上拉刷新/下拉加载 使用原生滚动实现)](http://www.best-html5.net/cubee/cubeex/#/pull-refresh-nscroll)<br>
+[swiper(无缝切换)](http://www.best-html5.net/cubee/cubeex/#/swiper)<br>
+[addressBook(通讯录)](http://www.best-html5.net/cubee/cubeex/#/address-book)<br>
 [radio（单选框）](http://www.best-html5.net/cubee/cubeex/#/radio)<br>
 [checkbox（复选框）](http://www.best-html5.net/cubee/cubeex/#/checkbox)<br>
 [select-drop(下拉框-下拉)](http://www.best-html5.net/cubee/cubeex/#/select)<br>
@@ -26,7 +29,6 @@ cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰�
 [area-scroll(地区联动-滚动)](http://www.best-html5.net/cubee/cubeex/#/area)<br>
 [datetime-scroll(日期筛选-滚动)](http://www.best-html5.net/cubee/cubeex/#/datetime)<br>
 [dialog(弹窗)](http://www.best-html5.net/cubee/cubeex/#/dialog)<br>
-[addressBook(通讯录)](http://www.best-html5.net/cubee/cubeex/#/address-book)<br>
 
 **使用方式：**<br>
 >
