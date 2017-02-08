@@ -22,16 +22,22 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/menu.vue')), 'menu');
         }
     }, {
-        name: 'pull-refresh',
-        path: '/pull-refresh',
+        name: 'pull-refresh-iscroll',
+        path: '/pull-refresh-iscroll',
         component: (resolve) => {
-            require.ensure([], () => resolve(require('../pages/demos/pull-refresh')), 'pull-refresh');
+            require.ensure([], () => resolve(require('../pages/demos/pull-refresh-iscroll')), 'pull-refresh-iscroll');
         }
     }, {
-        name: 'pull-refresh-n',
-        path: '/pull-refresh-n',
+        name: 'pull-refresh-nscroll',
+        path: '/pull-refresh-nscroll',
         component: (resolve) => {
-            require.ensure([], () => resolve(require('../pages/demos/pull-refresh-n')), 'pull-refresh-n');
+            require.ensure([], () => resolve(require('../pages/demos/pull-refresh-nscroll')), 'pull-refresh-nscroll');
+        }
+    },{
+        name: 'pull-refresh-xscroll',
+        path: '/pull-refresh-xscroll',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/pull-refresh-xscroll')), 'pull-refresh-xscroll');
         }
     }, {
         name: 'radio',
@@ -80,12 +86,6 @@ const router = new VueRouter({
         path: '/address-book',
         component: (resolve) => {
             require.ensure([], () => resolve(require('../pages/demos/address-book')), 'address-book');
-        }
-    },{
-        name: 'scroll',
-        path: '/scroll',
-        component: (resolve) => {
-            require(['../pages/demos/scroll'], resolve);
         }
     },{
         name: 'swiper',

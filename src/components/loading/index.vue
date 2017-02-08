@@ -47,7 +47,7 @@
 			width: 0.6rem;
 			height: 0.6rem;
 			margin: 0 auto 0.3rem;
-			background: url(icon_loading.gif) center no-repeat;
+			background: url(icon.gif) center no-repeat;
 			background-size: cover;
 		}
 	}

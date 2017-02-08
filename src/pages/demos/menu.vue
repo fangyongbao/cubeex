@@ -1,13 +1,23 @@
 <template>
     <div class="f-ot m-menu view">
-        <router-link :to="{ path:'/pull-refresh', activeClass:'current'}" class="item">
+        <router-link :to="{ path:'/pull-refresh-iscroll', activeClass:'current'}" class="item">
             <div class="slide">
-                pull-up-refresh(上拉/下拉加载 基于iscroll4)
+                pull-refresh-iscroll(上拉/下拉加载 基于iscroll4)
             </div>
         </router-link>
-        <router-link :to="{ path:'/pull-refresh-n', activeClass:'current'}" class="item">
+        <router-link :to="{ path:'/pull-refresh-xscroll', activeClass:'current'}" class="item">
             <div class="slide">
-                pull-up-refresh-n(上拉/下拉加载 基于原生滚动)
+                pull-refresh-xcroll(上拉/下拉加载 基于xscroll)
+            </div>
+        </router-link>
+        <router-link :to="{ path:'/pull-refresh-nscroll', activeClass:'current'}" class="item">
+            <div class="slide">
+                pull-refresh-nscroll(上拉/下拉加载 基于原生滚动)
+            </div>
+        </router-link>
+        <router-link :to="{ path:'/swiper', activeClass:'current'}" class="item">
+            <div class="slide">
+                swiper(无缝切换)
             </div>
         </router-link>
         <router-link :to="{ path:'/address-book', activeClass:'current'}" class="item">
@@ -48,16 +58,6 @@
         <router-link :to="{ path:'/dialog', activeClass:'current'}" class="item">
             <div class="slide">
                 dialog(弹窗)
-            </div>
-        </router-link>
-        <router-link :to="{ path:'/scroll', activeClass:'current'}" class="item">
-            <div class="slide">
-                scroll
-            </div>
-        </router-link>
-        <router-link :to="{ path:'/swiper', activeClass:'current'}" class="item">
-            <div class="slide">
-                swiper
             </div>
         </router-link>
         <cubee-loading></cubee-loading>
