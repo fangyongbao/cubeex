@@ -81,7 +81,19 @@ const router = new VueRouter({
         component: (resolve) => {
             require.ensure([], () => resolve(require('../pages/demos/address-book')), 'address-book');
         }
-    }, {
+    },{
+        name: 'scroll',
+        path: '/scroll',
+        component: (resolve) => {
+            require(['../pages/demos/scroll'], resolve);
+        }
+    },{
+        name: 'swiper',
+        path: '/swiper',
+        component: (resolve) => {
+            require(['../pages/demos/swiper'], resolve);
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]
