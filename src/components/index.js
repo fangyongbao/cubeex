@@ -11,6 +11,7 @@ import CubeeAddressBook from './address-book'
 import CubeeScroll from './scroll'
 import CubeeSwiper from './swiper'
 import CubeeLoading from './loading'
+import CubeePreviewer from './previewer'
 
 const cubeex = {
     CubeeArea,
@@ -25,7 +26,8 @@ const cubeex = {
     CubeeAddressBook,
     CubeeScroll,
     CubeeSwiper,
-    CubeeLoading
+    CubeeLoading,
+    CubeePreviewer
 }
 
 module.exports = cubeex

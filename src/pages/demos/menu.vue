@@ -60,6 +60,11 @@
                 swiper
             </div>
         </router-link>
+        <router-link :to="{ path:'/previewer', activeClass:'current'}" class="item">
+            <div class="slide">
+                previewer
+            </div>
+        </router-link>
         <cubee-loading></cubee-loading>
     </div>
 </template>

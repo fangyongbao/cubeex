@@ -85,13 +85,19 @@ const router = new VueRouter({
         name: 'scroll',
         path: '/scroll',
         component: (resolve) => {
-            require(['../pages/demos/scroll'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/scroll')), 'scroll');
         }
     },{
         name: 'swiper',
         path: '/swiper',
         component: (resolve) => {
-            require(['../pages/demos/swiper'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/swiper')), 'swiper');
+        }
+    },{
+        name: 'previewer',
+        path: '/previewer',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/previewer')), 'previewer');
         }
     },{
         path: '*',
