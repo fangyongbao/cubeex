@@ -22,8 +22,6 @@
  * @example
  * <cubee-swiper ref="swiper1" :list="baseList" :is-indicator="false" :is-auto-play="true"></cubee-swiper>
  */
-	import $ from 'jquery';
-	
 	export default {
 		props: {
 			list: {
@@ -65,10 +63,9 @@
 		},
 		methods: {
 			init() {
-				let _this = this;
-				let swiperWrap = _this.swiper.querySelector(".swiper-wrap");
-				$(_this.swiper).ready(function(){
-					$(swiperWrap).width(_this.itemWidth*_this.baseList.length);
+				let swiperWrap = this.swiper.querySelector(".swiper-wrap");
+				this.$nextTick(function(){
+					swiperWrap.style.width = this.itemWidth*this.baseList.length + 'px';
 				})
 				if(this.isAutoPlay) {
 					this.autoPlay();
@@ -88,7 +85,6 @@
 					this.translateX += moveX;
 					this.touch.x = e.touches[0].clientX;
 				}
-				// this.touch.y = e.touches[0].clientY;
 			},
 			touchend(e) {
 				this.isTransition = true;
@@ -162,10 +158,12 @@
     		
     		this.$nextTick(function() {
     			this.swiper = this.$el;
-    			let swiperItem = this.swiper.querySelectorAll(".swiper-item");
-    			this.itemWidth = $(this.swiper).width();
+    			let swiperItems = this.swiper.querySelectorAll(".swiper-item");
+    			this.itemWidth = this.swiper.clientWidth;
     			this.translateX = -this.itemWidth;
-				$(swiperItem).width(this.itemWidth);
+    			for(let i = 0, len = swiperItems.length; i < len; i++) {
+    				swiperItems[i].style.width = this.itemWidth + 'px';
+    			}
     		})
     	}
 	}
