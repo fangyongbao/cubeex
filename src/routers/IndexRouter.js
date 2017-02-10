@@ -100,6 +100,12 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/previewer')), 'previewer');
         }
     },{
+        name: 'qrcode',
+        path: '/qrcode',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/qrcode')), 'qrcode');
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]

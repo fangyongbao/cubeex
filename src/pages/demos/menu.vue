@@ -65,6 +65,11 @@
                 previewer
             </div>
         </router-link>
+        <router-link :to="{ path:'/qrcode', activeClass:'current'}" class="item">
+            <div class="slide">
+                qrcode
+            </div>
+        </router-link>
         <cubee-loading></cubee-loading>
     </div>
 </template>
