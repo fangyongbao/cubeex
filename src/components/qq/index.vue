@@ -1,6 +1,6 @@
 <template>
     <div class="u-qq">
-        <a class="link" @click="callQq()">qq咨询</a>
+        <span class="link" @click="callQq()">qq咨询</span>
     </div>
 </template>
 <script>
@@ -15,13 +15,12 @@ export default {
     methods: {
         callQq() {
             window.open(
-                'http://wpa.b.qq.com/cgi/wpa.php?ln=2&amp;uin=' + this.account,
+                'http://wpa.b.qq.com/cgi/wpa.php?ln=2&uin=' + this.account,
                 '_blank',
-                'height = 544, width = 644, toolbar = no, scrollbars = no, menubar = no, status = no '
+                'height = 544, width = 644, toolbar = no, scrollbars = no, menubar = no, status = no'
             );
         }
     }
-
 }
 </script>
 <style lang="sass" scoped>
