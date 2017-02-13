@@ -1,5 +1,5 @@
 <template>
-    <div class="f-ot m-page m-menu">
+    <div class="f-ot view m-menu">
         <header-com :is-go-back="false" :title="'Demo'"></header-com>
         <ul>
             <router-link :to="{ path:'/pull-refresh-iscroll', activeClass:'current'}" tag="li">
@@ -170,7 +170,6 @@ $bcolor:#5682D9;
     .demos-item {
         height: 1rem;
         line-height: 1rem;
-        color: #fff;
         font-size: 12px;
         color: #9099B4;
         .icon {
@@ -183,6 +182,9 @@ $bcolor:#5682D9;
                 color: #2D3859;
             }
         }
+    }
+    .demos-item:active {
+        background: darken(#fff,10%);
     }
     li:nth-last-of-type(1) {
         .components {
