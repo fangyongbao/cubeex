@@ -11,11 +11,13 @@ const router = new VueRouter({
     abstract: true,
     // 定义路由根路径
     root: '',
-    redirect: {
-        // 重定向任意未匹配路径到 /home
-        '*': '/game'
-    },
     routes: [{
+        name: 'home',
+        path: '/home',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/home.vue')), 'home');
+        }
+    }, {
         name: 'menu',
         path: '/menu',
         component: (resolve) => {
@@ -107,7 +109,7 @@ const router = new VueRouter({
         }
     },{
         path: '*',
-        redirect: '/menu'
+        redirect: '/home'
     }]
 })
 
