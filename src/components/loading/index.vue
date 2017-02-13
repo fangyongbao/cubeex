@@ -5,7 +5,6 @@
 			<p>{{loadInfo.msg}}</p>
 		</div>
 	</transition>
-	</div>
 </template>
 
 <script>

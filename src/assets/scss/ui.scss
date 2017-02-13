@@ -19,3 +19,19 @@
 .u-table { display: table; width: 100% }
 .u-table .tr { display: table-row }
 .u-table .td { display: table-cell; vertical-align: middle }
+
+span,em,i {
+	display: inline-block;
+}
+
+// 单个按钮
+.u-button {
+	height: 0.9rem;
+	// line-height: 0.9rem;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 0.04rem;
+	font-size: 18px;
+	background: #358AD6;
+	color: white;
+}
