@@ -13,6 +13,7 @@ import CubeeSwiper from './swiper'
 import CubeeLoading from './loading'
 import CubeePreviewer from './previewer'
 import CubeeQrcode from './qrcode'
+import CubeeTab from './tab'
 
 const cubeex = {
     CubeeArea,
@@ -29,7 +30,8 @@ const cubeex = {
     CubeeSwiper,
     CubeeLoading,
     CubeePreviewer,
-    CubeeQrcode
+    CubeeQrcode,
+    CubeeTab
 }
 
 module.exports = cubeex
