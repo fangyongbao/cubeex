@@ -21,85 +21,83 @@
  * @example
  * <cubee-swiper ref="swiper1" :list="baseList" :is-indicator="false" :is-auto-play="true"></cubee-swiper>
  */
-import $ from 'jquery';
-export default {
-    props: {
-        list: {
-            type: Array,
-            default () {
-                return []
-            }
-        },
-        isIndicator: {
-            type: Boolean,
-            default () {
-                return true
-            }
-        },
-        isAutoPlay: {
-            type: Boolean,
-            default () {
-                return false
-            }
-        }
-    },
-    data() {
-        return {
-            swiper: null,
-            touch: {
-                x: 0,
-                y: 0
-            },
-            baseList: [],
-            itemWidth: 0,
-            translateX: 0,
-            translateY: 0,
-            direction: 'horizontal',
-            showIndex: 1,
-            indicatorIndex: 0,
-            isTransition: false,
-            autoPlayTimer: null,
-        }
-    },
-    methods: {
-        init() {
-            let _this = this;
-            let swiperWrap = _this.swiper.querySelector(".swiper-wrap");
-            $(_this.swiper).ready(function() {
-                $(swiperWrap).width(_this.itemWidth * _this.baseList.length);
-            })
-            if (this.isAutoPlay) {
-                this.autoPlay();
-            }
-        },
-        touchstart(e) {
-            this.touch.x = e.touches[0].clientX;
-            this.touch.y = e.touches[0].clientY;
-            if (this.isAutoPlay) {
-                clearInterval(this.autoPlayTimer);
-            }
-        },
-        touchmove(e) {
-            this.isTransition = false;
-            if (this.direction == "horizontal") {
-                let moveX = e.touches[0].clientX - this.touch.x;
-                this.translateX += moveX;
-                this.touch.x = e.touches[0].clientX;
-            }
-        },
-        touchend(e) {
-            this.isTransition = true;
-            if (this.translateX > (-this.showIndex * this.itemWidth + this.itemWidth / 2)) {
-                // 右滑动超过半张图
-                this.showIndex--;
-                this.translateX = -this.showIndex * this.itemWidth;
-            } else if (this.translateX < (-this.showIndex * this.itemWidth - this.itemWidth / 2)) {
-                // 左滑动超过半张图
-                this.showIndex++;
-                this.translateX = -this.showIndex * this.itemWidth;
-            } else {
-                this.translateX = -this.showIndex * this.itemWidth;
-            }
+	export default {
+		props: {
+			list: {
+				type: Array,
+				default () {
+					return []
+				}
+		    },
+		    isIndicator: {
+		    	type: Boolean,
+				default () {
+					return true
+				}
+		    },
+		    isAutoPlay: {
+		    	type: Boolean,
+				default () {
+					return false
+				}
+		    }
+		},
+		data() {
+			return {
+				swiper: null,
+				touch: {
+					x: 0,
+					y: 0
+				},
+				baseList: [],
+				itemWidth: 0,
+				translateX: 0,
+				translateY: 0,
+				direction: 'horizontal',
+				showIndex: 1,
+				indicatorIndex: 0,
+				isTransition: false,
+				autoPlayTimer: null,
+			}
+		},
+		methods: {
+			init() {
+				let swiperWrap = this.swiper.querySelector(".swiper-wrap");
+				this.$nextTick(function(){
+					swiperWrap.style.width = this.itemWidth*this.baseList.length + 'px';
+				})
+				if(this.isAutoPlay) {
+					this.autoPlay();
+				}
+			},
+			touchstart(e) {
+				this.touch.x = e.touches[0].clientX;
+				this.touch.y = e.touches[0].clientY;
+				if(this.isAutoPlay) {
+					clearInterval(this.autoPlayTimer);
+				}
+			},
+			touchmove(e) {
+				this.isTransition = false;
+				if(this.direction == "horizontal") {
+					let moveX = e.touches[0].clientX - this.touch.x;
+					this.translateX += moveX;
+					this.touch.x = e.touches[0].clientX;
+				}
+			},
+			touchend(e) {
+				this.isTransition = true;
+				if(this.translateX > (-this.showIndex * this.itemWidth + this.itemWidth/2)) {
+					// 右滑动超过半张图
+					this.showIndex--;
+					this.translateX = -this.showIndex * this.itemWidth;
+				} else if(this.translateX < (-this.showIndex * this.itemWidth - this.itemWidth/2)) {
+					// 左滑动超过半张图
+					this.showIndex++;
+					this.translateX = -this.showIndex * this.itemWidth;
+				} else {
+					this.translateX = -this.showIndex * this.itemWidth;
+				}
 
             this.indicator();
 
@@ -136,33 +134,43 @@ export default {
                         _this.translateX = -_this.showIndex * _this.itemWidth;
                     }
                 }, 500)
-
-            }, 4000)
-        },
-        indicator() {
-            // 图片下标标识
-            if (this.showIndex == 0) {
-                this.indicatorIndex = this.baseList.length - 3;
-            } else if (this.showIndex == this.baseList.length - 1) {
-                this.indicatorIndex = 0;
-            } else {
-                this.indicatorIndex = this.showIndex - 1;
-            }
-        }
-    },
-    mounted() {
-        this.baseList = this.list;
-        this.baseList.unshift(this.baseList[this.baseList.length - 1]); // 将最后一张图片复制一份放在数组的最前面
-        this.baseList.push(this.baseList[1]); // 将第一张图复制一份放在数组的最后面
-        this.$nextTick(function() {
-            this.swiper = this.$el;
-            let swiperItem = this.swiper.querySelectorAll(".swiper-item");
-            this.itemWidth = $(this.swiper).width();
-            this.translateX = -this.itemWidth;
-            $(swiperItem).width(this.itemWidth);
-        })
-    }
-}
+					setTimeout(function(){
+						_this.isTransition = false;
+						if(_this.showIndex == _this.baseList.length - 1) {
+							_this.showIndex = 1;
+							_this.translateX = -_this.showIndex * _this.itemWidth;
+						}
+					},500)
+					
+				},2000)
+			},
+			indicator() {
+				// 图片下标标识
+				if(this.showIndex == 0) {
+					this.indicatorIndex = this.baseList.length - 3;
+				} else if (this.showIndex == this.baseList.length - 1) {
+					this.indicatorIndex = 0;
+				} else {
+					this.indicatorIndex = this.showIndex - 1;
+				}
+			}
+    	},
+    	mounted() {
+    		this.baseList = this.list;
+    		this.baseList.unshift(this.baseList[this.baseList.length-1]); // 将最后一张图片复制一份放在数组的最前面
+    		this.baseList.push(this.baseList[1]); // 将第一张图复制一份放在数组的最后面
+    		
+    		this.$nextTick(function() {
+    			this.swiper = this.$el;
+    			let swiperItems = this.swiper.querySelectorAll(".swiper-item");
+    			this.itemWidth = this.swiper.clientWidth;
+    			this.translateX = -this.itemWidth;
+    			for(let i = 0, len = swiperItems.length; i < len; i++) {
+    				swiperItems[i].style.width = this.itemWidth + 'px';
+    			}
+    		})
+    	}
+	}
 </script>
 <style lang="sass" scoped>
 .m-swiper {

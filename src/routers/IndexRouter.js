@@ -91,7 +91,19 @@ const router = new VueRouter({
         name: 'swiper',
         path: '/swiper',
         component: (resolve) => {
-            require(['../pages/demos/swiper'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/swiper')), 'swiper');
+        }
+    },{
+        name: 'previewer',
+        path: '/previewer',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/previewer')), 'previewer');
+        }
+    },{
+        name: 'qrcode',
+        path: '/qrcode',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/qrcode')), 'qrcode');
         }
     },{
         path: '*',

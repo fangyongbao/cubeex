@@ -60,6 +60,16 @@
                 dialog(弹窗)
             </div>
         </router-link>
+        <router-link :to="{ path:'/previewer', activeClass:'current'}" class="item">
+            <div class="slide">
+                previewer
+            </div>
+        </router-link>
+        <router-link :to="{ path:'/qrcode', activeClass:'current'}" class="item">
+            <div class="slide">
+                qrcode
+            </div>
+        </router-link>
         <cubee-loading></cubee-loading>
     </div>
 </template>
