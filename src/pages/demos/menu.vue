@@ -114,6 +114,14 @@
                     </div>
                 </div>
             </router-link>
+            <router-link :to="{ path:'/qq', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-dialog"></div>
+                    <div class="f-flex1 components">
+                        <span>qq</span>(qq在线客服)
+                    </div>
+                </div>
+            </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
         <cubee-loading></cubee-loading>

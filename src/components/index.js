@@ -13,6 +13,7 @@ import CubeeSwiper from './swiper'
 import CubeeLoading from './loading'
 import CubeePreviewer from './previewer'
 import CubeeQrcode from './qrcode'
+import CubeeQq from './qq'
 import CubeeTab from './tab'
 
 const cubeex = {
@@ -31,6 +32,7 @@ const cubeex = {
     CubeeLoading,
     CubeePreviewer,
     CubeeQrcode,
+    CubeeQq,
     CubeeTab
 }
 
