@@ -2,7 +2,7 @@
 
 [项目地址](http://www.best-html5.net/cubee/cubeex)
 
-<img src="http://zqmfcdn.huanhuba.com/publicH5/img/cubeex/logo.png" style="width: 60%;display: block; margin: 10px auto;">
+![cubeex logo](http://zqmfcdn.huanhuba.com/publicH5/img/cubeex/logo.png)
 
 cubeex是基于vue2.0开发的组件库，将包含一套完整的移动UI。这也是[魔方元科技](http://www.cubee.com)开源的首个H5相关的项目, 这里有一群对前端技术狂热的追求者, 如果你对我们的研发感兴趣，欢迎fork。
 
