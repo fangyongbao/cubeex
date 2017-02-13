@@ -22,6 +22,8 @@ cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰�
 [pull-up-refresh(上拉刷新/下拉加载 使用原生滚动实现)](http://www.best-html5.net/cubee/cubeex/#/pull-refresh-nscroll)<br>
 [swiper(无缝切换)](http://www.best-html5.net/cubee/cubeex/#/swiper)<br>
 [addressBook(通讯录)](http://www.best-html5.net/cubee/cubeex/#/address-book)<br>
+[previewer(图片预览)](http://www.best-html5.net/cubee/cubeex/#/previewer)<br>
+[qrcode(生成二维码)](http://www.best-html5.net/cubee/cubeex/#/qrcode)<br>
 [radio（单选框）](http://www.best-html5.net/cubee/cubeex/#/radio)<br>
 [checkbox（复选框）](http://www.best-html5.net/cubee/cubeex/#/checkbox)<br>
 [select-drop(下拉框-下拉)](http://www.best-html5.net/cubee/cubeex/#/select)<br>

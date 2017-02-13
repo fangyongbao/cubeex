@@ -17,8 +17,8 @@ export default {
         return {
             codeUrl: '',
             codeConfig: {
-                colorDark : "red",
-                colorLight: 'blue'
+                colorDark : "#fff",
+                colorLight: '#000'
             }
         }
     },
@@ -45,5 +45,11 @@ export default {
     .m-qrcode-demo{
         overflow: scroll;
         -webkit-overflow-scrolling: touch;
+    }
+    button{
+        font-size: 14px;
+        border: 1px solid #e0e0e0;
+        margin: 10px auto;
+        display: block;
     }
 </style>

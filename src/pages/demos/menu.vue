@@ -20,6 +20,16 @@
                 swiper(无缝切换)
             </div>
         </router-link>
+        <router-link :to="{ path:'/previewer', activeClass:'current'}" class="item">
+            <div class="slide">
+                previewer(图片预览)
+            </div>
+        </router-link>
+        <router-link :to="{ path:'/qrcode', activeClass:'current'}" class="item">
+            <div class="slide">
+                qrcode(生成二维码)
+            </div>
+        </router-link>
         <router-link :to="{ path:'/address-book', activeClass:'current'}" class="item">
             <div class="slide">
                 address-book(通讯录)
@@ -60,16 +70,6 @@
                 dialog(弹窗)
             </div>
         </router-link>
-        <router-link :to="{ path:'/previewer', activeClass:'current'}" class="item">
-            <div class="slide">
-                previewer
-            </div>
-        </router-link>
-        <router-link :to="{ path:'/qrcode', activeClass:'current'}" class="item">
-            <div class="slide">
-                qrcode
-            </div>
-        </router-link>
         <cubee-loading></cubee-loading>
     </div>
 </template>
@@ -77,7 +77,9 @@
 import {
     CubeeLoading
 } from '../../components';
-import { mapActions } from 'vuex'
+import {
+    mapActions
+} from 'vuex'
 export default {
     name: 'menu',
     data() {
@@ -106,7 +108,7 @@ export default {
                 msg: '',
                 isShow: false
             })
-        },2000)
+        }, 2000)
     }
 }
 </script>
