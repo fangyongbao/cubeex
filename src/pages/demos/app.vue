@@ -50,7 +50,7 @@ body {
     overflow: hidden;
     .g-main {
         height: 100%;
-        .m-page {
+        .view {
             position: absolute;
             top: 0;
             bottom: 0;
