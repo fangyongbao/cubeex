@@ -19,7 +19,7 @@ import {
 } from '../../components';
 import HeaderCom from './header';
 export default {
-    name: 'pull-refresh-n-demo',
+    name: 'pull-refresh-nscroll-demo',
     data() {
         return {
             matchList: [],
@@ -110,7 +110,7 @@ export default {
                 _this.matchList = data;
                 _this.refreshContainer();
                 console.log('down');
-            }, 1000);
+            }, 400);
         },
         pullUpAction() {
             let _this = this;
@@ -188,7 +188,7 @@ export default {
                 _this.isLoading = false;
                 _this.refreshContainer();
                 console.log('up');
-            }, 1000);
+            }, 400);
         }
     },
     mounted() {

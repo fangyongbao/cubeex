@@ -1,6 +1,7 @@
 import CubeeArea from './area'
-import CubeePullRefresh from './pull-refresh/iscroll4'
-import CubeePullRefreshN from './pull-refresh-n'
+import CubeePullRefreshI from './pull-refresh-iscroll'
+import CubeePullRefreshX from './pull-refresh-xscroll'
+import CubeePullRefreshN from './pull-refresh-nscroll'
 import CubeeRadio from './radio'
 import CubeeCheckbox from './checkbox'
 import CubeeSelect from './select'
@@ -8,7 +9,6 @@ import CubeeSelectScroll from './select-scroll'
 import CubeeDateTime from './datetime'
 import CubeeDialog from './dialog'
 import CubeeAddressBook from './address-book'
-import CubeeScroll from './scroll'
 import CubeeSwiper from './swiper'
 import CubeeLoading from './loading'
 import CubeePreviewer from './previewer'
@@ -16,7 +16,8 @@ import CubeeQrcode from './qrcode'
 
 const cubeex = {
     CubeeArea,
-    CubeePullRefresh,
+    CubeePullRefreshI,
+    CubeePullRefreshX,
     CubeePullRefreshN,
     CubeeRadio,
     CubeeCheckbox,
@@ -25,7 +26,6 @@ const cubeex = {
     CubeeDateTime,
     CubeeDialog,
     CubeeAddressBook,
-    CubeeScroll,
     CubeeSwiper,
     CubeeLoading,
     CubeePreviewer,

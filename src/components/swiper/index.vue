@@ -1,16 +1,15 @@
 <template>
-	<div class="m-swiper f-pr">
-		<ul class="swiper-wrap f-cb" @touchstart="touchstart($event)" @touchmove="touchmove($event)" @touchend="touchend($event)" :style="{'transform' : 'translate3d('+translateX+'px,' + translateY + 'px, 0)','-webkit-transform' : 'translate3d('+translateX+'px,' + translateY + 'px, 0)'}" :class="{ 'isTransition' :  isTransition}">
-			<li class="swiper-item f-fl" v-for="item in baseList">
-				<img :src="item.img" alt="">
-			</li>
-		</ul>
-		<ul class="indicator-wrap f-pa" v-show="isIndicator" v-if="baseList.length-2 > 0">
-			<li class="indicator-item f-fl" v-for="(item,index) in baseList.length-2" :class="{ 'indicator-item-active' : index == indicatorIndex }"></li>
-		</ul>
-	</div>
+    <div class="m-swiper f-pr">
+        <ul class="swiper-wrap f-cb" @touchstart="touchstart($event)" @touchmove="touchmove($event)" @touchend="touchend($event)" :style="{'transform' : 'translate3d('+translateX+'px,' + translateY + 'px, 0)','-webkit-transform' : 'translate3d('+translateX+'px,' + translateY + 'px, 0)'}" :class="{ 'isTransition' :  isTransition}">
+            <li class="swiper-item f-fl" v-for="item in baseList">
+                <img :src="item.img" alt="">
+            </li>
+        </ul>
+        <ul class="indicator-wrap f-pa" v-show="isIndicator" v-if="baseList.length-2 > 0">
+            <li class="indicator-item f-fl" v-for="(item,index) in baseList.length-2" :class="{ 'indicator-item-active' : index == indicatorIndex }"></li>
+        </ul>
+    </div>
 </template>
-
 <script>
 /**
  * swiper
@@ -100,36 +99,41 @@
 					this.translateX = -this.showIndex * this.itemWidth;
 				}
 
-				this.indicator();
+            this.indicator();
 
-				setTimeout(() => {
-					this.isTransition = false;
-					if(this.showIndex == 0) {
-						this.showIndex = this.baseList.length - 2;
-						this.translateX = -this.showIndex * this.itemWidth;
-					} else if(this.showIndex == this.baseList.length - 1) {
-						this.showIndex = 1;
-						this.translateX = -this.showIndex * this.itemWidth;
-					}
-				},500)
+            setTimeout(() => {
+                this.isTransition = false;
+                if (this.showIndex == 0) {
+                    this.showIndex = this.baseList.length - 2;
+                    this.translateX = -this.showIndex * this.itemWidth;
+                } else if (this.showIndex == this.baseList.length - 1) {
+                    this.showIndex = 1;
+                    this.translateX = -this.showIndex * this.itemWidth;
+                }
+            }, 500)
 
-				if(this.isAutoPlay) {
-					setTimeout(() => {
-						this.autoPlay();
-					},1000)
-				}
-			},
-			autoPlay() {
-				clearInterval(this.autoPlayTimer);
-				let _this = this;
-				
-				this.autoPlayTimer = setInterval(function() {
-					_this.isTransition = true;
-					_this.showIndex++;
-					_this.translateX = -_this.showIndex * _this.itemWidth;
+            if (this.isAutoPlay) {
+                setTimeout(() => {
+                    this.autoPlay();
+                }, 1000)
+            }
+        },
+        autoPlay() {
+            clearInterval(this.autoPlayTimer);
+            let _this = this;
 
-					_this.indicator();
-
+            this.autoPlayTimer = setInterval(function() {
+                _this.isTransition = true;
+                _this.showIndex++;
+                _this.translateX = -_this.showIndex * _this.itemWidth;
+                _this.indicator();
+                setTimeout(function() {
+                    _this.isTransition = false;
+                    if (_this.showIndex == _this.baseList.length - 1) {
+                        _this.showIndex = 1;
+                        _this.translateX = -_this.showIndex * _this.itemWidth;
+                    }
+                }, 500)
 					setTimeout(function(){
 						_this.isTransition = false;
 						if(_this.showIndex == _this.baseList.length - 1) {
@@ -168,39 +172,39 @@
     	}
 	}
 </script>
-
 <style lang="sass" scoped>
-	.m-swiper {
-		width: 100%;
-		overflow: hidden;
-		.swiper-wrap {
-			width: 9999999px;
-			.swiper-item {
-				img {
-					width: 100%;
-					float: left;
-				}
-			}
-		}
-		.indicator-wrap {
-			bottom: 10px;
-			left: 50%;
-			transform: translateX(-50%);
-			-webkit-transform: translateX(-50%);
-			.indicator-item {
-				width: 6px;
-				height: 6px;
-				border-radius: 3px;
-				background-color: #FFF;
-				margin: 0 4px;
-			}
-			.indicator-item-active {
-				background-color: blue;
-			}
-		}
-	}
-	.isTransition {
-		transition: transform 0.5s;
-		--webkit-transition: transform 0.5s;
-	}
+.m-swiper {
+    width: 100%;
+    overflow: hidden;
+    .swiper-wrap {
+        width: 9999999px;
+        .swiper-item {
+            img {
+                width: 100%;
+                float: left;
+            }
+        }
+    }
+    .indicator-wrap {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        .indicator-item {
+            width: 6px;
+            height: 6px;
+            border-radius: 3px;
+            background-color: #FFF;
+            margin: 0 4px;
+        }
+        .indicator-item-active {
+            background-color: blue;
+        }
+    }
+}
+
+.isTransition {
+    transition: transform 0.5s;
+    --webkit-transition: transform 0.5s;
+}
 </style>

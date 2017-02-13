@@ -19,8 +19,6 @@ export default {
                 img: 'https://static.vux.li/demo/1.jpg',
             }, {
                 img: 'https://static.vux.li/demo/2.jpg',
-            }, {
-                img: 'https://static.vux.li/demo/3.jpg',
             }],
             baseList2: [{
                 img: 'https://static.vux.li/demo/1.jpg',

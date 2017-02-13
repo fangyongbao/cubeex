@@ -2,22 +2,22 @@
     <div class="m-list view">
         <Header-com></Header-com>
         <div class="content">
-            <cubee-scroll ref="pullRefreshEl" :is-pull-down="isPullDown" :is-pull-up="isPullUp" v-on:on-pulldown="pullDownAction" v-on:on-pullup="pullUpAction" class="scrollCon">
+            <cubee-pull-refresh-x ref="pullRefreshEl" :is-pull-down="isPullDown" :is-pull-up="isPullUp" v-on:on-pulldown="pullDownAction" v-on:on-pullup="pullUpAction" class="scrollCon">
                 <div class="f-flex f-flexr item" v-for="item in matchList">
                     <div class="f-flex1 itemc">{{item.homeName}}</div>
                     <div class="f-flex1 itemc">{{item.awayName}}</div>
                 </div>
-            </cubee-scroll>
+            </cubee-pull-refresh-x>
         </div>
     </div>
 </template>
 <script>
 import {
-    CubeeScroll
+    CubeePullRefreshX
 } from '../../components';
 import HeaderCom from './header';
 export default {
-    name: 'pull-refresh-demo',
+    name: 'pull-refresh-scroll-demo',
     data() {
         return {
             matchList: [],
@@ -30,7 +30,7 @@ export default {
     },
     components: {
         HeaderCom,
-        CubeeScroll
+        CubeePullRefreshX
     },
     methods: {
         getData(finishCb) {
@@ -59,35 +59,57 @@ export default {
                 matchId: 6,
                 homeName: '皇马',
                 awayName: '巴萨'
+            },{
+                matchId: 1,
+                homeName: '皇马',
+                awayName: '巴萨'
+            }, {
+                matchId: 2,
+                homeName: '皇马',
+                awayName: '巴萨'
+            }, {
+                matchId: 3,
+                homeName: '皇马',
+                awayName: '巴萨'
+            }, {
+                matchId: 4,
+                homeName: '皇马',
+                awayName: '巴萨'
+            }, {
+                matchId: 5,
+                homeName: '皇马',
+                awayName: '巴萨'
+            }, {
+                matchId: 6,
+                homeName: '皇马',
+                awayName: '巴萨'
             }]
-            setTimeout( ()=> {
+            setTimeout(() => {
                 this.matchList = this.matchList.concat(data);
 
-                if(this.matchList.length < this.allDataLength) {
+                if (this.matchList.length < this.allDataLength) {
                     this.isPullUp = true;
                 } else {
                     this.isPullUp = false;
                 }
-
-
                 _this.scrollDom.$nextTick(function() {
-                    if(finishCb) {
+                    if (finishCb) {
                         finishCb();
-                        if(_this.isPullUp) {
+                        if (_this.isPullUp) {
                             _this.scrollDom.loadRestart();
                         } else {
                             _this.scrollDom.loadMoreOver();
                         }
                     } else {
-                        if(_this.isPullUp) {
+                        if (_this.isPullUp) {
                             _this.scrollDom.loadMore();
                         } else {
                             _this.scrollDom.loadMoreOver();
                         }
                     }
                 })
-            },2000)
-            
+            }, 400)
+
         },
         pullDownAction(finishCb) {
             this.page = 1;
@@ -95,12 +117,12 @@ export default {
             this.getData(this.scrollDom.refresh)
         },
         pullUpAction() {
-            this.page ++;
+            this.page++;
             this.getData();
         }
     },
     mounted() {
-        this.$nextTick(function () {
+        this.$nextTick(function() {
             this.scrollDom = this.$refs.pullRefreshEl;
             this.getData();
         })
