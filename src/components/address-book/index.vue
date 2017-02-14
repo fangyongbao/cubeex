@@ -1,18 +1,18 @@
 <template>
-    <div class="m-address-book">
+    <div class="m-address-book f-pr">
         <div class="f-ot book-content" ref="content">
             <div class="item" v-for="(g, initial) in books">
                 <div class="title" :ref="initial">{{initial}}</div>
-                <ul>
-                    <li v-for="item in g">
-                        <div class="wrap">{{item.value}}</div>
+                <ul class="f-cb">
+                    <li v-for="item in g" class="f-fl">
+                        <div class="wrap f-toe">{{item.value}}</div>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="f-flex f-flexvc book-bar" @touchstart="handleTouchStart">
             <ul>
-                <li v-for="(g, initial) in books" class="initialLi">{{initial}}</li>
+                <li v-for="(g, initial) in books" class="initialLi f-flex f-flexvc f-flextc">{{initial}}</li>
             </ul>
         </div>
     </div>
@@ -90,53 +90,63 @@ export default {
 }
 
 .m-address-book {
-    padding-right: 40px;
+    font-size: 14px;
     height: 100%;
     .book-content {
         height: 100%;
         .item {
             .title {
-                line-height: 30px;
-                background: #fafafa;
-                padding: 0 10px;
+                line-height: 0.76rem;
+                background: #F8F9FA;
+                padding: 0 0.24rem;
+                box-shadow: inset 0 -1px 0 0 #E6E6E6;
             }
         }
-        ul li {
-            .wrap {
-                line-height: 40px;
-                @include background-portrait(#d9d9d9, #d9d9d9);
-                background-size: 120% 1px;
-                background-repeat: no-repeat;
-                background-position: top left;
-                padding: 0 10px;
-                background-origin: content-box;
-            }
-            &:first-child {
+        ul {
+            width: 100%;
+            padding: 0 0.15rem;
+            background-color: #FFF;
+            margin-bottom: 0.2rem;
+            li {
+                width: 33.3%;
+                padding: 0.2rem 0.15rem;
                 .wrap {
-                    background-origin: border-box;
+                    width: 100%;
+                    padding: 0 0.15rem;
+                    border: 1px solid #E6E6E6;
+                    border-radius: 0.25rem;
+                    line-height: 0.5rem;
+                    height: 0.5rem;
+                    text-align: center;
+                    color: #9099b4;
                 }
-            }
-            &:last-child {
-                @include background-portrait(#d9d9d9, #d9d9d9);
-                background-size: 120% 1px;
-                background-repeat: no-repeat;
-                background-position: bottom left;
+                .wrap:active {
+                    background: darken(#FFF,10%);
+                }
             }
         }
     }
+    .item:nth-last-of-type(1) {
+        ul {
+            margin-bottom: 0;
+        }    
+    }
     .book-bar {
-        width: 40px;
+        width: 0.8rem;
         height: 100%;
         position: absolute;
         right: 0;
         top: 0;
-        border: 1px solid #d9d9d9;
+        // border: 1px solid #d9d9d9;
+        padding: 0.5rem 0;
         ul {
             width: 100%;
+            height: 100%;
             text-align: center;
             li {
-                font-size: 12px;
-                line-height: 1.5;
+                font-size: 14px;
+                color: #596380;
+                height: 3.846%;
             }
         }
     }

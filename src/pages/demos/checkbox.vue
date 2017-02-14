@@ -1,38 +1,65 @@
 <template>
-    <div class="m-checkbox-demo view">
-        <Header-com></Header-com>
-        <div class="f-ot content">
-            <label class="f-flex f-flexr item" :class="{topLine: index==0}" v-for="(option, index) in options1">
-                <div class="f-flex f-flextc f-flexvc choose">
-                    <cubee-checkbox v-model="value1" :option="option" v-on:change="change1"></cubee-checkbox>
+    <div class="m-checkbox-demo f-ot view">
+        <Header-com :title="'checkbox'"></Header-com>
+        <div class="content">
+            <div class="m-checkboxSelect">
+                <div class="checkbox-title f-cb">
+                    <div class="sign f-fl"></div>
+                    <div class="text f-fl">多选框列表一</div>
                 </div>
-                <div class="f-flex1 f-flex f-flexvc label">
-                    cubee
+                <ul class="m-checkboxList">
+                    <li class="item">
+                        <label class="f-flex f-flexr optionItem" :class="{topLine: index==0}" v-for="(option, index) in options1">
+                            <div class="f-flex f-flextc f-flexvc chooseLeft">
+                                <cubee-checkbox v-model="value1" :option="option" v-on:change="change1"></cubee-checkbox>
+                            </div>
+                            <div class="f-flex1 f-flex f-flexvc">
+                                {{option.name}}
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+                <div class="f-cb selected">
+                    <span class="f-fl">选中的项</span>
+                    <div class="f-fr">
+                        <span class="f-fl" v-for="item in value1">{{options1[item-1].name}}</span>
+                    </div>
                 </div>
-            </label>
-            <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
-                已选择：
-                <span v-for="item in value1">{{item}}</span>
             </div>
-            <label class="f-flex f-flexr item" :class="{topLine: index==0}" v-for="(option, index) in options2">
-                <div class="f-flex f-flextc f-flexvc choose">
-                    <cubee-checkbox v-model="value2" :option="option" v-on:change="change2"></cubee-checkbox>
+
+            <div class="m-checkboxSelect">
+                <div class="checkbox-title f-cb">
+                    <div class="sign f-fl"></div>
+                    <div class="text f-fl">多选框列表二</div>
                 </div>
-                <div class="f-flex1 f-flex f-flexvc label">
-                    cubee
+                <ul class="m-checkboxList">
+                    <li class="item">
+                        <label class="f-flex f-flexr optionItem" :class="{topLine: index==0}" v-for="(option, index) in options2">
+                            
+                            <div class="f-flex1 f-flex f-flexvc">
+                                {{option.name}}
+                            </div>
+                            <div class="f-flex f-flextc f-flexvc chooseRight">
+                                <cubee-checkbox v-model="value2" :option="option" v-on:change="change2"></cubee-checkbox>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+                <div class="f-cb selected">
+                    <span class="f-fl">选中的项</span>
+                    <div class="f-fr">
+                        <span class="f-fl" v-for="item in value2">{{options2[item-1].name}}</span>
+                    </div>
                 </div>
-            </label>
-            <div class="f-flex f-flextc f-flexvc" style="height: 40px; color: #999; font-size: 14px;">
-                已选择：
-                <span v-for="item in value2">{{item}}</span>
             </div>
         </div>
+        <cubee-tab :which-tab="2"></cubee-tab>
     </div>
 </template>
 <script>
 import HeaderCom from './header';
 import {
-    CubeeCheckbox
+    CubeeCheckbox,CubeeTab
 } from '../../components';
 export default {
     name: 'checkbox-demo',
@@ -44,7 +71,8 @@ export default {
     },
     components: {
         HeaderCom,
-        CubeeCheckbox
+        CubeeCheckbox,
+        CubeeTab
     },
     methods: {
         change1(val) {
@@ -56,22 +84,32 @@ export default {
     },
     created() {
         this.options1 = [{
-            value: '1'
+            value: '1',
+            name: '选项A'
         }, {
             value: '2',
+            name: '选项B'
         }, {
-            value: '3'
+            value: '3',
+            name: '选项C'
         }, {
-            value: '4'
+            value: '4',
+            name: '被禁用',
+            isDisabled: true
         }];
         this.options2 = [{
-            value: '1'
+            value: '1',
+            name: '选项A'
         }, {
             value: '2',
+            name: '选项B'
         }, {
-            value: '3'
+            value: '3',
+            name: '选项C'
         }, {
-            value: '4'
+            value: '4',
+            name: '被禁用',
+            isDisabled: true
         }];
     }
 };
@@ -80,22 +118,70 @@ export default {
 .m-checkbox-demo {
     color: #999;
     font-size: 14px;
-    .item {
-        height: 60px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        &.topLine {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        .choose {
-            width: 60px;
-        }
-    }
+    padding-bottom: 1rem;
     .content {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        top: 40px;
-        bottom: 0;
-    }
+        padding-top: 0.2rem;
+        .m-checkboxSelect {
+            margin-bottom: 0.2rem;
+            .m-checkboxList {
+                border-top: 1px solid #E6E6E6;
+                border-bottom: 1px solid #E6E6E6;
+                .item {
+                    background-color: #FFF;
+                    padding: 0 0.2rem;
+                    .optionItem {
+                        border-bottom: 1px solid #E6E6E6;
+                        height: 0.9rem;
+                    }
+                    .optionItem:nth-last-of-type(1) {
+                        border: none;
+                    }
+                    &.topLine {
+                        border-top: 1px solid #E6E6E6;
+                    }
+                    .chooseLeft {
+                        width: 0.36rem;
+                        margin-right: 0.24rem;
+                    }
+                    .chooseRight {
+                        width: 0.36rem;
+                    }
+                }
+            }
+        }
+        .m-checkboxSelect:nth-last-of-type(1) {
+            margin: 0;
+        }
+        .checkbox-title {
+            background-color: #FFF;
+            padding: 0.21rem 0.2rem;
+            .sign {
+                background: #005BAC;
+                border-radius: 1px;
+                width: 0.04rem;
+                height: 15px;
+                margin-right: 0.14rem;
+            }
+            .text {
+                font-size: 15px;
+                color: #2D3859;
+            }
+        }
+        .selected {
+            padding: 0 0.2rem;
+            line-height: 0.9rem;
+            font-size: 14px;
+            color: #9099B4;
+            background-color: #FFF;
+            border-bottom: 1px solid #E6E6E6;
+            >div span {
+                margin-left: 0.1rem;
+            }
+            >span:nth-of-type(1) {
+                color: #2D3859;
+                margin: 0;
+            }
+        }
+    }  
 }
 </style>

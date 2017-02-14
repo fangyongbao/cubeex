@@ -1,15 +1,16 @@
 <template>
     <div class="m-address-book-demo view">
-        <Header-com></Header-com>
+        <Header-com :title="'address-book'"></Header-com>
         <div class="content">
             <cubee-address-book :names="names"></cubee-address-book>
         </div>
+        <cubee-tab :which-tab="2"></cubee-tab>
     </div>
 </template>
 <script>
 import HeaderCom from './header';
 import {
-    CubeeAddressBook
+    CubeeAddressBook,CubeeTab
 } from '../../components';
 export default {
     name: 'address-book-demo',
@@ -20,7 +21,8 @@ export default {
     },
     components: {
         CubeeAddressBook,
-        HeaderCom
+        HeaderCom,
+        CubeeTab
     },
     created() {
         let _this = this;
@@ -75,13 +77,11 @@ export default {
 .m-address-book-demo {
     color: #999;
     font-size: 14px;
+    padding-bottom: 1rem;
+    .content {
+        height: 100%;
+    }
 }
 
-.content {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    top: 40px;
-    bottom: 0;
-}
+
 </style>

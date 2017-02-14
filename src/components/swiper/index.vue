@@ -5,9 +5,18 @@
                 <img :src="item.img" alt="">
             </li>
         </ul>
-        <ul class="indicator-wrap f-pa" v-show="isIndicator" v-if="baseList.length-2 > 0">
+        <ul class="indicator-wrap f-pa" v-if="baseList.length-2 > 0 && isIndicator">
             <li class="indicator-item f-fl" v-for="(item,index) in baseList.length-2" :class="{ 'indicator-item-active' : index == indicatorIndex }"></li>
         </ul>
+        <div class="copywriting" v-if="baseList.length-2 > 0 && isCopywriting">
+        	<div class="text f-toe">
+        		{{baseList[showIndex].alt}}
+        	</div>
+        	<ul class="indicator-wrap f-pa f-cb" >
+	            <li class="indicator-item f-fl" v-for="(item,index) in baseList.length-2" :class="{ 'indicator-item-active' : index == indicatorIndex }"></li>
+	        </ul>
+        </div>
+        
     </div>
 </template>
 <script>
@@ -40,6 +49,12 @@
 				default () {
 					return false
 				}
+		    },
+		    isCopywriting: {
+		    	type: Boolean,
+		    	default () {
+		    		return false
+		    	}
 		    }
 		},
 		data() {
@@ -195,11 +210,33 @@
             height: 6px;
             border-radius: 3px;
             background-color: #FFF;
-            margin: 0 4px;
+            margin: 0 3.5px;
+            opacity: 0.3;
+			background: #FFFFFF;
         }
         .indicator-item-active {
-            background-color: blue;
+        	opacity: 1;
         }
+    }
+    .copywriting {
+    	height: 0.6rem;
+    	line-height: 0.6rem;
+    	padding: 0 0.3rem;
+    	color: #FFFFFF;
+    	font-size: 14px;
+    	width: 100%;
+    	position: absolute;
+    	bottom: 0;
+    	background: rgba(0,0,0,0.67);
+    	.indicator-wrap {
+    		right: 0.3rem;
+    		left: inherit;
+    		transform: none;
+    		-webkit-transform: none;
+    	}
+    	.text {
+    		max-width: 70%;
+    	}
     }
 }
 

@@ -176,6 +176,7 @@ $bcolor:#5682D9;
     padding-bottom: 1rem;
     
     .demos-item {
+        background-color: #FFF;
         height: 1rem;
         line-height: 1rem;
         font-size: 12px;
