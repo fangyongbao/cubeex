@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="animated duration0-4 fadeIn m-cover m-cover-select" v-show="selectStatus" @click="closeSelect" @touchmove="preventDefault" @mousewheel="preventDefault"></div>
-        <div class="animated duration0-2 linear slideInUp m-model m-model-select-scroll" v-show="selectStatus" @mousewheel="preventDefault">
+        <div class="animated duration0-2 linear slideInUp m-model-select-scroll" v-show="selectStatus" @mousewheel="preventDefault">
             <div class="bar">
                 <div class="cancel" @click="closeSelect">取消</div>
                 选择
@@ -25,8 +25,9 @@
                     </ul>
                 </div>
             </div>
-            <hr class="line-top">
-            <hr class="line-bottom">
+            <!-- <hr class="line-top">
+            <hr class="line-bottom"> -->
+            <div class="netMonitor"></div>
         </div>
     </div>
 </template>
@@ -154,7 +155,7 @@ export default {
     left: 0;
     right: 0;
     .bar {
-        background: #385FB5;
+        background: #358AD6;
         height: 44px;
         line-height: 44px;
         overflow: hidden;
@@ -165,22 +166,23 @@ export default {
             float: left;
             padding: 0 20px;
             color: #fff;
-            font-size: 14px;
+            font-size: 15px;
         }
         .confirm {
             float: right;
             padding: 0 20px;
             color: #fff;
-            font-size: 14px;
+            font-size: 15px;
         }
     }
     .selectCon {
         width: 100%;
         margin: 0 auto;
-        background: #fff;
+        background: transparent;
         overflow: hidden;
         height: 245px;
         overflow: hidden;
+        color: #2D3859;
     }
     ul {
         -webkit-transition: all .4s ease;
@@ -214,7 +216,7 @@ export default {
     .line-top {
         width: 100%;
         border: none;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #BDC1D2;
         position: absolute;
         bottom: 105px;
         margin: 0;
@@ -223,11 +225,21 @@ export default {
     .line-bottom {
         width: 100%;
         border: none;
-        border-top: 1px solid #eee;
+        border-top: 1px solid #BDC1D2;
         position: absolute;
         bottom: 140px;
         margin: 0;
         height: 0;
+    }
+    .netMonitor {
+        width: 100%;
+        height: 35px;
+        border-top: 1px solid #BDC1D2;
+        border-bottom: 1px solid #BDC1D2;
+        position: absolute;
+        bottom: 105px;
+        background: #F7F9FB;
+        z-index: -1;
     }
 }
 </style>

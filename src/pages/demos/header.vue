@@ -48,9 +48,10 @@ export default {
     background-image: linear-gradient(-135deg, #354682 0%, #0459A9 100%);
     color: #fff;
     padding: 0.23 0.24rem;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
+    z-index: 10;
     .u-herder-btn {
         width: 0.42rem;
         height: 0.42rem;

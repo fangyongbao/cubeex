@@ -1,21 +1,21 @@
 <template>
-    <div class="ui-dialog show"  v-show="isDiaShow" :id="dialogId"  @click="closeDiaPanel($event)">
-        <div class="ui-dialog-cnt">
-            <div class="ui-dialog-hd">
-                <a class="icon icon-close" v-if="close" @click="closeDia($event)"></a>
-                <div class="title" v-if="showTitle" ref="title">
-                    <slot name="title">
-                        {{title}}
-                    </slot>
+    <div class="ui-dialog show"  v-show="dialogConfig.isDiaShow">
+        <transition name="fadeZoomIn">
+            <div class="ui-dialog-cnt f-poc" v-show="dialogConfig.isDiaShow">
+                <div class="ui-dialog-hd">
+                    <div class="icon icon-close" v-if="dialogConfig.hasClose" @click="closeDia"></div>
+                    <div class="title f-toe" v-if="dialogConfig.title != ''">
+                        {{dialogConfig.title}}
+                    </div>
+                </div>
+                <div class="ui-dialog-bd">
+                    {{dialogConfig.content}}
+                </div>
+                <div class="ui-dialog-ft ui-btn-group">
+                    <button v-for="(item,$index) in dialogConfig.button" type="button" @click.stop="clickBtn($index)">{{item}}</button>
                 </div>
             </div>
-            <div class="ui-dialog-bd">
-                {{content}}
-            </div>
-            <div class="ui-dialog-ft ui-btn-group">
-                <button v-for="(item,index) in button" type="button"  class="select" :id="'dialogButton'+index" @click="closeDia($event)">{{item}}</button>
-            </div>
-        </div>
+        </transition>
     </div>
 </template>
 <script>
@@ -35,58 +35,35 @@ export default {
     name: 'dialog',
     data() {
         return {
-            class_name: '',
-            select: 0,
-            speed: 0,
-            allowScroll: false
         }
     },
     props: {
-        close: {
-            type: Boolean,
-            default: true
-        },
-        title: {
-            type: String
-        },
-        content: {
-            type: String
-        },
-        button: {
-            type: Array
-        },
-        isDiaShow:{
-            type: Boolean,
-            default: false
-        },
-        dialogId:{
-            type: String
+        dialogConfig: {
+            type: Object,
+            required: true,
+            default() {
+                return {
+                    hasClose: false,
+                    title: '',
+                    content: '',
+                    button: ['取消','确定'],
+                    isDiaShow: false
+                }
+            }
         }
     },
     computed: {
-        showTitle () {
-          return this.title || (this.$slots && this.$slots.title && this.$slots.title.length > 0);
-        }
     },
     methods: {
-        ...mapActions([
-            'setDiaStatus'
-        ]),
-        closeDiaPanel(e){
-            let self=this;
-            self._stopScroll(e);
-            self.hide();
+        clickBtn(index) {
+            if(index == 0) {
+                this.$emit('left-btn');
+            }else if (index == 1) {
+                this.$emit('right-btn');
+            }
         },
-        closeDia(e){
-            let self=this;
-            self._stopScroll(e);
-            self.hide();
-        },
-        hide(){
-            this.$parent.isDiaShow=false;
-        },
-        _stopScroll(e) {
-            e.stopPropagation();
+        closeDia() {
+            this.$emit('close-dia');
         }
     }
 }
@@ -102,7 +79,7 @@ export default {
     -webkit-box-orient: horizontal;
     -webkit-box-pack: center;
     -webkit-box-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.66);
     display: none;
     z-index: 1001;
 
@@ -112,16 +89,11 @@ export default {
     }
 
     .ui-dialog-cnt {
-        border-radius: 6px;
-        background-clip: padding-box;
-        outline: 0;
-        pointer-events: auto;
-        background-color: rgba(253,253,253,.95);
-        position: relative;
-        max-width: 700px;
-        width: 80%;
+        border-radius: 0.08rem;
+        background-color: #fff;
+        width: 6rem;
         margin:0 auto;
-        z-index: 1002;
+        z-index: 100;
     }
 
     .ui-dialog-hd {
@@ -129,32 +101,13 @@ export default {
         font-size: 0;
         line-height: 0;
         text-align: center;
-
-
-
+        padding-top: 0.4rem;
         .title {
-            color: #333; 
-            font-size: 16px;
-            height: 45px;
-            line-height: 45px;
-            padding: 0 40px;
-            overflow: hidden;
-            word-wrap: normal;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            -o-text-overflow: ellipsis;
-            &:after {
-                content: " ";
-                height: 1px;
-                position: absolute;
-                transform-origin: 0 0;
-                border-bottom: 1px solid #dddddd;
-                bottom: 0;
-                left: 0;
-                transform-origin: 0 100%;
-                transform: scaleY(0.5);
-                width: 100%;
-            }
+            font-size: 17px;
+            color: #2D3859;
+            width: 100%;
+            padding: 0 0.5rem 0.2rem;
+            line-height: 17px;
         }
 
         .icon {
@@ -168,55 +121,27 @@ export default {
 
         .icon-close {
             position: absolute;
-            right: 0;
-            top: 0;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            width: 40px;
-            color: #28a0f2;
-            cursor:pointer;
-            &:after{
-                content:'';
-                display: inline-block;
-                background: url(./close.png) center no-repeat;
-                background-size:cover;
-                width:20px;
-                height:20px;
-                vertical-align: middle;
-            }
+            right: 0.1rem;
+            top: 0.1rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background: url(./icon-close.png) center no-repeat;
+            background-size: 0.3rem 0.3rem;
         }
     }
 
     .ui-dialog-bd {
-        min-height: 71px;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        padding: 30px 20px 20px 20px;
-        font-size: 16px;
-        display: -moz-box;
-        display: -webkit-box;
-        -webkit-box-pack: center;
-        -webkit-box-align: center;
-        -webkit-box-orient: vertical;
-
-        h4 {
-            margin-bottom: 4px;
-            font-size: 16px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .ui-dialog-content {
-            max-height: 308px;
-            overflow: auto;
-        }
+        padding: 0.1rem 0.5rem 0.4rem;
+        font-size: 13px;
+        text-align: center;
+        line-height: 0.37rem;
+        color: #596380;
     }
 
     .ui-dialog-ft {
-        border-bottom-left-radius: 6px;
-        border-bottom-right-radius:6px;
-
+        border-bottom-left-radius: 0.08rem;
+        border-bottom-right-radius: 0.08rem;
+        
         &.ui-btn-group {
             display: -moz-box;
             display: -webkit-box;
@@ -230,19 +155,19 @@ export default {
             display: block;
             -moz-box-flex: 1;
             -webkit-box-flex: 1;
-            color: #28A0F2;
-            font-size: 16px;
-            height: 42px; 
-            line-height: 42px; 
+            color: #358AD6;
+            font-size: 17px;
+            height: 0.79rem; 
+            line-height: 0.79rem; 
             text-align: center;
             width: 100%;
-
+            padding: 0;
             &:before {
                 content: " ";
                 height: 1px;
                 position: absolute;
                 transform-origin: 0 0;
-                border-top: 1px solid #dddddd;
+                border-top: 1px solid #D8D8D8;
                 left: 0;
                 top: 0;
                 transform: scaleY(0.5);
@@ -253,7 +178,7 @@ export default {
                 height: 1px;
                 position: absolute;
                 transform-origin: 0 0;
-                border-right: 1px solid #dddddd;
+                border-right: 1px solid #D8D8D8;
                 height: 100%;
                 right: 0;
                 top: 0;

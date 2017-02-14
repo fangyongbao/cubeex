@@ -53,8 +53,6 @@
 
 <style lang="sass" scopoed>
 	.qrcode {
-		width: 80%;
-		margin: 10px auto;
 		img {
 			width: 100%;
 			height: 100%;

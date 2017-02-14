@@ -1,11 +1,11 @@
 <template>
     <div class="u-select arrow" :class="{open : statusC}">
         <div class="text f-toe" @click="toggleSelect">{{value.value}}</div>
-        <transition name="zoom-in-top">
-            <ul v-if="statusC" class="f-ot">
-                <li class="slectItem" :class="{'click': item.id == value.id}" v-for="item in options" :id="item.id" @click="choose(item)">{{item.value}}</li>
-            </ul>
-        </transition>
+        <!-- <transition name="zoom-in-top"> -->
+        <ul v-show="statusC" class="f-ot">
+            <li class="slectItem" :class="{'click': item.id == value.id}" v-for="item in options" :id="item.id" @click="choose(item)">{{item.value}}</li>
+        </ul>
+        <!-- </transition> -->
     </div>
 </template>
 <script>
@@ -67,13 +67,13 @@ export default {
 
 .u-select {
     width: 100%;
-    height: 40px;
+    // height: 40px;
     line-height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    color: #666;
+    
+    color: #596380;
     position: relative;
     box-sizing: border-box;
+    background-color: #FFF;
     &.open {
         &:after {
             -webkit-transform: rotate(180deg);
@@ -83,31 +83,28 @@ export default {
     &.arrow {
         &:after {
             content: '';
-            width: 0px;
-            height: 0px;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-bottom: 8px solid #2D3859;
-            right: 10px;
+            width: 40px;
+            height: 40px;
             position: absolute;
-            top: 50%;
-            margin-top: -4px;
+            top: 0;
+            right: 0;
             -webkit-transition: all 0.2s;
             transition: all 0.2s;
+            background: url(../../assets/images/icon/icon_down.png) center no-repeat;
+            background-size: 14px 6.5px;
         }
     }
     .text {
         padding: 0 10px;
         line-height: 40px;
+        background-color: #FFF;
+        border-top: 1px solid #E6E6E6;
+        border-bottom: 1px solid #E6E6E6;
     }
     ul {
-        position: absolute;
         top: 38px;
-        left: -1px;
-        right: -1px;
-        background: #fff;
-        border: 0.02rem solid rgba(0, 0, 0, 0.10);
-        box-shadow: 0 6px 10px 0 rgba(56, 95, 181, 0.10);
+        width: 100%;
+        background: #F7F9FA;
         border-radius: 2px;
         z-index: 1;
         max-height: 200px;
@@ -117,7 +114,7 @@ export default {
             padding: 0 10px;
             &:active,
             &.click {
-                background-color: #5782D9;
+                background-color: #609ED6;
                 color: white;
             }
         }

@@ -1,6 +1,6 @@
 <template>
     <div class="u-checkbox">
-        <input type="checkbox" v-model="currentValue" :value="option.value" @change="change">
+        <input type="checkbox" v-model="currentValue" :value="option.value" @change="change" :disabled="option.isDisabled">
         <span></span>
     </div>
 </template>
@@ -47,8 +47,8 @@ export default {
 <style lang="sass" scoped>
 .u-radio,
 .u-checkbox {
-    height: 18px;
-    width: 18px;
+    height: 0.36rem;
+    width: 0.36rem;
     position: relative;
     display: inline-block;
     font-size: 0;
@@ -57,9 +57,9 @@ export default {
         position: absolute;
         & + span {
             display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 1px solid #ddd;
+            width: 0.36rem;
+            height: 0.36rem;
+            border: 1px solid #9099B4;
             border-radius: 2px;
             position: relative;
             -webkit-transition: all 0.2s ease;
@@ -69,22 +69,28 @@ export default {
                 border-left: 1px solid #fff;
                 content: "";
                 position: absolute;
-                height: 4px;
-                left: 5px;
-                top: 4px;
-                width: 7px;
-                -webkit-transform: scale(1) rotate(-50deg);
-                transform: scale(1) rotate(-50deg);
+                height: 0.08rem;
+                left: 50%;
+                top: 50%;
+                width: 0.14rem;
+                -webkit-transform: translate(-50%,-75%) rotate(-50deg);
+                transform: translate(-50%,-75%) rotate(-50deg);
                 display: none;
             }
         }
         &:checked {
             & + span {
-                border-color: #5682D9;
-                background: #5682D9;
+                border-color: #005BAC;
+                background: #005BAC;
                 &:after {
                     display: block;
                 }
+            }
+        }
+        &:disabled {
+            & + span {
+                background: #E6E6E6;
+                border-color: #CCCCCC;
             }
         }
     }

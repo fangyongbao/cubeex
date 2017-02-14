@@ -1,14 +1,31 @@
 <template>
     <div class="m-swiper-demo view">
-        <Header-com></Header-com>
-        <cubee-swiper ref="swiper1" :list="baseList" :is-indicator="false" :is-auto-play="true" style="margin-bottom: 20px"></cubee-swiper>
-        <cubee-swiper ref="swiper2" :list="baseList2" :is-indicator="true" :is-auto-play="false"></cubee-swiper>
+        <Header-com :title="'swiper'"></Header-com>
+        <div class="content f-ot">
+            <div class="swiperItem">
+                <div class="swiper-title f-cb">
+                    <div class="sign f-fl"></div>
+                    <div class="text f-fl">带文案轮播</div>
+                </div>
+                <cubee-swiper ref="swiper1" :list="baseList" :is-indicator="false" :is-auto-play="true" :is-copywriting="true"></cubee-swiper>
+            </div>
+            <div class="swiperItem">
+                <div class="swiper-title f-cb">
+                    <div class="sign f-fl"></div>
+                    <div class="text f-fl">无文案轮播</div>
+                </div>
+                <cubee-swiper ref="swiper2" :list="baseList2" :is-indicator="true" :is-auto-play="false"></cubee-swiper>
+            </div>
+        </div>
+        
+        
+        <cubee-tab :which-tab="2"></cubee-tab>
     </div>
 </template>
 <script>
 import HeaderCom from './header';
 import {
-    CubeeSwiper
+    CubeeSwiper,CubeeTab
 } from '../../components';
 
 export default {
@@ -17,8 +34,10 @@ export default {
         return {
             baseList: [{
                 img: 'https://static.vux.li/demo/1.jpg',
+                alt: '场景一文案一'
             }, {
                 img: 'https://static.vux.li/demo/2.jpg',
+                alt: '场景一文案二'
             }],
             baseList2: [{
                 img: 'https://static.vux.li/demo/1.jpg',
@@ -29,7 +48,8 @@ export default {
     },
     components: {
         HeaderCom,
-        CubeeSwiper
+        CubeeSwiper,
+        CubeeTab
     },
     methods: {
     },
@@ -47,7 +67,27 @@ export default {
 </script>
 <style lang="sass" scoped>
     .m-swiper-demo{
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
+        padding-bottom: 1rem;
+        .content {
+            height: 100%;
+        }
+        .swiperItem {
+            padding-top: 0.2rem;
+        }
+        .swiper-title {
+            background-color: #FFF;
+            padding: 0.21rem 0.2rem;
+            .sign {
+                background: #005BAC;
+                border-radius: 1px;
+                width: 0.04rem;
+                height: 15px;
+                margin-right: 0.14rem;
+            }
+            .text {
+                font-size: 15px;
+                color: #2D3859;
+            }
+        }
     }
 </style>

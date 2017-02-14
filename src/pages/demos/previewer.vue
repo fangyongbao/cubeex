@@ -1,19 +1,29 @@
 <template>
     <div class="m-previewer view">
-        <Header-com></Header-com>
-        <img class="previewer-demo-img" v-for="(item, index) in list" :src="item.src" width="100" @click="show(index)">
+        <Header-com :title="'previewer'"></Header-com>
+        <div class="f-ot content">
+            <ul class="imgList">
+                <li v-for="(item, index) in list" class="f-fl">
+                    <img class="previewer-demo-img"  :src="item.src" @click="show(index)">
+                </li>
+            </ul>
+        </div>
+        
+        
         <cubee-previewer :list="list" ref="previewer" :options="options"></cubee-previewer>
+        <cubee-tab :which-tab="2"></cubee-tab>
     </div>
 </template>
 
 <script>
 import HeaderCom from './header';
-import { CubeePreviewer } from '../../components'
+import { CubeePreviewer, CubeeTab } from '../../components'
 
 export default {
     components: {
         HeaderCom,
-        CubeePreviewer
+        CubeePreviewer,
+        CubeeTab
     },
     methods: {
         show (index) {
@@ -53,5 +63,20 @@ export default {
 </script>
 <style lang="sass" scoped>
     .m-previewer {
+        padding-bottom: 1rem;
+        .content {
+            height: 100%;
+        }
+        .imgList {
+            padding: 0 0.1rem;
+            background-color: #FFF;
+            li {
+                padding: 0.2rem 0.1rem 0;
+                width: 33.3%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
 </style>

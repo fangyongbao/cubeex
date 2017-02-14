@@ -1,7 +1,7 @@
 <template>
-    <div class="f-ot view m-menu">
+    <div class="view m-menu">
         <header-com :is-go-back="false" :title="'Demo'"></header-com>
-        <ul>
+        <ul class="f-ot content">
             <router-link :to="{ path:'/pull-refresh-iscroll', activeClass:'current'}" tag="li">
                 <div class="demos-item f-flex">
                     <div class="icon menu-pull-refresh"></div>
@@ -174,8 +174,11 @@ export default {
 $bcolor:#5682D9;
 .m-menu {
     padding-bottom: 1rem;
-    
+    .content {
+        height: 100%;
+    }
     .demos-item {
+        background-color: #FFF;
         height: 1rem;
         line-height: 1rem;
         font-size: 12px;
