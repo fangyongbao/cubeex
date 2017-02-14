@@ -1,11 +1,14 @@
 <template>
-    <div class="m-previewer view f-ot">
+    <div class="m-previewer view">
         <Header-com :title="'previewer'"></Header-com>
-        <ul class="imgList">
-            <li v-for="(item, index) in list" class="f-fl">
-                <img class="previewer-demo-img"  :src="item.src" @click="show(index)">
-            </li>
-        </ul>
+        <div class="f-ot content">
+            <ul class="imgList">
+                <li v-for="(item, index) in list" class="f-fl">
+                    <img class="previewer-demo-img"  :src="item.src" @click="show(index)">
+                </li>
+            </ul>
+        </div>
+        
         
         <cubee-previewer :list="list" ref="previewer" :options="options"></cubee-previewer>
         <cubee-tab :which-tab="2"></cubee-tab>
@@ -61,6 +64,9 @@ export default {
 <style lang="sass" scoped>
     .m-previewer {
         padding-bottom: 1rem;
+        .content {
+            height: 100%;
+        }
         .imgList {
             padding: 0 0.1rem;
             background-color: #FFF;

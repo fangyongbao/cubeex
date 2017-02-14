@@ -1,5 +1,5 @@
 <template>
-    <div class="m-area-demo view f-ot">
+    <div class="m-area-demo view">
         <Header-com :title="'Area-scroll'"></Header-com>
         <cubee-area :show="areaStatus" :result="areaResult" ref="vueArea"></cubee-area>
         <div class="f-ot content">
@@ -88,6 +88,7 @@ export default {
     font-size: 14px; 
     padding-bottom: 1rem;
     .content {
+        height: 100%;
         .areaSelect {
             background-color: #FFF;
             padding: 0.4rem 0.24rem;

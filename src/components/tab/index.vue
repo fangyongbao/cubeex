@@ -36,7 +36,7 @@
 
 <style lang="sass" scoped>
 	.munu-tabs {
-        position: fixed;
+        position: absolute;
         width: 100%;
         height: 0.98rem;
         box-shadow: 0 -2px 8px 0 #C8CBD1;

@@ -59,6 +59,7 @@
 	    font-size: 14px;
 	    padding-bottom: 1rem;
 	    .content {
+	    	height: 100%;
 	        .areaSelect {
 	            background-color: #FFF;
 	            padding: 0.4rem 0.24rem;

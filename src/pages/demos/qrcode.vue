@@ -1,11 +1,13 @@
 <template>
-    <div class="m-qrcode-demo view f-ot">
+    <div class="m-qrcode-demo view">
         <Header-com :title="'qrcode'"></Header-com>
-        <div class="code">
-            <cubee-qrcode ref="qrcodeDemo1" :code-url="codeUrl" :code-config="codeConfig" class="qrcodeItem"></cubee-qrcode>
+        <div class="content f-ot">
+            <div class="code">
+                <cubee-qrcode ref="qrcodeDemo1" :code-url="codeUrl" :code-config="codeConfig" class="qrcodeItem"></cubee-qrcode>
+            </div>
+            <div class="u-button" @click="changeCode">更新二维码</div class="u-button">
         </div>
         
-        <div class="u-button" @click="changeCode">更新二维码</div class="u-button">
         <cubee-tab :which-tab="2"></cubee-tab>
     </div>
 </template>
@@ -49,6 +51,9 @@ export default {
 <style lang="sass" scoped>
     .m-qrcode-demo{
         padding-bottom: 1rem;
+        .content {
+            height: 100%;
+        }
         .code {
             padding: 0.6rem 0;
             background-color: #FFF;

@@ -1,7 +1,7 @@
 <template>
-    <div class="f-ot m-radio-demo view">
+    <div class="m-radio-demo view">
         <Header-com :title="'radio'"></Header-com>
-        <div class="content">
+        <div class="content f-ot">
             <div class="m-radioSelect">
                 <div class="radio-title f-cb">
                     <div class="sign f-fl"></div>
@@ -121,6 +121,7 @@ export default {
     padding-bottom: 1rem;
     .content {
         padding-top: 0.2rem;
+        height: 100%;
         .m-radioSelect {
             margin-bottom: 0.2rem;
             .m-radioList {

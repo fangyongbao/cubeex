@@ -1,7 +1,7 @@
 <template>
-    <div class="m-checkbox-demo f-ot view">
+    <div class="m-checkbox-demo view">
         <Header-com :title="'checkbox'"></Header-com>
-        <div class="content">
+        <div class="content f-ot">
             <div class="m-checkboxSelect">
                 <div class="checkbox-title f-cb">
                     <div class="sign f-fl"></div>
@@ -120,6 +120,7 @@ export default {
     font-size: 14px;
     padding-bottom: 1rem;
     .content {
+        height: 100%;
         padding-top: 0.2rem;
         .m-checkboxSelect {
             margin-bottom: 0.2rem;
