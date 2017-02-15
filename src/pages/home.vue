@@ -10,8 +10,8 @@
                     <span class="menu_icon f-fl"></span><span class="f-fl">Demo</span>
                 </div>
             </div>
-            <div class="u-button u-github f-pr">
-                <div class="f-pa" @click="goGithub">
+            <div class="u-button u-github f-pr" @click="goGithub">
+                <div class="f-pa">
                     <span class="git_icon f-fl"></span><span class="f-fl">Github</span>
                 </div>
             </div>
@@ -34,7 +34,8 @@ export default {
             this.$router.push({ path : '/menu' });
         },
         goGithub() {
-            location.href = "https://github.com/fangyongbao/cubeex";
+            // location.href = "https://github.com/fangyongbao/cubeex";
+            window.open("https://github.com/fangyongbao/cubeex");
         }
     },
     mounted: function() {
@@ -73,14 +74,19 @@ export default {
                 border: 1px solid #BDC1D2;
                 color: #2D3859;
                 .menu_icon {
-                    width: 0.4rem;
-                    height: 0.4rem;
+                    width: 20px;
+                    height: 20px;
                     background: url(../assets/images/icon/icon-demo.png) center no-repeat;
-                    background-size: 0.4rem 0.4rem;
-                    margin-right: 0.3rem;
+                    background-size: 20px 20px;
+                    margin-right: 15px;
                 }
                 div {
-                    left: 2.47rem;
+                    width: 95px;
+                    height: 20px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                    -webkit-transform: translate(-50%,-50%);
                 }
             }
             .u-demo:active {
@@ -91,17 +97,22 @@ export default {
                 border: 1px solid #BDC1D2;
                 color: #2D3859;
                 .git_icon {
-                    width: 0.4rem;
-                    height: 0.4rem;
+                    width: 20px;
+                    height: 20px;
                     background: url(../assets/images/icon/icon-github.png) center no-repeat;
-                    background-size: 0.4rem 0.4rem;
-                    margin-right: 0.24rem;
+                    background-size: 20px 20px;
+                    margin-right: 15px;
                 }
                 span {
-                    line-height: 0.5rem;
+                    // line-height: 0.5rem;
                 }
                 div {
-                    left: 2.47rem;
+                    width: 95px;
+                    height: 20px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                    -webkit-transform: translate(-50%,-50%);
                 }
             }
             .u-github:active {
@@ -112,7 +123,7 @@ export default {
             margin: 0 0.4rem 0.4rem;
             padding: 0.25rem 0;
             span {
-                line-height: 0.4rem;
+                line-height: 25px;
             }
         }
         .u-demo {

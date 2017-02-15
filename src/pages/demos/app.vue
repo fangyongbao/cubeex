@@ -6,6 +6,7 @@
                     <router-view></router-view>
                 </keep-alive>
             </transition>
+            <cubee-loading></cubee-loading>
         </div>
     </div>
 </template>
@@ -15,6 +16,10 @@ import {
     mapActions
 } from 'vuex';
 
+import {
+    CubeeLoading
+} from '../../components';
+
 export default {
     name: 'app',
     data() {
@@ -23,11 +28,29 @@ export default {
             viewAnimate: ''
         }
     },
+    components: {
+        CubeeLoading
+    },
     computed: mapGetters({
         direction: 'getDirection'
     }),
+    methods: {
+        ...mapActions([
+            'setLoadStatus',
+        ])
+    },
     watch: {
         '$route': function(val, oldVal) {
+            this.setLoadStatus({
+                msg: '加载中...',
+                isShow: true
+            })
+            setTimeout(() => {
+                this.setLoadStatus({
+                    msg: '',
+                    isShow: false
+                })
+            }, 2000)
             console.log('------------监听到路由变化---------',this.direction);
             if (this.direction === 'forward') {
                 this.viewAnimate = 'slide-in';

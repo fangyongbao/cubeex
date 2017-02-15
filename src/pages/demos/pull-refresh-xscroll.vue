@@ -1,6 +1,6 @@
 <template>
     <div class="m-list view">
-        <Header-com></Header-com>
+        <Header-com :title="'pull-refresh-xscroll'"></Header-com>
         <div class="content">
             <cubee-pull-refresh-x ref="pullRefreshEl" :is-pull-down="isPullDown" :is-pull-up="isPullUp" v-on:on-pulldown="pullDownAction" v-on:on-pullup="pullUpAction" class="scrollCon">
                 <div class="f-flex f-flexr item" v-for="item in matchList">
@@ -144,11 +144,7 @@ export default {
         line-height: 60px;
     }
     .content {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        top: 40px;
-        bottom: 0;
+        height: 100%;
         .scrollCon {
             width: 100%;
             height: 100%;

@@ -7,7 +7,7 @@
             <div>
                 <slot></slot>
             </div>
-            <div class='f-flex f-flextc pullUp' v-if="usePullUp">
+            <div class='f-flex f-flextc f-flexvc pullUp' v-if="usePullUp">
                 <span class="icon loading"></span>
             </div>
         </div>
@@ -115,6 +115,7 @@ export default {
             let scrollTop = event.target.scrollTop;
             let wrapperHeight = _this.wrapperTarget.clientHeight;
             let scrollerHeight = _this.$el.clientHeight;
+            // console.log(scrollerHeight,scrollTop,wrapperHeight,scrollerHeight - scrollTop - wrapperHeight)
             if (scrollerHeight - scrollTop - wrapperHeight < 100) {
                 if (_this.usePullUp) {
                     _this.$emit('pullUpAction');
@@ -131,7 +132,7 @@ export default {
     mounted() {
         let _this = this;
         _this.init();
-        _this.$parent.wrapperHeight = 400;
+        // _this.$parent.wrapperHeight = 400;
     }
 }
 </script>
@@ -139,7 +140,7 @@ export default {
 .m-pull-refresh-n {
     overflow: hidden;
     .scroller {
-        background: #fff;
+        // background: #fff;
         &.hasTransition {
             transition: all 0.2s;
             -webkit-transition: all 0.2s;

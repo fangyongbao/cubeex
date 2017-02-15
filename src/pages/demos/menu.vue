@@ -116,7 +116,7 @@
             </router-link>
             <router-link :to="{ path:'/qq', activeClass:'current'}" tag="li">
                 <div class="demos-item f-flex">
-                    <div class="icon menu-dialog"></div>
+                    <div class="icon menu-qq"></div>
                     <div class="f-flex1 components">
                         <span>qq</span>(qq在线客服)
                     </div>
@@ -124,7 +124,7 @@
             </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
-        <cubee-loading></cubee-loading>
+        
     </div>
 </template>
 <script>
@@ -148,24 +148,13 @@ export default {
         CubeeTab
     },
     methods: {
-        ...mapActions([
-            'setLoadStatus',
-        ]),
+        
     },
     created: function() {
 
     },
     mounted: function() {
-        this.setLoadStatus({
-            msg: '加载中...',
-            isShow: true
-        })
-        setTimeout(() => {
-            this.setLoadStatus({
-                msg: '',
-                isShow: false
-            })
-        }, 2000)
+        
     }
 }
 </script>
@@ -249,6 +238,10 @@ $bcolor:#5682D9;
     }
     .menu-qrcode {
         background: url(../../assets/images/icon/icon-qrcode.png) center no-repeat;
+        background-size: 0.29rem 0.29rem; 
+    }
+    .menu-qq {
+        background: url(../../assets/images/icon/icon-qq.png) center no-repeat;
         background-size: 0.29rem 0.29rem; 
     }
 }

@@ -1,8 +1,8 @@
 <template>
     <div class="m-list view">
-        <Header-com></Header-com>
-        <div class="f-ot content" ref="wrapper" :style="{height: wrapperHeight + 'px'}">
-            <cubee-pull-refresh-n ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
+        <Header-com :title="'pull-refresh-nscroll'"></Header-com>
+        <div class="f-ot content" ref="wrapper">
+            <cubee-pull-refresh-n ref="pullRefreshEl" :usePullDown="true" :usePullUp="usePullUp" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
                 <div class="wrapperCon" ref="wrapperCon">
                     <div class="f-flex f-flexr item" v-for="item in matchList">
                         <div class="f-flex1 itemc">{{item.homeName}}</div>
@@ -24,7 +24,8 @@ export default {
         return {
             matchList: [],
             wrapperHeight: 0,
-            isLoading: false
+            isLoading: false,
+            usePullUp: true
         }
     },
     components: {
@@ -108,6 +109,7 @@ export default {
             }];
             setTimeout(() => {
                 _this.matchList = data;
+                _this.usePullUp = true;
                 _this.refreshContainer();
                 console.log('down');
             }, 400);
@@ -193,7 +195,8 @@ export default {
     },
     mounted() {
         let _this = this;
-        _this.pullDownAction();
+        _this.$refs.wrapperCon.style.height = _this.$refs.wrapper.clientHeight + 'px';
+        // _this.pullDownAction();
     }
 }
 </script>
@@ -211,8 +214,11 @@ export default {
     .itemC {
         line-height: 60px;
     }
-    .content {}
+    .content {
+        height: 100%;
+    }
     .wrapperCon {
+        background-color: #FFF;
         height: 2000px;
     }
 }
