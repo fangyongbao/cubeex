@@ -116,9 +116,25 @@
             </router-link>
             <router-link :to="{ path:'/qq', activeClass:'current'}" tag="li">
                 <div class="demos-item f-flex">
-                    <div class="icon menu-dialog"></div>
+                    <div class="icon menu-qq"></div>
                     <div class="f-flex1 components">
-                        <span>qq</span>(qq在线客服)
+                        <span>QQ</span>(qq在线客服)
+                    </div>
+                </div>
+            </router-link>
+            <router-link :to="{ path:'/marquee', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-announcement"></div>
+                    <div class="f-flex1 components">
+                        <span>marquee</span>(公告轮播&跑马灯)
+                    </div>
+                </div>
+            </router-link>
+            <router-link :to="{ path:'/countdown', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-countdown"></div>
+                    <div class="f-flex1 components">
+                        <span>countdown</span>(倒计时)
                     </div>
                 </div>
             </router-link>
@@ -140,7 +156,7 @@
             </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
-        <cubee-loading></cubee-loading>
+        
     </div>
 </template>
 <script>
@@ -173,16 +189,7 @@ export default {
 
     },
     mounted: function() {
-        this.setLoadStatus({
-            msg: '加载中...',
-            isShow: true
-        })
-        setTimeout(() => {
-            this.setLoadStatus({
-                msg: '',
-                isShow: false
-            })
-        }, 2000)
+        
     }
 }
 </script>
@@ -266,6 +273,18 @@ $bcolor:#5682D9;
     .menu-qrcode {
         background: url(../../assets/images/icon/icon-qrcode.png) center no-repeat;
         background-size: 0.29rem 0.29rem;
+    }
+    .menu-qq {
+        background: url(../../assets/images/icon/icon-qq.png) center no-repeat;
+        background-size: 0.29rem 0.29rem; 
+    }
+    .menu-announcement {
+        background: url(../../assets/images/icon/icon-announcement.png) center no-repeat;
+        background-size: 0.32rem 0.29rem; 
+    }
+    .menu-countdown {
+        background: url(../../assets/images/icon/icon-countdown.png) center no-repeat;
+        background-size: 0.28rem 0.32rem; 
     }
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
     <div class="u-qq">
+<<<<<<< HEAD
+        <a class="link" @click="callQq()"></a>
+=======
         <span class="link" @click="callQq()">qq咨询</span>
+>>>>>>> upstream/master
     </div>
 </template>
 <script>
@@ -28,12 +32,20 @@ export default {
     position: fixed;
     right: 20px;
     bottom: 20px;
-    width: 60px;
-    height: 60px;
+    width: 1rem;
+    height: 1rem;
+    padding: 0.29rem 0.32rem;
     text-align: center;
-    line-height: 60px;
     border-radius: 100%;
-    border: 1px solid #e0e0e0;
+    opacity: 0.5;
+    background: #000D1A;
     font-size: 14px;
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url(./qq.png) center no-repeat;
+        background-size: 100% 100%;
+    }
 }
 </style>

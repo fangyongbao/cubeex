@@ -114,6 +114,18 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/qq')), 'qq');
         }
     },{
+        name: 'marquee',
+        path: '/marquee',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/marquee')), 'marquee');
+        }
+    },{
+        name: 'countdown',
+        path: '/countdown',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/countdown')), 'countdown');
+        }
+    },{
         name: 'slider',
         path: '/slider',
         component: (resolve) => {

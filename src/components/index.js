@@ -17,6 +17,7 @@ import CubeePreviewer from './previewer'
 import CubeeQrcode from './qrcode'
 import CubeeQq from './qq'
 import CubeeTab from './tab'
+import CubeeMarquee from './marquee'
 import CubeeDrag from './drag'
 
 const cubeex = {
@@ -39,6 +40,7 @@ const cubeex = {
     CubeeQrcode,
     CubeeQq,
     CubeeTab,
+    CubeeMarquee,
     CubeeDrag
 }
 

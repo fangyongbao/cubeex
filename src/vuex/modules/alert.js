@@ -10,7 +10,8 @@ import * as types from '../mutation-types'
 const state = {
     loadInfo: {
         msg: '',
-        isShow: false
+        isShow: false,
+        isMask: true
     }
 }
 
