@@ -1,6 +1,6 @@
 {
   "name": "cubeex",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cubeex是基于vue2.0开发的组件库，包含一套完整的移动UI",
   "main": "entry/index.js",
   "scripts": {

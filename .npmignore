@@ -1,0 +1,5 @@
+# 此为注释 – 将被 npm publish 忽略
+
+/node_modules
+/dist
+/src/assets/js
