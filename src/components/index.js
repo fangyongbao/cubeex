@@ -8,16 +8,17 @@ import CubeeSelect from './select'
 import CubeeSelectScroll from './select-scroll'
 import CubeeDateTime from './datetime'
 import CubeeDialog from './dialog'
-<<<<<<< .mineimport CubeeSlider from './slider'
+import CubeeSlider from './slider'
 import FocusRipple from './internal/focusRipple'
-=======import CubeeAddressBook from './address-book'
+import CubeeAddressBook from './address-book'
 import CubeeSwiper from './swiper'
 import CubeeLoading from './loading'
 import CubeePreviewer from './previewer'
 import CubeeQrcode from './qrcode'
 import CubeeQq from './qq'
 import CubeeTab from './tab'
->>>>>>> .theirs
+import CubeeDrag from './drag'
+
 const cubeex = {
     CubeeArea,
     CubeePullRefreshI,
@@ -28,17 +29,17 @@ const cubeex = {
     CubeeSelect,
     CubeeSelectScroll,
     CubeeDateTime,
-<<<<<<< .mine    CubeeDialog,
+    CubeeDialog,
     CubeeSlider,
-    FocusRipple
-=======    CubeeDialog,
+    FocusRipple,
     CubeeAddressBook,
     CubeeSwiper,
     CubeeLoading,
     CubeePreviewer,
     CubeeQrcode,
     CubeeQq,
-    CubeeTab
->>>>>>> .theirs}
+    CubeeTab,
+    CubeeDrag
+}
 
 module.exports = cubeex

@@ -117,7 +117,13 @@ const router = new VueRouter({
         name: 'slider',
         path: '/slider',
         component: (resolve) => {
-            require(['../pages/demos/slider'], resolve);
+            require.ensure([], () => resolve(require('../pages/demos/slider')), 'slider');
+        }
+    },{
+        name: 'drag',
+        path: '/drag',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/drag')), 'drag');
         }
     },{
         path: '*',

@@ -64,15 +64,7 @@
                     <div class="f-flex1 components">
                         <span>radio</span>(单选框)
                     </div>
-<<<<<<< .mine                </router-link>
-                <router-link :to="{ path:'/slider', activeClass:'current'}" class="item">
-                    <div class="slide">
-                        slider(滑动选值)
-                    </div>
-                </router-link>
-            </div>
-        </div>
-=======                </div>
+                </div>
             </router-link>
             <router-link :to="{ path:'/checkbox', activeClass:'current'}" tag="li">
                 <div class="demos-item f-flex">
@@ -130,10 +122,26 @@
                     </div>
                 </div>
             </router-link>
+            <router-link :to="{ path:'/slider', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-dialog"></div>
+                    <div class="f-flex1 components">
+                        <span>slider</span>(滑动)
+                    </div>
+                </div>
+            </router-link>
+            <router-link :to="{ path:'/drag', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-dialog"></div>
+                    <div class="f-flex1 components">
+                        <span>drag</span>(拖动排序)
+                    </div>
+                </div>
+            </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
         <cubee-loading></cubee-loading>
->>>>>>> .theirs    </div>
+    </div>
 </template>
 <script>
 import {

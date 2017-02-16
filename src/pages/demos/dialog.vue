@@ -1,21 +1,13 @@
 <template>
-<<<<<<< .mine    <div class="content">
-
-    <div class="m-list view">
-        <Header-com></Header-com>
-=======    <div class="m-dislog view">
+    <div class="m-dislog view">
         <Header-com :title="'dialog'"></Header-com>
->>>>>>> .theirs        <div class="content">
+        <div class="content">
             <div class="u-button" @click="openDia1">
                 带标题关闭按钮有确认取消按纽
             </div>
-<<<<<<< .mine            <cubee-dialog :dialogId="dialogId"  :close="close" :title="title" :content="content" :button="button" :isDiaShow="isDiaShow" v-on:closeDiaAfter="closeDiaAfter">
-            </cubee-dialog>
-            <!-- <div class="btn" @click="openDia1">
-                带关闭按钮有确认按纽
-=======            <div class="u-button" @click="openDia2">
+            <div class="u-button" @click="openDia2">
                 带标题有确认取消按纽
->>>>>>> .theirs            </div>
+            </div>
             <div class="u-button" @click="openDia3">
                 带标题单个按钮
             </div>
@@ -75,14 +67,9 @@ export default {
         CubeeTab
     },
     methods: {
-<<<<<<< .mine        closeDiaAfter(){
-            console.log("已关闭弹窗")
-        },
-        openDia(){
-            this.isDiaShow=true;
-=======        openDia1(){
+        openDia1(){
             this.dialogConfig1.isDiaShow = true;
->>>>>>> .theirs        },
+        },
         openDia2(){
             this.dialogConfig2.isDiaShow = true;
         },
@@ -107,6 +94,9 @@ export default {
             this.dialogConfig2.isDiaShow = false;
         }
     },
+    mounted() {
+
+    }
 }
 </script>
 <style lang="sass" scoped>
@@ -114,8 +104,7 @@ export default {
 .m-dislog {
     padding-bottom: 1rem;
     .content {
-<<<<<<< .mine        text-align: center;
-=======        width: 100%;
+        width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -127,7 +116,7 @@ export default {
             text-align: center;
             margin: 0 0.2rem 0.2rem;
         }
->>>>>>> .theirs    }
+    }
 
     .btn{
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
