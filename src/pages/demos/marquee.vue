@@ -7,7 +7,12 @@
         </div>
         <div class="marqueeItem f-flex">
             <div class="icon"></div>
-            <cubee-marquee :roll-list="rollList" :roll-time="2000" :direction="'vertical'" class="f-flex1"></cubee-marquee>
+            <cubee-marquee :roll-list="rollList2" :roll-time="2000" :direction="'vertical'" class="f-flex1"></cubee-marquee>
+        </div>
+
+        <div class="marqueeItem f-flex">
+            <div class="icon"></div>
+            <cubee-marquee :roll-list="rollList3" :speed="10" :type="'marquee'" class="f-flex1 marqueeList"></cubee-marquee>
         </div>
         <cubee-tab :which-tab="2"></cubee-tab>
     </div>
@@ -21,7 +26,18 @@ export default {
     name: 'marquee-demo',
     data() {
         return {
-            rollList: ["这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息","这是第二条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息","这是第三条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息","这是第四条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息"]
+            rollList: ["这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息",
+            "这是第二条滚动信息这是第一条滚动信滚动信息",
+            "这是第三条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息",
+            "这是第四条滚动信息这是第一"],
+            rollList2: ["这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息",
+            "这是第二条滚动信息这是第一条滚动信滚动信息",
+            "这是第三条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息",
+            "这是第四条滚动信息这是第一"],
+            rollList3: ["这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息",
+            "这是第二条滚动信息这是第一条滚动信滚动信息",
+            "这是第三条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息这是第一条滚动信息",
+            "这是第四条滚动信息这是第一"]
         }
     },
     components: {
@@ -37,7 +53,7 @@ export default {
     }
 }
 </script>
-<style lang="sass" scoped>
+<style lang="sass">
     .m-marquee {
         padding-bottom: 1rem;
         .marqueeItem {
@@ -50,6 +66,11 @@ export default {
                 background: url(../../assets/images/icon/icon-announcement-light.png) center no-repeat;
                 background-size: contain;
                 margin-right: 0.12rem;
+            }
+        }
+        .marqueeList {
+            .roll-item {
+                margin-right: 20px;
             }
         }
     }
