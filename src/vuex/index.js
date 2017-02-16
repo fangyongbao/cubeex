@@ -9,9 +9,7 @@ import alert from './modules/alert'
 // console log vuex
 import createLogger from 'vuex/dist/logger';
 
-
-Vue.use(Vuex)
-
+Vue.use(Vuex);
 const debug = true;
 
 export default new Vuex.Store({

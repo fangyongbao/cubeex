@@ -145,7 +145,8 @@
 </template>
 <script>
 import {
-    CubeeLoading,CubeeTab
+    CubeeLoading,
+    CubeeTab
 } from '../../components';
 import {
     mapActions
@@ -165,7 +166,7 @@ export default {
     },
     methods: {
         ...mapActions([
-            'setLoadStatus',
+            'setLoadStatus'
         ]),
     },
     created: function() {
@@ -204,14 +205,14 @@ $bcolor:#5682D9;
             height: 1rem;
         }
         .components {
-            border-bottom: 1px solid #E6E6E6; 
+            border-bottom: 1px solid #E6E6E6;
             span {
                 color: #2D3859;
             }
         }
     }
     .demos-item:active {
-        background: darken(#fff,10%);
+        background: darken(#fff, 10%);
     }
     li:nth-last-of-type(1) {
         .components {
@@ -225,47 +226,46 @@ $bcolor:#5682D9;
     .menu-swiper {
         background: url(../../assets/images/icon/icon-swiper.png) center no-repeat;
         background-size: 0.4rem 0.22rem;
-        
     }
     .menu-addressBook {
         background: url(../../assets/images/icon/icon-addressBook.png) center no-repeat;
-        background-size: 0.31rem 0.32rem; 
+        background-size: 0.31rem 0.32rem;
     }
     .menu-radio {
         background: url(../../assets/images/icon/icon-radio.png) center no-repeat;
-        background-size: 0.32rem 0.32rem; 
+        background-size: 0.32rem 0.32rem;
     }
     .menu-checkbox {
         background: url(../../assets/images/icon/icon-checkbox.png) center no-repeat;
-        background-size: 0.32rem 0.32rem; 
+        background-size: 0.32rem 0.32rem;
     }
     .menu-select-drop {
         background: url(../../assets/images/icon/icon-select-drop.png) center no-repeat;
-        background-size: 0.32rem 0.24rem; 
+        background-size: 0.32rem 0.24rem;
     }
     .menu-select-scroll {
         background: url(../../assets/images/icon/icon-select-scroll.png) center no-repeat;
-        background-size: 0.34rem 0.28rem; 
+        background-size: 0.34rem 0.28rem;
     }
     .menu-select-area {
         background: url(../../assets/images/icon/icon-area.png) center no-repeat;
-        background-size: 0.3rem 0.36rem; 
+        background-size: 0.3rem 0.36rem;
     }
     .menu-select-datatime {
         background: url(../../assets/images/icon/icon-datatime.png) center no-repeat;
-        background-size: 0.34rem 0.32rem; 
+        background-size: 0.34rem 0.32rem;
     }
     .menu-dialog {
         background: url(../../assets/images/icon/icon-dialog.png) center no-repeat;
-        background-size: 0.34rem 0.32rem; 
+        background-size: 0.34rem 0.32rem;
     }
     .menu-preview {
         background: url(../../assets/images/icon/icon-preview.png) center no-repeat;
-        background-size: 0.34rem 0.24rem; 
+        background-size: 0.34rem 0.24rem;
     }
     .menu-qrcode {
         background: url(../../assets/images/icon/icon-qrcode.png) center no-repeat;
-        background-size: 0.29rem 0.29rem; 
+        background-size: 0.29rem 0.29rem;
     }
 }
 </style>
