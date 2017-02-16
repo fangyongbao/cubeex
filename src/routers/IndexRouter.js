@@ -114,6 +114,12 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/qq')), 'qq');
         }
     },{
+        name: 'marquee',
+        path: '/marquee',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/marquee')), 'marquee');
+        }
+    },{
         path: '*',
         redirect: '/home'
     }]

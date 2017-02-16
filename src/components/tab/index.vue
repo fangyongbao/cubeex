@@ -42,6 +42,7 @@
         box-shadow: 0 -2px 8px 0 #C8CBD1;
         background-color: #FFF;
         bottom: 0;
+        left: 0;
         padding: 0.15rem 0 0.5rem;
         .tabItem {
             p {

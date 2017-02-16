@@ -102,11 +102,11 @@
 			},
 			touchend(e) {
 				this.isTransition = true;
-				if(this.translateX > (-this.showIndex * this.itemWidth + this.itemWidth/2)) {
+				if(this.translateX > (-this.showIndex * this.itemWidth + this.itemWidth/5)) {
 					// 右滑动超过半张图
 					this.showIndex--;
 					this.translateX = -this.showIndex * this.itemWidth;
-				} else if(this.translateX < (-this.showIndex * this.itemWidth - this.itemWidth/2)) {
+				} else if(this.translateX < (-this.showIndex * this.itemWidth - this.itemWidth/5)) {
 					// 左滑动超过半张图
 					this.showIndex++;
 					this.translateX = -this.showIndex * this.itemWidth;
@@ -114,61 +114,54 @@
 					this.translateX = -this.showIndex * this.itemWidth;
 				}
 
-            this.indicator();
+                this.indicator();
 
-            setTimeout(() => {
-                this.isTransition = false;
-                if (this.showIndex == 0) {
-                    this.showIndex = this.baseList.length - 2;
-                    this.translateX = -this.showIndex * this.itemWidth;
-                } else if (this.showIndex == this.baseList.length - 1) {
-                    this.showIndex = 1;
-                    this.translateX = -this.showIndex * this.itemWidth;
-                }
-            }, 500)
-
-            if (this.isAutoPlay) {
                 setTimeout(() => {
-                    this.autoPlay();
-                }, 1000)
-            }
-        },
-        autoPlay() {
-            clearInterval(this.autoPlayTimer);
-            let _this = this;
-
-            this.autoPlayTimer = setInterval(function() {
-                _this.isTransition = true;
-                _this.showIndex++;
-                _this.translateX = -_this.showIndex * _this.itemWidth;
-                _this.indicator();
-                setTimeout(function() {
-                    _this.isTransition = false;
-                    if (_this.showIndex == _this.baseList.length - 1) {
-                        _this.showIndex = 1;
-                        _this.translateX = -_this.showIndex * _this.itemWidth;
+                    this.isTransition = false;
+                    if (this.showIndex == 0) {
+                        this.showIndex = this.baseList.length - 2;
+                        this.translateX = -this.showIndex * this.itemWidth;
+                    } else if (this.showIndex == this.baseList.length - 1) {
+                        this.showIndex = 1;
+                        this.translateX = -this.showIndex * this.itemWidth;
                     }
                 }, 500)
-					setTimeout(function(){
-						_this.isTransition = false;
-						if(_this.showIndex == _this.baseList.length - 1) {
-							_this.showIndex = 1;
-							_this.translateX = -_this.showIndex * _this.itemWidth;
-						}
-					},500)
-					
-				},2000)
-			},
-			indicator() {
-				// 图片下标标识
-				if(this.showIndex == 0) {
-					this.indicatorIndex = this.baseList.length - 3;
-				} else if (this.showIndex == this.baseList.length - 1) {
-					this.indicatorIndex = 0;
-				} else {
-					this.indicatorIndex = this.showIndex - 1;
-				}
-			}
+
+                if (this.isAutoPlay) {
+                    setTimeout(() => {
+                        this.autoPlay();
+                    }, 1000)
+                }
+            },
+            autoPlay() {
+                clearInterval(this.autoPlayTimer);
+                let _this = this;
+
+                this.autoPlayTimer = setInterval(function() {
+                    _this.isTransition = true;
+                    _this.showIndex++;
+                    _this.translateX = -_this.showIndex * _this.itemWidth;
+                    _this.indicator();
+                    setTimeout(function() {
+                        _this.isTransition = false;
+                        if (_this.showIndex == _this.baseList.length - 1) {
+                            _this.showIndex = 1;
+                            _this.translateX = -_this.showIndex * _this.itemWidth;
+                        }
+                    }, 500)
+    					
+    			},2000)
+    		},
+    		indicator() {
+    			// 图片下标标识
+    			if(this.showIndex == 0) {
+    				this.indicatorIndex = this.baseList.length - 3;
+    			} else if (this.showIndex == this.baseList.length - 1) {
+    				this.indicatorIndex = 0;
+    			} else {
+    				this.indicatorIndex = this.showIndex - 1;
+    			}
+    		}
     	},
     	mounted() {
     		this.baseList = this.list;
@@ -242,6 +235,6 @@
 
 .isTransition {
     transition: transform 0.5s;
-    --webkit-transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
 }
 </style>

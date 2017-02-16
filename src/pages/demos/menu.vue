@@ -122,6 +122,14 @@
                     </div>
                 </div>
             </router-link>
+            <router-link :to="{ path:'/marquee', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-announcement"></div>
+                    <div class="f-flex1 components">
+                        <span>marquee</span>(公告轮播&跑马灯)
+                    </div>
+                </div>
+            </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
         
@@ -243,6 +251,10 @@ $bcolor:#5682D9;
     .menu-qq {
         background: url(../../assets/images/icon/icon-qq.png) center no-repeat;
         background-size: 0.29rem 0.29rem; 
+    }
+    .menu-announcement {
+        background: url(../../assets/images/icon/icon-announcement.png) center no-repeat;
+        background-size: 0.32rem 0.29rem; 
     }
 }
 </style>
