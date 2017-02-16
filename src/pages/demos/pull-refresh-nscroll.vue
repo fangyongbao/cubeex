@@ -208,7 +208,7 @@ export default {
         height: 60px;
         line-height: 60px;
         color: #fff;
-        background: #385FB5;
+        background: #C4D4DF;
         font-size: 14px;
     }
     .itemC {
