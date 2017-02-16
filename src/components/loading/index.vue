@@ -1,8 +1,10 @@
 <template>
 	<transition name="fade">
-		<div class="loading" v-show="loadInfo.isShow">
-			<div class="icon"></div>
-			<p>{{loadInfo.msg}}</p>
+		<div class="loadingWrap" v-show="loadInfo.isShow">
+			<div class="loading">
+				<div class="icon"></div>
+				<p>{{loadInfo.msg}}</p>
+			</div>
 		</div>
 	</transition>
 </template>
@@ -22,13 +24,19 @@
 		mounted: function () {
 			this.$nextTick(function () {
 				// 代码保证 this.$el 在 document 中
-				// console.log(this.alertInfo);
+				console.log(this.loadInfo);
 			})
 		}
 	}
 </script>
 
 <style lang="sass" scoped>
+	.loadingWrap {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+	}
 	.loading {
 		position: absolute;
 		left: 50%;
@@ -41,7 +49,6 @@
 		font-size: 13px;
 		color: white;
 		text-align: center;
-		z-index: 100;
 		.icon {
 			width: 0.6rem;
 			height: 0.6rem;

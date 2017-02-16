@@ -196,7 +196,7 @@ export default {
     mounted() {
         let _this = this;
         _this.$refs.wrapperCon.style.height = _this.$refs.wrapper.clientHeight + 'px';
-        // _this.pullDownAction();
+        _this.pullDownAction();
     }
 }
 </script>

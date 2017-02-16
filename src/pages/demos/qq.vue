@@ -1,6 +1,6 @@
 <template>
     <div class="m-qrcode-demo view">
-        <Header-com :title="'qq咨询'"></Header-com>
+        <Header-com :title="'QQ'"></Header-com>
         <cubee-qq :account="4008817800"></cubee-qq>
     </div>
 </template>

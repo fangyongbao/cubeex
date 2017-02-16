@@ -118,7 +118,7 @@
                 <div class="demos-item f-flex">
                     <div class="icon menu-qq"></div>
                     <div class="f-flex1 components">
-                        <span>qq</span>(qq在线客服)
+                        <span>QQ</span>(qq在线客服)
                     </div>
                 </div>
             </router-link>

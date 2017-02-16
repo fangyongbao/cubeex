@@ -104,7 +104,7 @@ export default {
                     margin-right: 15px;
                 }
                 span {
-                    // line-height: 0.5rem;
+                    line-height: 21px;
                 }
                 div {
                     width: 95px;
@@ -123,7 +123,7 @@ export default {
             margin: 0 0.4rem 0.4rem;
             padding: 0.25rem 0;
             span {
-                line-height: 25px;
+                line-height: 20px;
             }
         }
         .u-demo {
