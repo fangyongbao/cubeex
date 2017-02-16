@@ -1,8 +1,8 @@
 {
-  "name": "vue2.0demo",
+  "name": "cubeex",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "cubeex是基于vue2.0开发的组件库，包含一套完整的移动UI",
+  "main": "entry/index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --port 3001 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./webpack.dev.config.js",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached --bail   --config ./webpack.prod.config.js"
@@ -42,7 +42,6 @@
     "jquery": "^3.1.0",
     "photoswipe": "^4.1.1",
     "vue": "^2.0.3",
-    "vue-progressbar": "^0.2.5",
     "vue-resource": "^0.9.3",
     "vue-router": "^2.0.1",
     "vuex": "^2.0.0",
