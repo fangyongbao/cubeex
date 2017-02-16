@@ -69,7 +69,6 @@ export default {
 }
 </script>
 <style lang="sass" scoped>
-
 .ui-dialog {
     position: fixed;
     top: 0;
@@ -82,12 +81,10 @@ export default {
     background-color: rgba(0, 0, 0, 0.66);
     display: none;
     z-index: 1001;
-
     &.show {
         display: -moz-box;
         display: -webkit-box;
     }
-
     .ui-dialog-cnt {
         border-radius: 0.08rem;
         background-color: #fff;
@@ -95,7 +92,6 @@ export default {
         margin:0 auto;
         z-index: 100;
     }
-
     .ui-dialog-hd {
         position: relative;
         font-size: 0;
@@ -109,7 +105,6 @@ export default {
             padding: 0 0.5rem 0.2rem;
             line-height: 17px;
         }
-
         .icon {
             display: inline-block;
             line-height: 18px;
@@ -118,7 +113,6 @@ export default {
             -webkit-font-smoothing: antialiased;
             -webkit-text-stroke-width: .2px;
         }
-
         .icon-close {
             position: absolute;
             right: 0.1rem;
@@ -129,7 +123,6 @@ export default {
             background-size: 0.3rem 0.3rem;
         }
     }
-
     .ui-dialog-bd {
         padding: 0.1rem 0.5rem 0.4rem;
         font-size: 13px;
@@ -137,7 +130,6 @@ export default {
         line-height: 0.37rem;
         color: #596380;
     }
-
     .ui-dialog-ft {
         border-bottom-left-radius: 0.08rem;
         border-bottom-right-radius: 0.08rem;
@@ -148,7 +140,6 @@ export default {
             width: 100%;
             -webkit-box-align: center;
         }
-
         button {
             background: transparent;
             position: relative;
@@ -186,16 +177,13 @@ export default {
                 transform: scaleX(0.5);
                 width: 1px;
             }
-
             &:active {
                 background: #eee;
             }
-
             &:first-child {
                 border-bottom-left-radius:6px;
                 background-image: none;
             }
-
             &:last-child {
                 border-bottom-right-radius: 6px;
                 border-right: 0;
