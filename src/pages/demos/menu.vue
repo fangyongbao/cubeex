@@ -42,6 +42,11 @@
                         dialog(弹窗)
                     </div>
                 </router-link>
+                <router-link :to="{ path:'/slider', activeClass:'current'}" class="item">
+                    <div class="slide">
+                        slider(滑动选值)
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>

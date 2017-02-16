@@ -1,6 +1,6 @@
 <template>
-    <div class="ui-dialog show"  v-show="isDiaShow" :id="dialogId"  @click="closeDiaPanel($event)">
-        <div class="ui-dialog-cnt">
+    <div class="ui-dialog show animated bounceInDown"  v-show="isDiaShow" :id="dialogId"  @click="closeDiaPanel($event)">
+        <div class="ui-dialog-cnt" @click="_stopScroll($event)" @touchmove="_stopScroll($event)" @touchend="_stopScroll($event)">
             <div class="ui-dialog-hd">
                 <a class="icon icon-close" v-if="close" @click="closeDia($event)"></a>
                 <div class="title" v-if="showTitle" ref="title">

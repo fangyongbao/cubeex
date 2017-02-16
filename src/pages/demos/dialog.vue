@@ -79,7 +79,7 @@ export default {
         line-height: 60px;
     }
     .content {
-        
+        text-align: center;
     }
 
     .btn{

@@ -45,6 +45,7 @@
     "vue-router": "^2.0.1",
     "vuex": "^2.0.0",
     "vux-xscroll": "^3.1.8",
-    "xscroll": "^3.1.2"
+    "xscroll": "^3.1.2",
+    "keycode": "^2.1.7"
   }
 }

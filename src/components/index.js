@@ -6,6 +6,8 @@ import CubeeSelect from './select'
 import CubeeSelectScroll from './select-scroll'
 import CubeeDateTime from './datetime'
 import CubeeDialog from './dialog'
+import CubeeSlider from './slider'
+import FocusRipple from './internal/focusRipple'
 
 const cubeex = {
     CubeeArea,
@@ -15,7 +17,9 @@ const cubeex = {
     CubeeSelect,
     CubeeSelectScroll,
     CubeeDateTime,
-    CubeeDialog
+    CubeeDialog,
+    CubeeSlider,
+    FocusRipple
 }
 
 module.exports = cubeex

@@ -70,6 +70,12 @@ const router = new VueRouter({
             require(['../pages/demos/dialog'], resolve);
         }
     },{
+        name: 'slider',
+        path: '/slider',
+        component: (resolve) => {
+            require(['../pages/demos/slider'], resolve);
+        }
+    },{
         path: '*',
         redirect: '/menu'
     }]
