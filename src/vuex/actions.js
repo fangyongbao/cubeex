@@ -19,3 +19,8 @@ export const setRuleStatus = ({ commit, state }, ruleStatus) => {
 export const setShopList = ({ commit, state }, shopList) => {
   commit(types.SET_SHOP_LIST, { shopList })
 }
+
+// loading
+export const setLoadStatus = ({ commit, state }, loadStatus) => {
+    commit(types.SET_LOAD_STATUS, loadStatus )
+}

@@ -2,22 +2,22 @@
     <div class="m-list view">
         <Header-com></Header-com>
         <div class="content">
-            <cubee-pull-refresh ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
+            <cubee-pull-refresh-i ref="pullRefreshEl" :usePullDown="true" :usePullUp="true" v-on:pullDownAction="pullDownAction" v-on:pullUpAction="pullUpAction">
                 <div class="f-flex f-flexr item" v-for="item in matchList">
                     <div class="f-flex1 itemc">{{item.homeName}}</div>
                     <div class="f-flex1 itemc">{{item.awayName}}</div>
                 </div>
-            </cubee-pull-refresh>
+            </cubee-pull-refresh-i>
         </div>
     </div>
 </template>
 <script>
 import {
-    CubeePullRefresh
+    CubeePullRefreshI
 } from '../../components';
 import HeaderCom from './header';
 export default {
-    name: 'pull-refresh-demo',
+    name: 'pull-refresh-iscroll-demo',
     data() {
         return {
             matchList: []
@@ -25,7 +25,7 @@ export default {
     },
     components: {
         HeaderCom,
-        CubeePullRefresh
+        CubeePullRefreshI
     },
     methods: {
         refreshScrollHeight() {

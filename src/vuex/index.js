@@ -5,6 +5,7 @@ import * as getters from './getters'
 import global from './modules/global'
 import game from './modules/game'
 import shop from './modules/shop'
+import alert from './modules/alert'
 // console log vuex
 import createLogger from 'vuex/dist/logger';
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     global,
+    alert,
     game,
     shop
   },

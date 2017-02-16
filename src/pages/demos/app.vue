@@ -53,11 +53,11 @@ body {
         .view {
             position: absolute;
             top: 0;
-            bottom: 0;
             left: 0;
-            right: 0;
             width: 100%;
-            background: #fff;
+            height: 100%;
+            background: #EEF1F4;
+            padding-top: 0.88rem;
         }
     }
 }

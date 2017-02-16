@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var helpers = require('./helpers');
 var commonWebpack = require('./webpack.base.config');
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var CleanPlugin = require('clean-webpack-plugin');
 
 const METADATA = {
     //可换成cdn地址
@@ -29,6 +30,8 @@ module.exports = Object.assign({}, commonWebpack, {
                 warnings: false
             }
         }),
+        // 清理dist目录
+        new CleanPlugin(['dist']),
         //React 官方提供的代码是已经合并的, 这个是 Webpack 不推荐的用法,
         //在合并的代码上进行定制有点麻烦, Webpack 提供了设置环境变量来优化代码的方案:
         new webpack.DefinePlugin({

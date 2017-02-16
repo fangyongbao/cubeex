@@ -1,22 +1,16 @@
 <template>
     <div class="m-select-demo view">
-        <Header-com></Header-com>
+        <Header-com :title="'select-drop'"></Header-com>
         <div class="f-ot content">
-            <div class="f-flex f-flexr item">
-                <div class="f-flex f-flextc f-flexvc label">
-                    选择
-                </div>
-                <div class="f-flex1 f-flex f-flexvc select">
-                    <Cubee-select v-model="value" :options="options"></Cubee-select>
-                </div>
-            </div>
+            <Cubee-select v-model="value" :options="options"></Cubee-select>
         </div>
+        <cubee-tab :which-tab="2"></cubee-tab>
     </div>
 </template>
 <script>
 import HeaderCom from './header';
 import {
-    CubeeSelect
+    CubeeSelect,CubeeTab
 } from '../../components';
 export default {
     name: 'select-demo',
@@ -55,7 +49,8 @@ export default {
     },
     components: {
         CubeeSelect,
-        HeaderCom
+        HeaderCom,
+        CubeeTab
     },
     watch: {
         value(val) {
@@ -68,24 +63,10 @@ export default {
 .m-select-demo {
     color: #999;
     font-size: 14px;
-    .item {
-        height: 60px;
-        margin-top: 10px;
-        .label {
-            width: 100px;
-        }
-        .select{
-            -webkit-appearance: none;
-            appearance: none;
-            padding: -0 10px;
-        }
-    }
+    padding-bottom: 1rem;
     .content {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        top: 40px;
-        bottom: 0;
+        height: 100%;
+
     }
 }
 </style>

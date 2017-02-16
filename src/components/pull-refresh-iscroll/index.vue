@@ -127,6 +127,7 @@ export default {
 .m-pull-refresh {
     .wrapper {
         height: 100%;
+        overflow: auto;
         .scroller {
             min-height: 100%;
             position: relative;

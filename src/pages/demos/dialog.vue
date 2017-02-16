@@ -1,86 +1,133 @@
 <template>
-    <div class="content">
+<<<<<<< .mine    <div class="content">
 
     <div class="m-list view">
         <Header-com></Header-com>
-        <div class="content">
-            <div class="btn" @click="openDia">
+=======    <div class="m-dislog view">
+        <Header-com :title="'dialog'"></Header-com>
+>>>>>>> .theirs        <div class="content">
+            <div class="u-button" @click="openDia1">
                 带标题关闭按钮有确认取消按纽
             </div>
-            <cubee-dialog :dialogId="dialogId"  :close="close" :title="title" :content="content" :button="button" :isDiaShow="isDiaShow" v-on:closeDiaAfter="closeDiaAfter">
+<<<<<<< .mine            <cubee-dialog :dialogId="dialogId"  :close="close" :title="title" :content="content" :button="button" :isDiaShow="isDiaShow" v-on:closeDiaAfter="closeDiaAfter">
             </cubee-dialog>
             <!-- <div class="btn" @click="openDia1">
                 带关闭按钮有确认按纽
+=======            <div class="u-button" @click="openDia2">
+                带标题有确认取消按纽
+>>>>>>> .theirs            </div>
+            <div class="u-button" @click="openDia3">
+                带标题单个按钮
             </div>
-            <cubee-dialog :dialogId="dialogId1"  :close="close" :title="title1" :content="content" :button="button" :isDiaShow="isDiaShow1">
-            </cubee-dialog> -->
-            <!-- <dia-exam :isDiaShow="isDiaShow"></dia-exam> -->
-            <!-- <div class="btn" @click="openDia1">
-                带标题有确认按纽
+            <div class="u-button" @click="openDia4">
+                无标题单个按钮
             </div>
-            <dia-exam1 :isDiaShow="isDiaShow"></dia-exam1> -->
         </div>
+        <cubee-dialog :dialog-config="dialogConfig1" @left-btn="cancel1" @right-btn="sure1"></cubee-dialog>
+        <cubee-dialog :dialog-config="dialogConfig2" @left-btn="cancel1" @right-btn="sure1" @close-dia="closeDia"></cubee-dialog>
+        <cubee-dialog :dialog-config="dialogConfig3" @left-btn="cancel1"></cubee-dialog>
+        <cubee-dialog :dialog-config="dialogConfig4" @left-btn="cancel1"></cubee-dialog>
+        <cubee-tab :which-tab="2"></cubee-tab>
     </div>
 </template>
 <script>
 import HeaderCom from './header';
 import {
-    CubeeDialog
+    CubeeDialog,CubeeTab
 } from '../../components';
 export default {
     name: 'dialog-demo',
     data() {
         return {
-            title:"testestffasfsdaf123gdgfdg342354235235235",
-            title1:'',
-            content:"布里斯班以逸待劳，反击或是制胜法宝；墨尔本城受大财团资助，人员实力大幅提升，但团队磨合不够。布里斯班以逸待劳，反击或是制胜法宝；墨尔本城受大财团资助，人员实力大幅提升，",
-            button:["确定","取消"],
-            button1:["确定"],
-            close:true,
-            isDiaShow:false,
-            isDiaShow1:false,
-            dialogId:"dia1",
-            dialogId1:"dia2"
+            dialogConfig1: {
+                hasClose: false,
+                title: '提示',
+                content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+                button: ['取消','确定'],
+                isDiaShow: false
+            },
+            dialogConfig2: {
+                hasClose: true,
+                title: '提示',
+                content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+                button: ['取消','确定'],
+                isDiaShow: false
+            },
+            dialogConfig3: {
+                hasClose: false,
+                title: '提示',
+                content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+                button: ['确定'],
+                isDiaShow: false
+            },
+            dialogConfig4: {
+                hasClose: false,
+                title: '',
+                content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容',
+                button: ['确定'],
+                isDiaShow: false
+            }
         }
     },
     components: {
         HeaderCom,
-        CubeeDialog
+        CubeeDialog,
+        CubeeTab
     },
     methods: {
-        closeDiaAfter(){
+<<<<<<< .mine        closeDiaAfter(){
             console.log("已关闭弹窗")
         },
         openDia(){
             this.isDiaShow=true;
+=======        openDia1(){
+            this.dialogConfig1.isDiaShow = true;
+>>>>>>> .theirs        },
+        openDia2(){
+            this.dialogConfig2.isDiaShow = true;
         },
-        openDia1(){
-            this.isDiaShow1=true;
+        openDia3() {
+            this.dialogConfig3.isDiaShow = true;
+        },
+        openDia4() {
+            this.dialogConfig4.isDiaShow = true;
+        },
+        cancel1() {
+            this.dialogConfig1.isDiaShow = false;
+            this.dialogConfig2.isDiaShow = false;
+            this.dialogConfig3.isDiaShow = false;
+            this.dialogConfig4.isDiaShow = false;
+        },
+        sure1() {
+            console.log("确定1");
+            this.dialogConfig1.isDiaShow = false;
+            this.dialogConfig2.isDiaShow = false;
+        },
+        closeDia() {
+            this.dialogConfig2.isDiaShow = false;
         }
     },
 }
 </script>
 <style lang="sass" scoped>
 
-.m-list {
-    .item {
-        margin-top: 10px;
-        text-align: center;
-        height: 60px;
-        line-height: 60px;
-        color: #fff;
-        background: #385FB5;
-        font-size: 14px;
-    }
-    .item:nth-of-type(1) {
-        margin: 0;
-    }
-    .itemC {
-        line-height: 60px;
-    }
+.m-dislog {
+    padding-bottom: 1rem;
     .content {
-        text-align: center;
-    }
+<<<<<<< .mine        text-align: center;
+=======        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        .u-button {
+            height: 0.8rem;
+            line-height: 0.8rem;
+            text-align: center;
+            margin: 0 0.2rem 0.2rem;
+        }
+>>>>>>> .theirs    }
 
     .btn{
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

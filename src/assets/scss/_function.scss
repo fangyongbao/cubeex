@@ -1,0 +1,50 @@
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transform-origin($origin) {
+    -webkit-transform-origin: $origin;
+    -moz-transform-origin: $origin;
+    -ms-transform-origin: $origin;
+    -o-transform-origin: $origin;
+    transform-origin: $origin;
+}
+
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}
+
+@mixin animation($animate) {
+    -webkit-animation: $animate;
+    -moz-animation: $animate;
+    -ms-animation: $animate;
+    -o-animation: $animate;
+    animation: $animate;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    filter: alpha(opacity=$opacity * 100);
+}
+
+@mixin background-landscape ($topbg, $bottombg) {
+    background: -moz-linear-gradient(left, $topbg, $bottombg);
+    background: -webkit-gradient(linear, 0 50%, 100% 50%, from($topbg), to($bottombg));
+    background: -webkit-linear-gradient(left, $topbg, $bottombg);
+    background: -o-linear-gradient(left, $topbg, $bottombg);
+}
+
+@mixin background-portrait ($topbg, $bottombg) {
+    background: -moz-linear-gradient(top, $topbg, $bottombg);
+    background: -webkit-gradient(linear, 50% 0, 50% 100%, from($topbg), to($bottombg));
+    background: -webkit-linear-gradient(top, $topbg, $bottombg);
+    background: -o-linear-gradient(top, $topbg, $bottombg);
+}

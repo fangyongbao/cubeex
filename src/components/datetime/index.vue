@@ -57,8 +57,9 @@
                     </ul>
                 </div>
             </div>
-            <hr class="ProvCitySelectedTop">
-            <hr class="ProvCitySelectedBottom">
+            <!-- <hr class="ProvCitySelectedTop">
+            <hr class="ProvCitySelectedBottom"> -->
+            <div class="netMonitor"></div>
         </div>
     </div>
 </template>
@@ -254,7 +255,7 @@ export default {
             }
             goPage = total - 1 >= Math.abs(goPage) ? goPage : -(total - 1);
             let index = Math.abs(goPage);
-            console.log("total:"+total,"goPage:"+goPage,"index:"+index,"minSelectId:"+minSelectId,"maxSelectId:"+maxSelectId);
+            // console.log("total:"+total,"goPage:"+goPage,"index:"+index,"minSelectId:"+minSelectId,"maxSelectId:"+maxSelectId);
             
             if(index < minSelectId && this.minTime != null) {
                 index = minSelectId;
@@ -445,7 +446,7 @@ export default {
 }
 
 .ProvCityHeader {
-    background: #385FB5;
+    background: #358AD6;
     height: 44px;
     line-height: 44px;
     overflow: hidden;
@@ -458,23 +459,24 @@ export default {
     float: left;
     padding: 0 20px;
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .ProvCityHeaderConfirm {
     float: right;
     padding: 0 20px;
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .ProvCityContent {
     width: 100%;
     margin: 0 auto;
-    background: #fff;
+    background: transparent;
     overflow: hidden;
     height: 245px;
     overflow: hidden;
+    color: #2D3859;
 }
 
 .ProvCityContentList ul {
@@ -533,5 +535,15 @@ export default {
     bottom: 140px;
     margin: 0;
     height: 0;
+}
+.netMonitor {
+    width: 100%;
+    height: 35px;
+    border-top: 1px solid #BDC1D2;
+    border-bottom: 1px solid #BDC1D2;
+    position: absolute;
+    bottom: 105px;
+    background: #F7F9FB;
+    z-index: -1;
 }
 </style>
