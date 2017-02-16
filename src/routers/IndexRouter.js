@@ -114,6 +114,18 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/qq')), 'qq');
         }
     },{
+        name: 'slider',
+        path: '/slider',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/slider')), 'slider');
+        }
+    },{
+        name: 'drag',
+        path: '/drag',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/drag')), 'drag');
+        }
+    },{
         path: '*',
         redirect: '/home'
     }]
