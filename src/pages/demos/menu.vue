@@ -130,6 +130,14 @@
                     </div>
                 </div>
             </router-link>
+            <router-link :to="{ path:'/countdown', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-countdown"></div>
+                    <div class="f-flex1 components">
+                        <span>countdown</span>(倒计时)
+                    </div>
+                </div>
+            </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
         
@@ -255,6 +263,10 @@ $bcolor:#5682D9;
     .menu-announcement {
         background: url(../../assets/images/icon/icon-announcement.png) center no-repeat;
         background-size: 0.32rem 0.29rem; 
+    }
+    .menu-countdown {
+        background: url(../../assets/images/icon/icon-countdown.png) center no-repeat;
+        background-size: 0.28rem 0.32rem; 
     }
 }
 </style>

@@ -15,8 +15,8 @@
                 无标题单个按钮
             </div>
         </div>
-        <cubee-dialog :dialog-config="dialogConfig1" @left-btn="cancel1" @right-btn="sure1"></cubee-dialog>
-        <cubee-dialog :dialog-config="dialogConfig2" @left-btn="cancel1" @right-btn="sure1" @close-dia="closeDia"></cubee-dialog>
+        <cubee-dialog :dialog-config="dialogConfig1" @left-btn="cancel1" @right-btn="sure1" @close-dia="closeDia"></cubee-dialog>
+        <cubee-dialog :dialog-config="dialogConfig2" @left-btn="cancel1" @right-btn="sure1"></cubee-dialog>
         <cubee-dialog :dialog-config="dialogConfig3" @left-btn="cancel1"></cubee-dialog>
         <cubee-dialog :dialog-config="dialogConfig4" @left-btn="cancel1"></cubee-dialog>
         <cubee-tab :which-tab="2"></cubee-tab>
@@ -32,14 +32,14 @@ export default {
     data() {
         return {
             dialogConfig1: {
-                hasClose: false,
+                hasClose: true,
                 title: '提示',
                 content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
                 button: ['取消','确定'],
                 isDiaShow: false
             },
             dialogConfig2: {
-                hasClose: true,
+                hasClose: false,
                 title: '提示',
                 content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
                 button: ['取消','确定'],

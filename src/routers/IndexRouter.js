@@ -120,6 +120,12 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/marquee')), 'marquee');
         }
     },{
+        name: 'countdown',
+        path: '/countdown',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/countdown')), 'countdown');
+        }
+    },{
         path: '*',
         redirect: '/home'
     }]
