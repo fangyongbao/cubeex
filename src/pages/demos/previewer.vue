@@ -73,8 +73,10 @@ export default {
             li {
                 padding: 0.2rem 0.1rem 0;
                 width: 33.3%;
+                overflow: hidden;
                 img {
                     width: 100%;
+                    float: left;
                 }
             }
         }
