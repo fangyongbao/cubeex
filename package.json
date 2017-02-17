@@ -1,8 +1,8 @@
 {
   "name": "cubeex",
   "version": "1.0.1",
-  "description": "cubeex是基于vue2.0开发的组件库，包含一套完整的移动UI",
-  "main": "entry/index.js",
+  "description": "cubeex vue2.0 UI",
+  "main": "src/components/index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --port 3001 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./webpack.dev.config.js",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached --bail   --config ./webpack.prod.config.js"
