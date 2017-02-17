@@ -53,7 +53,7 @@ export default {
     }
 };
 </script>
-<style lang="sass" scoped>
+<style lang="sass">
     .m-sortable-demo{
         padding-bottom: 1rem;
         font-size: 12px;
