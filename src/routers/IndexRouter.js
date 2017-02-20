@@ -138,6 +138,12 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/drag')), 'drag');
         }
     },{
+        name: 'uploadImg',
+        path: '/uploadImg',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/uploadImg')), 'uploadImg');
+        }
+    },{
         path: '*',
         redirect: '/home'
     }]
@@ -176,7 +182,6 @@ router.beforeEach((to, from, next) => {
         commit('SET_DIRECTION', { direction })
     }
 
-    // commit('UPDATE_LOADING', true)
     setTimeout(next, 50)
 })
 

@@ -85,6 +85,8 @@
 			if(this.type == "announcement") {
 				this.baseList.unshift(this.baseList[this.baseList.length-1]); // 将最后一张图片复制一份放在数组的最前面
     			this.baseList.push(this.baseList[1]); // 将第一张图复制一份放在数组的最后面
+			} else {
+				this.baseList.push(this.baseList[0]); // 将第一张图复制一份放在数组的最后面
 			}
     		
 			this.$nextTick(function () {
@@ -115,11 +117,12 @@
 					let rollWrapWidth = 0;
 					for(let i = 0, len = rollItems.length; i < len; i++) {
 	    				// rollItems[i].style.width = this.itemWidth + 'px';
+	    				rollItems[i].style.minWidth = this.itemWidth + 'px';
 	    				rollWrapWidth += rollItems[i].clientWidth;
 	    			}
 					rollWrap.style.width = rollWrapWidth + "px";
-					this.rollWidth = rollWrapWidth;
-					this.translateX = this.itemWidth;
+					this.rollWidth = rollWrapWidth - rollItems[0].clientWidth;
+					// this.translateX = this.itemWidth;
 				}
     			
     			
@@ -139,6 +142,9 @@
 		color: #596380;
 		.roll-wrap {
 			width: 9999999px;
+			.roll-item {
+				// min-width: 100%;
+			}
 		}
 	}
 	.isTransition {

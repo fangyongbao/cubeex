@@ -91,7 +91,7 @@ export default {
             this.dialogConfig2.isDiaShow = false;
         },
         closeDia() {
-            this.dialogConfig2.isDiaShow = false;
+            this.dialogConfig1.isDiaShow = false;
         }
     },
     mounted() {

@@ -9,7 +9,6 @@
             </ul>
         </div>
         
-        
         <cubee-previewer :list="list" ref="previewer" :options="options"></cubee-previewer>
         <cubee-tab :which-tab="2"></cubee-tab>
     </div>
