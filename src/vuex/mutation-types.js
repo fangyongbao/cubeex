@@ -11,3 +11,5 @@ export const SET_DIRECTION = 'SET_DIRECTION';
 // 局部
 export const SET_RULE_STATUS = 'SET_RULE_STATUS';
 export const SET_SHOP_LIST = 'SET_SHOP_LIST';
+
+export const SET_LOAD_STATUS = 'SET_LOAD_STATUS';

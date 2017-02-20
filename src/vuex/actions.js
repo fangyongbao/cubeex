@@ -21,6 +21,6 @@ export const setShopList = ({ commit, state }, shopList) => {
 }
 
 // loading
-export const setLoadStatus = ({ commit, state }, loadStatus) => {
-    commit(types.SET_LOAD_STATUS, loadStatus )
+export const setLoadStatus = ({ commit, state }, loadInfo) => {
+    commit(types.SET_LOAD_STATUS, loadInfo )
 }
