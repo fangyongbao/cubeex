@@ -40,24 +40,24 @@ export default {
         ])
     },
     watch: {
-        '$route': function(val, oldVal) {
-            this.setLoadStatus({
-                msg: '加载中...',
-                isShow: true
-            })
-            setTimeout(() => {
-                this.setLoadStatus({
-                    msg: '',
-                    isShow: false
-                })
-            }, 2000)
-            console.log('------------监听到路由变化---------',this.direction);
-            if (this.direction === 'forward') {
-                this.viewAnimate = 'slide-in';
-            } else {
-                this.viewAnimate = 'slide-out';
-            }
-        }
+        // '$route': function(val, oldVal) {
+        //     this.setLoadStatus({
+        //         msg: '加载中...',
+        //         isShow: true
+        //     })
+        //     setTimeout(() => {
+        //         this.setLoadStatus({
+        //             msg: '',
+        //             isShow: false
+        //         })
+        //     }, 2000)
+        //     console.log('------------监听到路由变化---------',this.direction);
+        //     if (this.direction === 'forward') {
+        //         this.viewAnimate = 'slide-in';
+        //     } else {
+        //         this.viewAnimate = 'slide-out';
+        //     }
+        // }
     }
 }
 </script>

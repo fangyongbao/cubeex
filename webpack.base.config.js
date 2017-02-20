@@ -1,36 +1,36 @@
 var path = require('path');
 var webpack = require('webpack');
 var helpers = require('./helpers');
-//自动添加css浏览器前缀
+// 自动添加css浏览器前缀
 var autoprefixer = require('autoprefixer');
-//提取css
+// 提取css
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-    //入口文件
+    // 入口文件
     entry: helpers.getEntry(),
 
-    //输出文件
+    // 输出文件
     output: {
         path: path.join(__dirname, '/dist'),
-        filename: 'js/[name].js?v=[chunkhash]',
-        chunkFilename: 'js/[name].js?v=[chunkhash]'
+        filename: 'js/[name].js?v=[hash]',
+        chunkFilename: 'js/[name].js?v=[hash]'
     },
 
     resolve: {
-        //定义模块缩写名称
+        // 定义模块缩写名称
         alias: {
             'common.scss': path.join(__dirname, '/src/assets/scss/common.scss'),
             'flex.scss': path.join(__dirname, '/src/assets/scss/flex.scss'),
             'animate.scss': path.join(__dirname, '/src/assets/scss/animate.scss'),
             'ui.scss': path.join(__dirname, '/src/assets/scss/ui.scss')
         },
-        //resolve 指定可以被 import 的文件后缀
+        // resolve 指定可以被 import 的文件后缀
         extensions: ['', '.js', '.css', '.scss', '.vue']
     },
 
     module: {
-        //加载器配置
+        // 加载器配置
         loaders: [{
             test: /\.vue$/,
             loader: 'vue'
@@ -43,26 +43,26 @@ module.exports = {
             loader: 'style-loader!css-loader!postcss-loader'
         }, {
             test: /\.scss$/,
-            //提取公共scss
-            //loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!postcss-loader")
+            // 提取公共scss
+            // loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!postcss-loader")
             loader: 'style-loader!css-loader!sass-loader!postcss-loader'
         }, {
             test: /\.(jpe?g|png|gif|svg)$/i,
             loader: 'url-loader?limit=1000&name=images/[name].[ext]',
-            //添加引用版本号
+            // 添加引用版本号
             query: "v=" + new Date().getTime()
         }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
             loader: 'url-loader?limit=1000&name=images/[name].[ext]',
-            //添加引用版本号
+            // 添加引用版本号
             query: "v=" + new Date().getTime()
         }]
     },
-    //postcss配置
+    // postcss配置
     postcss: function() {
         return [autoprefixer]
     },
-    //插件项
+    // 插件项
     plugins: [
 
     ]
