@@ -1,6 +1,6 @@
 {
   "name": "cubeex",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "description": "cubeex vue2.0 UI",
   "main": "dist/js/index.js",
   "scripts": {
