@@ -3,7 +3,7 @@
         <Header-com :title="'marquee'"></Header-com>
         <div class="marqueeItem f-flex">
             <div class="icon"></div>
-            <cubee-marquee :roll-list="rollList" :roll-time="4000" class="f-flex1"></cubee-marquee>
+            <cubee-marquee :roll-list="rollList" :roll-time="3000" class="f-flex1"></cubee-marquee>
         </div>
         <div class="marqueeItem f-flex">
             <div class="icon"></div>
@@ -12,7 +12,7 @@
 
         <div class="marqueeItem f-flex">
             <div class="icon"></div>
-            <cubee-marquee :roll-list="rollList3" :speed="10" :type="'marquee'" class="f-flex1 marqueeList"></cubee-marquee>
+            <cubee-marquee :roll-list="rollList3" :speed="20" :type="'marquee'" class="f-flex1 marqueeList"></cubee-marquee>
         </div>
         <cubee-tab :which-tab="2"></cubee-tab>
     </div>

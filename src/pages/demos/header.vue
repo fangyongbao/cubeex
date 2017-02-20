@@ -2,6 +2,7 @@
     <div class="f-pr m-header">
         <div class="u-herder-btn u-back" @click="goBack" v-if="isGoBack"></div>
         <div class="u-header-title f-toe">{{title}}</div>
+        <div class="u-herder-btn u-right" @click="rightBtnClick" v-if="rightBtn.isHas" :style='{ "background" : "url(" + rightBtn.bgImg + ") right center no-repeat", "background-size" : "contain" }'>{{rightBtn.text}}</div>
     </div>
 </template>
 <script>
@@ -21,6 +22,16 @@ export default {
         isGoBack: {
             type: Boolean,
             default: true
+        },
+        rightBtn: {
+            type: Object,
+            default() {
+                return {
+                    isHas: false,
+                    bgImg: "",
+                    text: ""
+                }
+            }
         }
     },
     methods: {
@@ -30,6 +41,9 @@ export default {
         goBack() {
             // this.setDirection('reverse');
             this.$router.go(-1);
+        },
+        rightBtnClick() {
+            this.$emit("right-btn");
         }
     },
     created: function() {
@@ -61,7 +75,16 @@ export default {
         top: 0.23rem;
         left: 0.24rem;
         background: url(../../assets/images/icon/icon-back.png) left center no-repeat;
-        background-size: cover;
+        background-size: contain;
+        z-index: 2;
+    }
+    .u-right {
+        width: auto;
+        line-height: 0.42rem;
+        top: 0.23rem;
+        right: 0.24rem;
+        background: url(../../assets/images/icon/icon-back.png) right center no-repeat;
+        background-size: contain;
         z-index: 2;
     }
     .u-header-title {

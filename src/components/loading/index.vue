@@ -3,7 +3,7 @@
 		<div class="loadingWrap" v-show="loadInfo.isShow">
 			<div class="loading">
 				<div class="icon"></div>
-				<p>{{loadInfo.msg}}</p>
+				<p v-show="loadInfo.msg != ''">{{loadInfo.msg}}</p>
 			</div>
 		</div>
 	</transition>
@@ -52,9 +52,12 @@
 		.icon {
 			width: 0.6rem;
 			height: 0.6rem;
-			margin: 0 auto 0.3rem;
+			margin: 0 auto;
 			background: url(icon.gif) center no-repeat;
 			background-size: cover;
+		}
+		p {
+			margin-top: 0.3rem;
 		}
 	}
 </style>

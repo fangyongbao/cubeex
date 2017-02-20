@@ -19,6 +19,7 @@ import CubeeQq from './qq'
 import CubeeTab from './tab'
 import CubeeMarquee from './marquee'
 import CubeeDrag from './drag'
+import CubeeUploadImg from './uploadImg'
 
 const cubeex = {
     CubeeArea,
@@ -41,7 +42,8 @@ const cubeex = {
     CubeeQq,
     CubeeTab,
     CubeeMarquee,
-    CubeeDrag
+    CubeeDrag,
+    CubeeUploadImg
 }
 
 module.exports = cubeex

@@ -122,7 +122,7 @@
 	    			}
 					rollWrap.style.width = rollWrapWidth + "px";
 					this.rollWidth = rollWrapWidth - rollItems[0].clientWidth;
-					this.translateX = this.itemWidth;
+					// this.translateX = this.itemWidth;
 				}
     			
     			

@@ -154,6 +154,14 @@
                     </div>
                 </div>
             </router-link>
+            <router-link :to="{ path:'/uploadImg', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-uploadImg"></div>
+                    <div class="f-flex1 components">
+                        <span>uploadImg</span>(上传图片)
+                    </div>
+                </div>
+            </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
         
@@ -285,6 +293,10 @@ $bcolor:#5682D9;
     .menu-countdown {
         background: url(../../assets/images/icon/icon-countdown.png) center no-repeat;
         background-size: 0.28rem 0.32rem; 
+    }
+    .menu-uploadImg {
+        background: url(../../assets/images/icon/icon-fileImage.png) center no-repeat;
+        background-size: 0.36rem 0.26rem; 
     }
 }
 </style>
