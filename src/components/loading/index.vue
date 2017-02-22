@@ -1,12 +1,10 @@
 <template>
-	<transition name="fade">
-		<div class="loadingWrap" v-show="loadInfo.isShow">
-			<div class="loading">
-				<div class="icon"></div>
-				<p v-show="loadInfo.msg != ''">{{loadInfo.msg}}</p>
-			</div>
+	<div class="loadingWrap" v-show="loadInfo.isShow">
+		<div class="loading">
+			<div class="icon"></div>
+			<p v-show="loadInfo.msg != ''">{{loadInfo.msg}}</p>
 		</div>
-	</transition>
+	</div>
 </template>
 
 <script>

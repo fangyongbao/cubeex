@@ -32,6 +32,11 @@ export default {
     },
     methods: {
         change(){
+            if(this.currentValue.indexOf(this.option.value) == -1) {
+                this.currentValue.push(this.option.value);
+            } else {
+                this.currentValue.splice(this.currentValue.indexOf(this.option.value),1);
+            }
             this.$emit('input', this.currentValue);
             this.$emit('change', this.currentValue);
         }

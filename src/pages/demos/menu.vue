@@ -164,7 +164,7 @@
             </router-link>
             <router-link :to="{ path:'/editor', activeClass:'current'}" tag="li">
                 <div class="demos-item f-flex">
-                    <div class="icon menu-uploadImg"></div>
+                    <div class="icon menu-editor"></div>
                     <div class="f-flex1 components">
                         <span>editor</span>(编辑器)
                     </div>
@@ -305,6 +305,10 @@ $bcolor:#5682D9;
     .menu-uploadImg {
         background: url(../../assets/images/icon/icon-fileImage.png) center no-repeat;
         background-size: 0.36rem 0.26rem; 
+    }
+    .menu-editor {
+        background: url(../../assets/images/icon/icon-editor.png) center no-repeat;
+        background-size: 0.33rem 0.33rem; 
     }
 }
 </style>

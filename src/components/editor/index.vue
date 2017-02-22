@@ -30,7 +30,6 @@
 					'formula': true,
         			'syntax': true,
 					modules: {
-				    // Equivalent to { toolbar: { container: '#toolbar' }}
 				    	toolbar: _this.toolbarOptions
 				    },
 				    theme: 'snow'
@@ -43,7 +42,6 @@
 		mounted: function () {
 			this.eidtorId = 'eidtor' + new Date().getTime();
 			this.$nextTick(function () {
-				console.log(Quill)
 				this.init()
 			})
 		}
@@ -60,10 +58,10 @@
 	.ql-container {
 		height: auto;
 	}
-	.m-editor em {
+	.ql-editor em {
 		font-style: italic;
 	}
-	.m-editor strong {
+	.ql-editor strong {
 		font-weight: bold;
 	}
 	

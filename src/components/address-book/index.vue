@@ -37,8 +37,9 @@ export default {
     },
     methods: {
         handleTouchStart(e) {
+            console.log(e)
             this.scrollList(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-            document.addEventListener('touchmove', this.handleTouchMove);
+            document.addEventListener('touchmove', this.handleTouchMove, false);
             document.addEventListener('touchend', this.handleTouchEnd);
         },
 
@@ -53,10 +54,11 @@ export default {
         },
 
         scrollList(x, y) {
-            console.log(x + "," + y);
+            // console.log(x + "," + y);
             let _this = this;
             let currentItem = document.elementFromPoint(x, y);
-            if (currentItem.classList.contains('initialLi')) {
+            console.log(currentItem)
+            if (currentItem != null && currentItem.classList.contains('initialLi')) {
                 let indicator = currentItem.innerText;
                 let $el = _this.$refs[indicator];
                 if ($el) {

@@ -24,8 +24,8 @@ export default {
     },
     methods: {
         change(){
-            this.$emit('input', this.currentValue);
-            this.$emit('change', this.currentValue);
+            this.$emit('input', this.option.value);
+            this.$emit('change', this.option.value);
         }
     },
     watch: {
