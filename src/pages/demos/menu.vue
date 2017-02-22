@@ -162,6 +162,14 @@
                     </div>
                 </div>
             </router-link>
+            <router-link :to="{ path:'/editor', activeClass:'current'}" tag="li">
+                <div class="demos-item f-flex">
+                    <div class="icon menu-uploadImg"></div>
+                    <div class="f-flex1 components">
+                        <span>editor</span>(编辑器)
+                    </div>
+                </div>
+            </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
         

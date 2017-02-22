@@ -22,14 +22,14 @@ module.exports = Object.assign({}, commonWebpack, {
         // 提取css为单文件
         new ExtractTextPlugin("style.css"),
         //压缩js代码
-        // new webpack.optimize.UglifyJsPlugin({
-        //     output: {
-        //         comments: false
-        //     },
-        //     compress: {
-        //         warnings: false
-        //     }
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false
+            },
+            compress: {
+                warnings: false
+            }
+        }),
         // 清理dist目录
         new CleanPlugin(['dist']),
         // React/Vue 官方提供的代码是已经合并的, 这个是 Webpack 不推荐的用法,

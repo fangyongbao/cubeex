@@ -31,7 +31,7 @@ import {
 			},
 
 			uploadImg(e) {
-				// console.log(e.target.files)
+				console.log(e.target.files)
 				if(e.target.files.length <= 0) {
 					return;
 				}
@@ -73,14 +73,12 @@ import {
 		                let src = e.target.result;
 		                //压缩图片获取base64编码
 		                _this.compress(src, callBack);
-
-		                _this.newUploadImg.src = src;
-
 		                _this.setLoadStatus({
 		            		msg: '',
 		            		isShow: false
 		            	})
-
+		                // console.log(_this.$el.querySelector("input").value)
+		                _this.$el.querySelector("input").value = "";
 		            };
 		            fr.onprogress = function(e) {
 		            	// 图片上传中
@@ -104,12 +102,14 @@ import {
 		            let ctx = $canvas.getContext('2d');
 		            $canvas.width = width;
 		            $canvas.height = height;
-
+		            ctx.fillStyle = "white";
+		            ctx.fillRect(0,0,width,height);
 		            //压缩
 		            ctx.drawImage(img, 0, 0, width, height);
 
 		            _this.newUploadImg.w = width;
 		            _this.newUploadImg.h = height;
+		            _this.newUploadImg.src = $canvas.toDataURL('image/jpeg', 0.5)
 		            _this.newUploadImg.compressedImgSrc = $canvas.toDataURL('image/jpeg', 0.5).substr(22);
 		            _this.$parent.loadImgs.push(_this.newUploadImg);
 		            // console.log(encodeURIComponent($canvas.toDataURL('image/jpeg', 0.5).substr(22)));
@@ -123,7 +123,6 @@ import {
 		},
 		mounted() {
 
-		    
 		}
 	}
 </script>

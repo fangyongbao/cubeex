@@ -30,6 +30,7 @@ input, button, textarea, select, optgroup, option {
     font-weight: inherit;
     outline: 0;
 }
+
 // 清除浮动
 .f-cb:after, .f-cbli li:after { display: block; clear: both; visibility: hidden; height: 0; overflow: hidden; content: "."; }
 .f-cb, .f-cbli li { zoom: 1; }

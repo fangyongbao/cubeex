@@ -144,6 +144,12 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/uploadImg')), 'uploadImg');
         }
     },{
+        name: 'editor',
+        path: '/editor',
+        component: (resolve) => {
+            require.ensure([], () => resolve(require('../pages/demos/editor')), 'editor');
+        }
+    },{
         path: '*',
         redirect: '/home'
     }]
