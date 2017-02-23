@@ -8,9 +8,6 @@ import App from '../pages/demos/app';
 import router from '../routers/indexRouter';
 import store from '../vuex';
 
-import cubeex from '../../dist/js/cubeex.js';
-console.log(cubeex);
-
 // const FastClick = require('fastclick')
 // FastClick.attach(document.body)
 

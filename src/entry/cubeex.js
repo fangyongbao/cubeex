@@ -13,7 +13,7 @@ import CubeeSelect from '../components/select'
 import CubeeSelectScroll from '../components/select-scroll'
 import CubeeDateTime from '../components/datetime'
 import CubeeDialog from '../components/dialog'
-import CubeeSlider from '../components/slider'
+import CubeeRange from '../components/range'
 import FocusRipple from '../components/internal/focusRipple'
 import CubeeAddressBook from '../components/address-book'
 import CubeeSwiper from '../components/swiper'
@@ -23,11 +23,10 @@ import CubeeQrcode from '../components/qrcode'
 import CubeeQq from '../components/qq'
 import CubeeTab from '../components/tab'
 import CubeeMarquee from '../components/marquee'
-import CubeeDrag from '../components/drag'
+import CubeeDragSort from '../components/drag-sort'
 import CubeeUploadImg from '../components/uploadImg'
 
-module.exports = {
-    version: '1.1.2',
+const cubeex = {
     CubeeArea,
     CubeePullRefreshI,
     CubeePullRefreshX,
@@ -38,7 +37,7 @@ module.exports = {
     CubeeSelectScroll,
     CubeeDateTime,
     CubeeDialog,
-    CubeeSlider,
+    CubeeRange,
     FocusRipple,
     CubeeAddressBook,
     CubeeSwiper,
@@ -48,6 +47,9 @@ module.exports = {
     CubeeQq,
     CubeeTab,
     CubeeMarquee,
-    CubeeDrag,
+    CubeeDragSort,
     CubeeUploadImg
 }
+
+module.exports = cubeex
+

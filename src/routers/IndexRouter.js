@@ -126,16 +126,16 @@ const router = new VueRouter({
             require.ensure([], () => resolve(require('../pages/demos/countdown')), 'countdown');
         }
     },{
-        name: 'slider',
-        path: '/slider',
+        name: 'range',
+        path: '/range',
         component: (resolve) => {
-            require.ensure([], () => resolve(require('../pages/demos/slider')), 'slider');
+            require.ensure([], () => resolve(require('../pages/demos/range')), 'range');
         }
     },{
-        name: 'drag',
-        path: '/drag',
+        name: 'drag-sort',
+        path: '/drag-sort',
         component: (resolve) => {
-            require.ensure([], () => resolve(require('../pages/demos/drag')), 'drag');
+            require.ensure([], () => resolve(require('../pages/demos/drag-sort')), 'drag-sort');
         }
     },{
         name: 'uploadImg',

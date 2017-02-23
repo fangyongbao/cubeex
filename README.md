@@ -33,7 +33,13 @@ cubeex项目开发、打包的webpack配置没有基于vue-cli， 配置清晰�
 [area-scroll(地区联动-滚动)](http://www.best-html5.net/cubee/cubeex/#/area)<br>
 [datetime-scroll(日期筛选-滚动)](http://www.best-html5.net/cubee/cubeex/#/datetime)<br>
 [dialog(弹窗)](http://www.best-html5.net/cubee/cubeex/#/dialog)<br>
+[marquee((公告轮播&跑马灯))](http://www.best-html5.net/cubee/cubeex/#/marquee)<br>
 [qq(qq在线客服)](http://www.best-html5.net/cubee/cubeex/#/qq)<br>
+[countdown(倒计时)](http://www.best-html5.net/cubee/cubeex/#/countdown)<br>
+[uploadImg((上传图片))](http://www.best-html5.net/cubee/cubeex/#/uploadImg)<br>
+[range((滑动条))](http://www.best-html5.net/cubee/cubeex/#/range)<br>
+[drag-sort((拖拽排序))](http://www.best-html5.net/cubee/cubeex/#/drag-sort)<br>
+
 **使用方式：**<br>
 >
 

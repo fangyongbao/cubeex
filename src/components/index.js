@@ -8,7 +8,7 @@ import CubeeSelect from './select'
 import CubeeSelectScroll from './select-scroll'
 import CubeeDateTime from './datetime'
 import CubeeDialog from './dialog'
-import CubeeSlider from './slider'
+import CubeeRange from './range'
 import FocusRipple from './internal/focusRipple'
 import CubeeAddressBook from './address-book'
 import CubeeSwiper from './swiper'
@@ -18,7 +18,7 @@ import CubeeQrcode from './qrcode'
 import CubeeQq from './qq'
 import CubeeTab from './tab'
 import CubeeMarquee from './marquee'
-import CubeeDrag from './drag'
+import CubeeDragSort from './drag-sort'
 import CubeeUploadImg from './uploadImg'
 
 const cubeex = {
@@ -32,7 +32,7 @@ const cubeex = {
     CubeeSelectScroll,
     CubeeDateTime,
     CubeeDialog,
-    CubeeSlider,
+    CubeeRange,
     FocusRipple,
     CubeeAddressBook,
     CubeeSwiper,
@@ -42,7 +42,7 @@ const cubeex = {
     CubeeQq,
     CubeeTab,
     CubeeMarquee,
-    CubeeDrag,
+    CubeeDragSort,
     CubeeUploadImg
 }
 

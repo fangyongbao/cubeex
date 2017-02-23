@@ -138,19 +138,19 @@
                     </div>
                 </div>
             </router-link>
-            <router-link :to="{ path:'/slider', activeClass:'current'}" tag="li">
+            <router-link :to="{ path:'/range', activeClass:'current'}" tag="li">
                 <div class="demos-item f-flex">
                     <div class="icon menu-dialog"></div>
                     <div class="f-flex1 components">
-                        <span>slider</span>(滑动)
+                        <span>range</span>(滑动)
                     </div>
                 </div>
             </router-link>
-            <router-link :to="{ path:'/drag', activeClass:'current'}" tag="li">
+            <router-link :to="{ path:'/drag-sort', activeClass:'current'}" tag="li">
                 <div class="demos-item f-flex">
                     <div class="icon menu-dialog"></div>
                     <div class="f-flex1 components">
-                        <span>drag</span>(拖动排序)
+                        <span>drag-sort</span>(拖动排序)
                     </div>
                 </div>
             </router-link>
@@ -164,7 +164,6 @@
             </router-link>
         </ul>
         <cubee-tab :which-tab="2"></cubee-tab>
-        
     </div>
 </template>
 <script>

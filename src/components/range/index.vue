@@ -16,7 +16,7 @@
 import FocusRipple from '../internal/focusRipple'
 import keycode from 'keycode'
 export default {
-  name: 'cubee-slider',
+  name: 'range',
   props: {
     name: {
       type: String

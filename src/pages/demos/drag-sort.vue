@@ -1,15 +1,15 @@
 <template>
     <div class="m-drag-demo view">
-        <Header-com :title="'drop'"></Header-com>
+        <Header-com :title="'drag-sort'"></Header-com>
         <div class="f-ot content">
-            <Cubee-drag :options="options"></Cubee-drag>
+            <Cubee-drag-sort :options="options"></Cubee-drag-sort>
         </div>
     </div>
 </template>
 <script>
 import HeaderCom from './header';
 import {
-    CubeeDrag
+    CubeeDragSort
 } from '../../components';
 export default {
     name: 'drag-demo',
@@ -44,7 +44,7 @@ export default {
     },
     components: {
         HeaderCom,
-        CubeeDrag
+        CubeeDragSort
     },
     watch: {
         value(val) {

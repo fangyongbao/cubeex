@@ -1,12 +1,12 @@
 <template>
     <div class="m-list view">
-        <Header-com></Header-com>
+        <Header-com :title="'range'"></Header-com>
         <div class="content">
             <div class="example1">
-                <cubee-Slider v-model="value1" :step="5"></cubee-Slider>
+                <cubee-range v-model="value1" :step="5"></cubee-range>
             </div>
             <div class="example1">
-                <cubee-Slider v-model="value2" :min="min" :max="max" :step="1"></cubee-Slider>
+                <cubee-range v-model="value2" :min="min" :max="max" :step="1"></cubee-range>
             </div>
         </div>
     </div>
@@ -14,7 +14,7 @@
 <script>
 import HeaderCom from './header';
 import {
-    CubeeSlider
+    CubeeRange
 } from '../../components';
 export default {
     name: 'slider-demo',
@@ -28,7 +28,7 @@ export default {
     },
     components: {
         HeaderCom,
-        CubeeSlider
+        CubeeRange
     }
 }
 </script>
