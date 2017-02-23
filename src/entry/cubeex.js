@@ -27,7 +27,7 @@ import CubeeDrag from '../components/drag'
 import CubeeUploadImg from '../components/uploadImg'
 
 module.exports = {
-    version: '1.1.0',
+    version: '1.1.2',
     CubeeArea,
     CubeePullRefreshI,
     CubeePullRefreshX,

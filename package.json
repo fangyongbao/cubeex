@@ -1,8 +1,8 @@
 {
   "name": "cubeex",
-  "version": "1.1.1",
+  "version": "1.1.3",
   "description": "cubeex vue2.0 UI",
-  "main": "src/components/cubeex.js",
+  "main": "dist/js/cubeex.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --port 3001 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./build/webpack.dev.config.js",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached --bail   --config ./build/webpack.prod.config.js"

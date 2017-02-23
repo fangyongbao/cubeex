@@ -1,10 +1,6 @@
 <template>
     <div class="u-qq">
-<<<<<<< HEAD
         <a class="link" @click="callQq()"></a>
-=======
-        <span class="link" @click="callQq()">qq咨询</span>
->>>>>>> upstream/master
     </div>
 </template>
 <script>
