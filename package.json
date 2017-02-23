@@ -1,11 +1,11 @@
 {
   "name": "cubeex",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "cubeex vue2.0 UI",
-  "main": "dist/js/index.js",
+  "main": "src/components/cubeex.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --port 3001 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./webpack.dev.config.js",
-    "build": "webpack --progress --profile --colors --display-error-details --display-cached --bail   --config ./webpack.prod.config.js"
+    "dev": "webpack-dev-server --inline --hot --port 3001 --progress --profile --colors --watch --display-error-details  --display-cached  --config ./build/webpack.dev.config.js",
+    "build": "webpack --progress --profile --colors --display-error-details --display-cached --bail   --config ./build/webpack.prod.config.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",

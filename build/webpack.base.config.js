@@ -12,7 +12,7 @@ module.exports = {
 
     // 输出文件
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, '../dist'),
         filename: 'js/[name].js?v=[hash]',
         chunkFilename: 'js/[name].js?v=[hash]'
     },
@@ -20,10 +20,10 @@ module.exports = {
     resolve: {
         // 定义模块缩写名称
         alias: {
-            'common.scss': path.join(__dirname, '/src/assets/scss/common.scss'),
-            'flex.scss': path.join(__dirname, '/src/assets/scss/flex.scss'),
-            'animate.scss': path.join(__dirname, '/src/assets/scss/animate.scss'),
-            'ui.scss': path.join(__dirname, '/src/assets/scss/ui.scss')
+            'common.scss': path.join(__dirname, '../src/assets/scss/common.scss'),
+            'flex.scss': path.join(__dirname, '../src/assets/scss/flex.scss'),
+            'animate.scss': path.join(__dirname, '../src/assets/scss/animate.scss'),
+            'ui.scss': path.join(__dirname, '../src/assets/scss/ui.scss')
         },
         // resolve 指定可以被 import 的文件后缀
         extensions: ['', '.js', '.css', '.scss', '.vue']

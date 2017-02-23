@@ -15,6 +15,7 @@ import {
     mapGetters,
     mapActions
 } from 'vuex';
+import $ from 'jquery';
 
 import {
     CubeeLoading
@@ -51,13 +52,15 @@ export default {
                     isShow: false
                 })
             }, 2000)
-            console.log('------------监听到路由变化---------',this.direction);
+            console.log('------------监听到路由变化---------', this.direction);
             if (this.direction === 'forward') {
                 this.viewAnimate = 'slide-in';
             } else {
                 this.viewAnimate = 'slide-out';
             }
         }
+    },
+    created() {
     }
 }
 </script>

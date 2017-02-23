@@ -4,6 +4,7 @@
             <img src="../assets/images/logo.png" alt="">
             <p class="version">cubeex - v1.0</p>
         </div>
+        <!-- <cubee-qq :account="4008817800"></cubee-qq> -->
         <div class="m-homeBtn f-pa">
             <div class="u-button u-demo f-pr" @click="goMenu">
                 <div class="f-pa">
@@ -16,10 +17,10 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </template>
 <script>
+// import { CubeeQq } from '../../dist/js/cubeex.js';
 export default {
     name: 'home',
     data() {
@@ -28,13 +29,13 @@ export default {
         }
     },
     components: {
+        //CubeeQq
     },
     methods: {
         goMenu() {
             this.$router.push({ path : '/menu' });
         },
         goGithub() {
-            // location.href = "https://github.com/fangyongbao/cubeex";
             window.open("https://github.com/fangyongbao/cubeex");
         }
     },

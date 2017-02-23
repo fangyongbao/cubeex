@@ -23,7 +23,6 @@ export default {
     data() {
         return {
             matchList: [],
-            wrapperHeight: 0,
             isLoading: false,
             usePullUp: true
         }
@@ -37,7 +36,6 @@ export default {
             let _this = this;
             let pullRefreshEl = _this.$refs.pullRefreshEl;
             pullRefreshEl.refresh();
-            _this.wrapperHeight = document.documentElement.clientHeight - _this.$refs.wrapper.getBoundingClientRect().top;
             _this.$refs.wrapperCon.style.height = 'auto';
         },
         pullDownAction() {
@@ -195,7 +193,6 @@ export default {
     },
     mounted() {
         let _this = this;
-        _this.$refs.wrapperCon.style.height = _this.$refs.wrapper.clientHeight + 'px';
         _this.pullDownAction();
     }
 }

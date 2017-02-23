@@ -18,7 +18,7 @@ module.exports = Object.assign({}, commonWebpack, {
         // commonsPlugin 可以用于分析模块的共用代码, 单独打一个包出来
         // new webpack.optimize.CommonsChunkPlugin('js/common.js'),
         //热更新插件
-        new webpack.HotModuleReplacementPlugin(),
+        //new webpack.HotModuleReplacementPlugin(),
         // 提取css为单文件
         new ExtractTextPlugin("style.css"),
         //压缩js代码
@@ -31,7 +31,7 @@ module.exports = Object.assign({}, commonWebpack, {
         //     }
         // }),
         // 清理dist目录
-        new CleanPlugin(['dist']),
+        new CleanPlugin(['./dist']),
         // React/Vue 官方提供的代码是已经合并的, 这个是 Webpack 不推荐的用法,
         // 在合并的代码上进行定制有点麻烦, Webpack 提供了设置环境变量来优化代码的方案:
         new webpack.DefinePlugin({

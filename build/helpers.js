@@ -22,7 +22,7 @@ function getHtmlPlugin() {
 
 function getEntry() {
     var entry = {};
-    glob.sync('./entry/*.js').forEach(function (name) {
+    glob.sync('./src/entry/*.js').forEach(function (name) {
         console.log(name);
         //[^/]不匹配这个集合中的任何一个字符 
         var n = name.match(/([^/]+)\.js/)[1];

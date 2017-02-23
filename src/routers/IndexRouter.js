@@ -163,9 +163,9 @@ const commit = IndexStore.commit || IndexStore.dispatch;
 router.beforeEach((to, from, next) => {
     const toIndex = history.getItem(to.path);
     const fromIndex = history.getItem(from.path);
-    console.log(history)
-    console.log('toIndex:' + toIndex)
-    console.log('fromIndex:' + fromIndex)
+    // console.log(history)
+    // console.log('toIndex:' + toIndex)
+    // console.log('fromIndex:' + fromIndex)
     if (toIndex) {
         if (toIndex >= fromIndex || !fromIndex) {
             var direction = 'forward';
